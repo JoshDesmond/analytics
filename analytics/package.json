@@ -1,0 +1,30 @@
+{
+  "name": "analytics",
+  "version": "0.1.0",
+  "description": "A web application for viewing personal data over time",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshDesmond/analytics.git"
+  },
+  "author": "Josh Desmond",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JoshDesmond/analytics/issues"
+  },
+  "homepage": "https://github.com/JoshDesmond/analytics#readme",
+  "dependencies": {
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0"
+  }
+}
