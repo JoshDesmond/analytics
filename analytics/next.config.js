@@ -3,5 +3,4 @@
  */
 module.exports = nextConfig = {
   reactStrictMode: true,
-  experimental: { esmExternals: true }
 }

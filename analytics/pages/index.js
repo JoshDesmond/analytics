@@ -15,6 +15,7 @@ export default function Home() {
         </h1>
 
         <p >
+          Score: {}
           Get started by editing{' '}
           <code >pages/index.js</code>
         </p>
