@@ -1,30 +1,42 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  return (
-    <div >
-      <Head>
-        <title>Analytics</title>
-        <meta name="description" content="A website for viewing and managing my personal analytics" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    const [productivity, setProductivity] = useState(0);
 
-      <main >
-        <h1 >
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    useEffect(() => {
+        fetch('/api/hello/').then(res => {
+            return res.json();
+        }).then(res => {
 
-        <p >
-          Score: {}
-          Get started by editing{' '}
-          <code >pages/index.js</code>
-        </p>
+            console.log(res);
+            setProductivity(res);
+        });
+    });
 
-      </main>
 
-      <footer >
-        Footer
-      </footer>
-    </div>
-  )
+    return (
+        <div >
+            <Head>
+                <title>Analytics</title>
+                <meta name="description" content="A website for viewing and managing my personal analytics" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <main >
+                <h1 >
+                    Welcome to <a href="https://nextjs.org">Next.js!</a>
+                </h1>
+
+                <p >
+                    Score: { productivity }
+                </p>
+
+            </main>
+
+            <footer >
+                Footer
+            </footer>
+        </div>
+    )
 }
