@@ -1,13 +1,14 @@
-import * as Dotenv from 'dotenv';
+// import * as Dotenv from 'dotenv';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-Dotenv.config();
+// Dotenv.config();
 
 class RescueTime {
     constructor() {
         const key = process.env.RT_API_KEY;
         const perspective = "interval"; // otherwise interval
         const day = new Date();
+        day.setHours(day.getHours() - 4);
         const dayString = day.toISOString().slice(0, 10);
 
         // TODO cache api result if time hasn't changed much since last call
@@ -15,7 +16,7 @@ class RescueTime {
         this.apiString = `https://www.rescuetime.com/anapi/data?key=${key}&by=${perspective}&rk=productivity&interval=day&restrict_begin=${dayString}&format=json`;
     }
 
-    async getScore() {
+    async getScores() {
         const response = await fetch(this.apiString);
         return await response.json();
     }
@@ -45,11 +46,11 @@ const rt = new RescueTime();
 
 export default async function handler(req, res) {
     try {
-        console.log("Hello");
-        rt.getScore().then(result => {
-            res.status(200).send(rt._calculateProductivityPulse(result));
-        });
+        const data = await rt.getScores()
+        const score = rt._calculateProductivityPulse(data);
+        console.log(score);
+        res.status(200).send(score);
     } catch (err) {
-        res.status(500).send({ error: 'failed to load data' })
+        res.status(500).send({ error: `failed to load data with error: ${err}` })
     }
 }
