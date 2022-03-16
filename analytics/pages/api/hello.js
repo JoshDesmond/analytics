@@ -17,7 +17,9 @@ class RescueTime {
     }
 
     async getScores() {
+        console.log(`Api string: ${this.apiString}`);
         const response = await fetch(this.apiString);
+        console.log(`fetch result: ${response}`); // TODO temp
         return await response.json();
     }
 
@@ -27,6 +29,7 @@ class RescueTime {
      * @returns {Number} The productivity pulse, a number between 0-100
      */
     _calculateProductivityPulse(data) {
+        if (!data) throw new TypeError(`Illegal data argument: ${data}`);
         let weighted_total = 0;
         let total = 0;
         for (let i = 0; i < data.rows.length; i++) {
@@ -47,6 +50,7 @@ const rt = new RescueTime();
 export default async function handler(req, res) {
     try {
         const data = await rt.getScores()
+        console.log(`fetch result in api: ${data}`);
         const score = rt._calculateProductivityPulse(data);
         console.log(score);
         res.status(200).send(score);
