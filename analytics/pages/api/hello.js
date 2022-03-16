@@ -5,23 +5,36 @@
 
 class RescueTime {
     constructor() {
-        const key = process.env.RT_API_KEY;
-        const perspective = "interval"; // otherwise interval
-        const day = new Date();
-        day.setHours(day.getHours() - 4);
-        const dayString = day.toISOString().slice(0, 10);
-
-        // TODO cache api result if time hasn't changed much since last call
-
-        this.apiString = `https://www.rescuetime.com/anapi/data?key=${key}&by=${perspective}&rk=productivity&interval=day&restrict_begin=${dayString}&format=json`;
+        this.last_time = 0;
     }
 
     async getScores() {
-        console.log(`Api string: ${this.apiString}`);
+        // Use cached result if queuried within last 20 minutes
+        const TWENTY_MINS = 20 * 60 * 1000;
+        const curr_time = new Date();
+        if (curr_time - this.last_time < TWENTY_MINS) {
+            console.log(`Using cached data: ${this._cachedScores}`);
+            return this._cachedScores;
+        }
+
+        // Generate api string
+        const key = process.env.RT_API_KEY;
+        const perspective = "interval";
+        const day = new Date();
+        day.setHours(day.getHours() - 4); // TODO find a better solution for timezones
+        const dayString = day.toISOString().slice(0, 10);
+        this.apiString = `https://www.rescuetime.com/anapi/data?key=${key}&by=${perspective}&rk=productivity&interval=day&restrict_begin=${dayString}&format=json`;
+
+        // Fetch new data from RescueTime
+        console.log(`Fetching with api string: ${this.apiString}`);
         const response = await fetch(this.apiString);
         console.log(`fetch result: ${response}`); // TODO temp
-        return await response.json();
+        this.last_time = new Date();
+        if (!response) { throw new Error(`RescueTime API fetch failed with respose: ${response}`) }
+        this._cachedScores = await response.json();
+        return this._cachedScores;
     }
+
 
     /**
      * 
@@ -49,10 +62,10 @@ const rt = new RescueTime();
 
 export default async function handler(req, res) {
     try {
-        const data = await rt.getScores()
-        console.log(`fetch result in api: ${data}`);
+        const data = await rt.getScores();
+        console.log(`fetched result from api: ${data}`);
         const score = rt._calculateProductivityPulse(data);
-        console.log(score);
+        console.log(`Productivity Pulse: ${score}`);
         res.status(200).send(score);
     } catch (err) {
         res.status(500).send({ error: `failed to load data with error: ${err}` })
