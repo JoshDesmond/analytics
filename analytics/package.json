@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JoshDesmond/analytics#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "next": "12.1.0",
     "react": "17.0.2",
