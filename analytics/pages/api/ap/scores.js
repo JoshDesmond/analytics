@@ -29,6 +29,7 @@ export default async function handler(req, res) {
     // Run the middleware
     await runMiddleware(req, res, cors);
 
+    console.log(req.body);
     const data = JSON.parse(req.body);
     const method = req.method;
 
