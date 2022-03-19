@@ -29,18 +29,18 @@ export default async function handler(req, res) {
     // Run the middleware
     await runMiddleware(req, res, cors);
 
+    // Check query parameter secret key
     const secret = process.env.AP_SECRET;
     if (req.query.key != secret) {
         res.status(401).end(`Incorrect Key ${secret}`);
     }
 
-    console.log(req.body);
     const data = JSON.parse(req.body);
+    console.log(`parsed data: ${JSON.stringify(data)}`);
     const method = req.method;
 
     switch (method) {
         case 'POST':
-            console.log(data);
             // TODO move data to database
             res.status(200).json(`Hello`);
             break
