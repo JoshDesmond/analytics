@@ -29,6 +29,11 @@ export default async function handler(req, res) {
     // Run the middleware
     await runMiddleware(req, res, cors);
 
+    const secret = process.env.AP_SECRET;
+    if (req.query.key != secret) {
+        res.status(401).end(`Incorrect Key ${secret}`);
+    }
+
     console.log(req.body);
     const data = JSON.parse(req.body);
     const method = req.method;
@@ -37,7 +42,7 @@ export default async function handler(req, res) {
         case 'POST':
             console.log(data);
             // TODO move data to database
-            res.status(200).json( `Hello` );
+            res.status(200).json(`Hello`);
             break
         case 'GET':
             // Get data from your database
