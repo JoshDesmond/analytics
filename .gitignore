@@ -81,6 +81,7 @@ node_modules/
 [Dd]ebug/
 [Bb]uild/
 bin/
+dist/
 target/
 cmake-build-*/
 out/
