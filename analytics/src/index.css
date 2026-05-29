@@ -39,3 +39,49 @@ h1 {
 p {
   margin: 0;
 }
+
+section {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 36rem;
+}
+
+section h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-h);
+  margin: 0 0 0.5rem;
+}
+
+section h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-h);
+  margin: 1rem 0 0.5rem;
+}
+
+.entry-date {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.entry-metrics {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1.5rem;
+  margin: 0;
+}
+
+.entry-metric {
+  display: contents;
+}
+
+.entry-metrics dt {
+  margin: 0;
+}
+
+.entry-metrics dd {
+  margin: 0;
+  text-align: right;
+  color: var(--text-h);
+}

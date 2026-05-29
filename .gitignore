@@ -55,6 +55,8 @@ Thumbs.db
 *.key 
 *.pem 
 *.env
+backend/analytics-497818-3aeb5a36e414.json
+service-account.json
 
 #======================
 #==== Editor Files ====

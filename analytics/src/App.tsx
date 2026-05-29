@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { GoogleSheetsToday } from './GoogleSheetsToday'
 import { HabiticaDailys } from './HabiticaDailys'
 
 async function fetchJson<T>(path: string): Promise<T> {
@@ -65,6 +66,7 @@ function App() {
         <p>Error: {error}</p>
       ) : (
         <>
+          <GoogleSheetsToday />
           <section>
             <h2>RescueTime — productivity pulse</h2>
             <pre>{productivity ?? '…'}</pre>
