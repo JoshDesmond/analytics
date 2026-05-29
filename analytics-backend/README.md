@@ -2,11 +2,31 @@
 
 Express API for the analytics frontend.
 
-## Endpoints
+## Layout
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/hello` | RescueTime productivity pulse (0–100) |
+```
+src/
+  integrations/
+    rescuetime/
+      client.ts          # external API
+      reader/            # read endpoints
+    google-sheets/
+      client.ts
+      reader/
+      writer/
+    habitica/
+      client.ts
+      reader/
+      writer/
+  daily/
+    router.ts
+  sync/
+    client.ts
+    daily.ts
+  index.ts
+
+supabase/migrations/     # run in Supabase SQL editor or via CLI
+```
 
 ## Setup
 
@@ -18,5 +38,3 @@ npm run dev
 ```
 
 Default port: **3001** (`PORT` in `.env`).
-
-During frontend development, Vite proxies `/api` to this server so the React app can call same-origin paths like `/api/hello`.

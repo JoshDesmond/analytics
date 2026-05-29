@@ -23,6 +23,6 @@ npm run dev
 
 Or run them separately: `npm run dev:api` and `npm run dev:web`.
 
-The Vite dev server **proxies** `/api` to `http://localhost:3001`, so the React app can use same-origin fetches like `fetch('/api/hello')` without CORS setup. That proxy is dev-only; production needs your own reverse proxy or hosted API URL.
+The Vite dev server **proxies** `/api` to `http://localhost:3001`, so the React app can use same-origin fetches like `fetch('/api/rescuetime/productivity-pulse')` without CORS setup. That proxy is dev-only; production needs your own reverse proxy or hosted API URL.
 
 Vite does not provide Next.js-style API routes. The split Express app + proxy is intentional; `concurrently` only saves you a second terminal.

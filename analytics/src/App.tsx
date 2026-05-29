@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 async function fetchProductivityPulse(): Promise<number> {
   let res: Response
   try {
-    res = await fetch('/api/hello')
+    res = await fetch('/api/rescuetime/productivity-pulse')
   } catch {
     throw new Error(
       'Cannot reach the API server (connection refused). In a second terminal, run: cd analytics-backend && npm run dev',
