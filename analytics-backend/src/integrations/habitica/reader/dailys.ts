@@ -15,9 +15,10 @@ export interface DailySummary {
   completed: boolean;
 }
 
-export interface TodaysDailysResponse {
+export interface AllDailysResponse {
   date: string;
-  dailys: DailySummary[];
+  dueToday: DailySummary[];
+  other: DailySummary[];
 }
 
 function formatDueDate(date: Date): string {
@@ -71,20 +72,28 @@ export function toDailySummary(task: HabiticaDailyTask): DailySummary {
   };
 }
 
-export function buildTodaysDailysResponse(
+export function buildAllDailysResponse(
   tasks: HabiticaDailyTask[],
   now = new Date(),
-): TodaysDailysResponse {
+): AllDailysResponse {
   const date = formatDueDate(now);
-  const dailys = tasks
-    .filter((task) => isDailyDueOnDate(task, now))
-    .map(toDailySummary);
+  const dueToday: DailySummary[] = [];
+  const other: DailySummary[] = [];
 
-  return { date, dailys };
+  for (const task of tasks) {
+    const summary = toDailySummary(task);
+    if (isDailyDueOnDate(task, now)) {
+      dueToday.push(summary);
+    } else {
+      other.push(summary);
+    }
+  }
+
+  return { date, dueToday, other };
 }
 
 /**
- * Returns today's due dailies with display names and completion status.
+ * Returns all dailies, split into those due today and the rest.
  */
 export async function getTodaysDailys(
   _req: Request,
@@ -94,7 +103,7 @@ export async function getTodaysDailys(
     const now = new Date();
     const dueDate = formatDueDate(now);
     const tasks = await client.fetchDailys(dueDate);
-    res.json(buildTodaysDailysResponse(tasks, now));
+    res.json(buildAllDailysResponse(tasks, now));
   } catch (err) {
     console.error(err);
     res.status(500).json({

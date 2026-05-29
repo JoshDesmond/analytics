@@ -6,9 +6,10 @@ type DailySummary = {
   completed: boolean
 }
 
-type TodaysDailysResponse = {
+type AllDailysResponse = {
   date: string
-  dailys: DailySummary[]
+  dueToday: DailySummary[]
+  other: DailySummary[]
 }
 
 async function fetchJson<T>(path: string): Promise<T> {
@@ -64,17 +65,48 @@ async function postDailyCompleted(
   }
 }
 
+function DailyList({
+  dailys,
+  onToggle,
+}: {
+  dailys: DailySummary[]
+  onToggle: (id: string, completed: boolean) => void
+}) {
+  if (dailys.length === 0) {
+    return <p>None.</p>
+  }
+
+  return (
+    <ul>
+      {dailys.map((daily) => (
+        <li key={daily.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={daily.completed}
+              onChange={(e) => onToggle(daily.id, e.target.checked)}
+            />{' '}
+            {daily.name}
+          </label>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export function HabiticaDailys() {
   const [date, setDate] = useState<string | null>(null)
-  const [dailys, setDailys] = useState<DailySummary[]>([])
+  const [dueToday, setDueToday] = useState<DailySummary[]>([])
+  const [other, setOther] = useState<DailySummary[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchJson<TodaysDailysResponse>('/api/habitica/dailys/today')
+    fetchJson<AllDailysResponse>('/api/habitica/dailys/today')
       .then((data) => {
         setDate(data.date)
-        setDailys(data.dailys)
+        setDueToday(data.dueToday)
+        setOther(data.other)
       })
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : String(err))
@@ -84,18 +116,21 @@ export function HabiticaDailys() {
 
   const toggleDaily = useCallback((id: string, completed: boolean) => {
     setError(null)
-    setDailys((prev) =>
+    const update = (prev: DailySummary[]) =>
       prev.map((daily) =>
         daily.id === id ? { ...daily, completed } : daily,
-      ),
-    )
+      )
+
+    setDueToday(update)
+    setOther(update)
 
     void postDailyCompleted(id, completed).catch((err: unknown) => {
-      setDailys((prev) =>
+      const revert = (prev: DailySummary[]) =>
         prev.map((daily) =>
           daily.id === id ? { ...daily, completed: !completed } : daily,
-        ),
-      )
+        )
+      setDueToday(revert)
+      setOther(revert)
       setError(err instanceof Error ? err.message : String(err))
     })
   }, [])
@@ -103,34 +138,28 @@ export function HabiticaDailys() {
   if (loading) {
     return (
       <section>
-        <h2>Habitica — today&apos;s dailys</h2>
+        <h2>Habitica — dailys</h2>
         <p>…</p>
       </section>
     )
   }
 
+  const hasAny = dueToday.length > 0 || other.length > 0
+
   return (
     <section>
-      <h2>Habitica — today&apos;s dailys</h2>
+      <h2>Habitica — dailys</h2>
       {date && <p>{date}</p>}
       {error && <p>Error: {error}</p>}
-      {dailys.length === 0 ? (
-        <p>No dailys due today.</p>
+      {!hasAny ? (
+        <p>No dailys found.</p>
       ) : (
-        <ul>
-          {dailys.map((daily) => (
-            <li key={daily.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={daily.completed}
-                  onChange={(e) => toggleDaily(daily.id, e.target.checked)}
-                />{' '}
-                {daily.name}
-              </label>
-            </li>
-          ))}
-        </ul>
+        <>
+          <h3>Due today</h3>
+          <DailyList dailys={dueToday} onToggle={toggleDaily} />
+          <h3>Other</h3>
+          <DailyList dailys={other} onToggle={toggleDaily} />
+        </>
       )}
     </section>
   )
