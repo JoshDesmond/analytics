@@ -18,6 +18,9 @@ src/
       client.ts
       reader/
       writer/
+    linear/
+      client.ts
+      reader/
   daily/
     router.ts
   sync/

@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
+import { linearReaderRouter } from './integrations/linear/reader/router.js';
 import { rescueTimeReaderRouter } from './integrations/rescuetime/reader/router.js';
 
 const port = Number(process.env.PORT) || 3001;
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(cors());
 
+app.use('/api/linear', linearReaderRouter);
 app.use('/api/rescuetime', rescueTimeReaderRouter);
 // TODO: app.use('/api/google-sheets', googleSheetsReaderRouter);
 // TODO: app.use('/api/google-sheets', googleSheetsWriterRouter);

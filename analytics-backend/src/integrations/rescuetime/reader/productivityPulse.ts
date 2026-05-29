@@ -18,7 +18,7 @@ export function calculateProductivityPulse(
 
   for (const row of data.rows) {
     const [, time, , prod] = row;
-    if (prod >= 2 || prod <= -2) {
+    if (prod > 2 || prod < -2) {
       console.error(`Prod value ${prod} out of bounds`);
     }
     if (typeof time !== 'number') {
