@@ -45,7 +45,7 @@ export class HabiticaClient {
     return {
       'x-api-user': userId,
       'x-api-key': apiKey,
-      'x-client': 'analytics-backend',
+      'x-client': 'backend',
     };
   }
 

@@ -21,5 +21,5 @@ app.use('/api/habitica', habiticaWriterRouter);
 // TODO: app.use('/api/daily', dailyRouter);
 
 app.listen(port, () => {
-  console.log(`analytics-backend listening on http://localhost:${port}`);
+  console.log(`backend listening on http://localhost:${port}`);
 });

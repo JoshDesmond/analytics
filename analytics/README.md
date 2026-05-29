@@ -4,7 +4,7 @@ Vite + React + TypeScript app for personal analytics.
 
 ## Development
 
-Start [analytics-backend](../analytics-backend/) first, then:
+Start [backend](../backend/) first, then:
 
 ```bash
 npm install

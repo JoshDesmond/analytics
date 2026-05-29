@@ -7,7 +7,7 @@ async function fetchJson<T>(path: string): Promise<T> {
     res = await fetch(path)
   } catch {
     throw new Error(
-      'Cannot reach the API server (connection refused). In a second terminal, run: cd analytics-backend && npm run dev',
+      'Cannot reach the API server (connection refused). In a second terminal, run: cd backend && npm run dev',
     )
   }
 

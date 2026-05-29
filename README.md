@@ -7,17 +7,17 @@ A web application for viewing personal data over time.
 | Folder | Stack | Role |
 |--------|-------|------|
 | `analytics/` | Vite, React, TypeScript, Tailwind | Frontend |
-| `analytics-backend/` | Express, TypeScript | API server |
+| `backend/` | Express, TypeScript | API server |
 
 ## Development
 
 One command from the repo root (starts API on **3001** and Vite on **5173**):
 
 ```bash
-cp analytics-backend/.env.example analytics-backend/.env   # set RT_API_KEY
+cp backend/.env.example backend/.env   # set RT_API_KEY
 npm install          # root: installs concurrently
 npm install --prefix analytics
-npm install --prefix analytics-backend
+npm install --prefix backend
 npm run dev
 ```
 

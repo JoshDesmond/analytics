@@ -1,4 +1,4 @@
-# analytics-backend
+# backend
 
 Express API for the analytics frontend.
 
