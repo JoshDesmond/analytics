@@ -1,0 +1,7976 @@
+
+x
+
+    Introduction
+    Moderators
+    Get the history of a user
+    Search for users by username or email
+    BugReport
+    Report an issue
+    Challenge
+    Clears flags on a challenge
+    Clone a challenge
+    Create a new challenge
+    Delete a challenge
+    Export a challenge in CSV
+    Flag a challenge
+    Get a challenge
+    Get challenges for a group
+    Get challenges for a user
+    Join a challenge
+    Leave a challenge
+    Select winner for challenge
+    Update a challenge's name, description, or summary
+    Chat
+    Clear flags
+    Delete chat message from a group
+    Flag a group chat message
+    Get chat messages from a group
+    Like a group chat message
+    Mark all messages as read for a group
+    Post chat message to a group
+    Content
+    Get all available content objects
+    Coupon
+    Generate coupons for an event
+    Get coupons
+    Redeem a coupon code
+    Validate a coupon code
+    Cron
+    Run cron
+    Data Export
+    Export user data in JSON format
+    Export user data in XML format
+    Export user private messages as HTML document
+    Export user tasks history in CSV format
+    Development
+    Add Hourglass to the current user
+    Add ten gems to the current user
+    Artificially accelerate quest progress
+    Artificially trigger boss rage bar
+    Manipulate user's inventory
+    Set lastCron for user
+    Group
+    Add a manager to a group
+    Create a Group and then redirect to the correct payment
+    Create group
+    Get group plans for a user
+    Get group
+    Get groups for a user
+    Get users in search of parties
+    Invite users to a group
+    Join a group
+    Leave a group
+    Reject a group invitation
+    Remove a manager from a group
+    Remove a member from a group
+    Update group
+    Hall
+    Get all Heroes (contributors)
+    Get all patrons
+    Get any Party given its ID
+    Get any user ("hero") given the UUID or Username
+    Get Group Plans for a user
+    Update any user ("hero")
+    Inbox
+    Get inbox messages for a user
+    Like a private message
+    Member
+    Delete a user
+    Get a challenge member progress
+    Get a member profile
+    Get invites for a group
+    Get member achievements object
+    Get members for a challenge
+    Get members for a group
+    Get members purchase history
+    Get objections to interaction
+    Send a gem gift to a member
+    Send a private message to a member
+    Members
+    Delete flags from a user
+    Flag (report) a user
+    Meta
+    Get all paths for the specified model
+    News
+    Allow latest Bailey announcement to be read later
+    Create a new news post
+    Delete a news post
+    Get a specific news post
+    Get latest Bailey announcement
+    Mark the latest Bailey announcement as read
+    Update a news post
+    Notification
+    Mark multiple notifications as read
+    Mark multiple notifications as seen
+    Mark one notification as read
+    Mark one notification as seen
+    Quest
+    Abort the current quest
+    Accept a pending quest
+    Cancel a quest that is not active
+    Force-start a pending quest
+    Invite users to a quest
+    Leave the active quest
+    Reject a quest
+    Status
+    Get Habitica's API status
+    Get Habitica's Server readiness status
+    Tag
+    Create a new tag
+    Delete a user tag
+    Get a tag
+    Get a user's tags
+    Reorder a tag
+    Update a tag
+    Task
+    Add a tag to a task
+    Add an item to the task's checklist
+    Assign a group task to a user or users
+    Create a new task belonging to a challenge
+    Create a new task belonging to a group
+    Create a new task belonging to the user
+    Delete a checklist item from a task
+    Delete a tag from a task
+    Delete a task
+    Delete user's completed todos
+    Get a challenge's tasks
+    Get a group's tasks
+    Get a task
+    Get a user's tasks
+    Move a group task to a specified position
+    Move a task to a new position
+    Require more work for a group task
+    Score a checklist item
+    Score a task
+    Unassign a user from a task
+    Unlink a challenge task
+    Unlink all tasks from a challenge
+    Update a checklist item
+    Update a task
+    Unsubscribe
+    Unsubscribe an email address or user from email notifications
+    Unsubscribe an email address or user from email notifications
+    User
+    Allocate a single Stat Point (previously called Attribute Point)
+    Allocate all Stat Points
+    Allocate multiple Stat Points
+    Block / unblock a user from sending you a PM
+    Buy a health potion
+    Buy a Mystery Item set
+    Buy a piece of gear
+    Buy a quest with gold
+    Buy an Enchanted Armoire item
+    Buy gear, armoire or potion
+    Buy special item (card, avatar transformation)
+    Cast a skill (spell) on a target
+    Change class
+    Check if email is used
+    Delete a message
+    Delete all messages
+    Delete an authenticated user's account
+    Delete social authentication method
+    Disable classes
+    Equip or unequip an item
+    Feed a pet
+    Get anonymized user data
+    Get equipment/gear items available for purchase for the authenticated user
+    Get the authenticated user's profile
+    Get the in app items appearing in the user's reward column
+    Get users purchase history
+    Hatch a pet
+    Login
+    Make the user start / stop sleeping (resting in the Inn)
+    Mark Private Messages as read
+    Move a pinned item in the rewards column to a new position after being sorted
+    Open the Mystery Item box
+    Purchase Gem or Gem-purchasable item
+    Purchase Hourglass-purchasable item
+    Read a card
+    Register
+    Release mounts
+    Release pets and mounts and grants Triad Bingo
+    Request a refresh of user stats, including processing of pending level-ups
+    Reroll a user (reset tasks) using the Fortify Potion
+    Reset password (email a reset link)
+    Reset password (set a new one)
+    Reset user
+    Revive user from death
+    Sell a gold-sellable item owned by the user
+    Set Custom Day Start time for user.
+    Toggle an item to be pinned
+    Unequip all items by type
+    Unlock item or set of items by purchase
+    Update email
+    Update password
+    Update the user
+    Update username
+    Use Orb of Rebirth on user
+    Webhook
+    Create a new webhook - BETA
+    Delete a webhook - BETA
+    Edit a webhook - BETA
+    Get webhooks
+    WorldState
+    Get the state for the game world
+    i18n
+    Returns the i18n JS script.
+
+Habitica V3 API Documentation
+API Documentation
+3.0.0
+Introduction
+
+This webpage includes the documentation for version 3 of the Habitica API.
+
+If you're developing a 3rd party tool that uses the Habitica API, read the API Usage Guidelines, which describe how to be a responsible user of our server resources!
+Moderators
+
+Contributors of tier 8 or higher can use this route.
+
+Moderators | Get the history of a user
+
+Returns the history of a user
+
+get
+
+https://habitica.com/api/v4/admin/user/:userId/history
+
+Permission: Admin
+Path Parameters
+Field 	Type 	Description
+userIdentifier 	String 	
+
+The username or email of the user
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The User history
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NotAdmin 	NotAuthorized 	
+
+User is not an admin
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    No admin access
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Moderators | Search for users by username or email
+
+Returns a list of users that match the search criteria
+
+get
+
+https://habitica.com/api/v4/admin/search/:userIdentifier
+
+Permission: Admin
+Path Parameters
+Field 	Type 	Description
+userIdentifier 	String 	
+
+The username or email of the user to search for
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The User list
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NotAdmin 	NotAuthorized 	
+
+User is not an admin
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    No admin access
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+BugReport
+BugReport | Report an issue
+
+This POST method is used to send bug reports from the Website. Since it needs the Users Data, it requires authentication.
+
+post
+
+https://habitica.com/api/v4/bug-report
+
+Body Parameters
+Field 	Type 	Description
+message 	String 	
+
+Bug Report Message to sent
+email 	String 	
+
+User Email
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Result of this bug report
+  ok 	Boolean 	
+
+Status of this report
+  message 	String 	
+
+Status of this report
+400
+Name 	Type 	Description
+emptyReportBugMessage 	BadRequest 	
+
+The report message is missing.
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Challenge
+Challenge | Clears flags on a challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/clearflags
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The _id for the challenge to clear flags from
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The flagged challenge message
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Clone a challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/clone
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The _id for the challenge to clone
+Success 200
+Field 	Type 	Description
+challenge 	Object 	
+
+The cloned challenge
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Create a new challenge
+
+Creates a challenge. Cannot create associated tasks with this route. See CreateChallengeTasks.
+
+post
+
+https://habitica.com/api/v3/challenges
+
+Body Parameters
+Field 	Type 	Description
+challenge 	Object 	
+
+An object representing the challenge to be created
+  group 	UUID 	
+
+The id of the group to which the challenge belongs
+  name 	String 	
+
+The full name of the challenge
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  summary 	String 	
+
+A short summary advertising the main purpose of the challenge; maximum 250 characters; if not supplied, challenge.name will be used.
+  description 	String 	
+
+A detailed description of the challenge
+official 	Boolean 	
+
+Whether or not a challenge is an official Habitica challenge (requires admin).
+
+Default value: false
+  prize 	Number 	
+
+Number of gems offered as a prize to challenge winner.
+
+Default value: 0
+201
+Field 	Type 	Description
+challenge 	Object 	
+
+The newly created challenge.
+Success 200
+Field 	Type 	Description
+    _id 	UUID 	
+
+The group id.
+    type 	String 	
+
+Group type: guild or party.
+    privacy 	String 	
+
+Group privacy: public or private.
+  name 	String 	
+
+Full name of challenge.
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  leader 	Object 	
+
+User details of challenge leader.
+    _id 	UUID 	
+
+User ID of challenge leader.
+    profile 	Object 	
+
+Profile information of leader.
+      name 	Object 	
+
+Display Name of leader.
+  updatedAt 	String 	
+
+Timestamp of last update.
+  createdAt 	String 	
+
+Timestamp of challenge creation.
+  id 	UUID 	
+
+Id number of newly created challenge.
+  _id 	UUID 	
+
+Same as challenge.id.
+  prize 	String 	
+
+Number of gems offered as prize to winner (can be 0).
+  memberCount 	String 	
+
+Number users participating in challenge.
+  tasksOrder 	Object 	
+
+Object containing IDs of the challenge's tasks and rewards in their preferred sort order.
+    rewards 	Array 	
+
+Array of reward task IDs.
+    todos 	Array 	
+
+Array of todo task IDs.
+    dailys 	Array 	
+
+Array of daily task IDs.
+    habits 	Array 	
+
+Array of habit task IDs.
+  official 	Boolean 	
+
+Boolean indicating if this is an official Habitica challenge.
+
+    Successful response with single challenge
+
+{
+  "data": {
+    "group": {
+     "_id": "group-id-associated-with-challenge",
+     "name": "MyGroup",
+     "type": "guild",
+     "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }
+}
+
+400
+Name 	Type 	Description
+ChallengeValidationFailed 	BadRequest 	
+
+Invalid or missing parameter in challenge body.
+401
+Name 	Type 	Description
+CantAffordPrize 	NotAuthorized 	
+
+User does not have enough gems to offer this prize.
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Challenge | Delete a challenge
+delete
+
+https://habitica.com/api/v3/challenges/:challengeId
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The _id for the challenge to delete
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Export a challenge in CSV
+get
+
+https://habitica.com/api/v3/challenges/:challengeId/export/csv
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Success 200
+Field 	Type 	Description
+challenge 	String 	
+
+A csv file
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Flag a challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/flag
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The _id for the challenge to flag
+Body Parameters
+Field 	Type 	Description
+comment 	String 	
+
+Why the message was flagged
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The flagged challenge message
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Get a challenge
+get
+
+https://habitica.com/api/v3/challenges/:challengeId
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The challenge object
+    _id 	UUID 	
+
+The group id.
+    type 	String 	
+
+Group type: guild or party.
+    privacy 	String 	
+
+Group privacy: public or private.
+  name 	String 	
+
+Full name of challenge.
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  leader 	Object 	
+
+User details of challenge leader.
+    _id 	UUID 	
+
+User ID of challenge leader.
+    profile 	Object 	
+
+Profile information of leader.
+      name 	Object 	
+
+Display Name of leader.
+  updatedAt 	String 	
+
+Timestamp of last update.
+  createdAt 	String 	
+
+Timestamp of challenge creation.
+  id 	UUID 	
+
+Id number of newly created challenge.
+  _id 	UUID 	
+
+Same as challenge.id.
+  prize 	String 	
+
+Number of gems offered as prize to winner (can be 0).
+  memberCount 	String 	
+
+Number users participating in challenge.
+  tasksOrder 	Object 	
+
+Object containing IDs of the challenge's tasks and rewards in their preferred sort order.
+    rewards 	Array 	
+
+Array of reward task IDs.
+    todos 	Array 	
+
+Array of todo task IDs.
+    dailys 	Array 	
+
+Array of daily task IDs.
+    habits 	Array 	
+
+Array of habit task IDs.
+  official 	Boolean 	
+
+Boolean indicating if this is an official Habitica challenge.
+
+    Successful response with single challenge
+
+{
+  "data": {
+    "group": {
+     "_id": "group-id-associated-with-challenge",
+     "name": "MyGroup",
+     "type": "guild",
+     "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }
+}
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Get challenges for a group
+
+Get challenges hosted in the specified group.
+
+get
+
+https://habitica.com/api/v3/challenges/groups/:groupId
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group id ('party' for the user party and 'habitrpg' for tavern are accepted)
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of challenges sorted with official challenges first, followed by the challenges in order from newest to oldest.
+    _id 	UUID 	
+
+The group id.
+    type 	String 	
+
+Group type: guild or party.
+    privacy 	String 	
+
+Group privacy: public or private.
+  name 	String 	
+
+Full name of challenge.
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  leader 	Object 	
+
+User details of challenge leader.
+    _id 	UUID 	
+
+User ID of challenge leader.
+    profile 	Object 	
+
+Profile information of leader.
+      name 	Object 	
+
+Display Name of leader.
+  updatedAt 	String 	
+
+Timestamp of last update.
+  createdAt 	String 	
+
+Timestamp of challenge creation.
+  id 	UUID 	
+
+Id number of newly created challenge.
+  _id 	UUID 	
+
+Same as challenge.id.
+  prize 	String 	
+
+Number of gems offered as prize to winner (can be 0).
+  memberCount 	String 	
+
+Number users participating in challenge.
+  tasksOrder 	Object 	
+
+Object containing IDs of the challenge's tasks and rewards in their preferred sort order.
+    rewards 	Array 	
+
+Array of reward task IDs.
+    todos 	Array 	
+
+Array of todo task IDs.
+    dailys 	Array 	
+
+Array of daily task IDs.
+    habits 	Array 	
+
+Array of habit task IDs.
+  official 	Boolean 	
+
+Boolean indicating if this is an official Habitica challenge.
+
+    Successful response with array of challenges
+
+{
+  "data": [{
+    "group": {
+      "_id": "group-id-associated-with-challenge",
+      "name": "MyGroup",
+      "type": "guild",
+      "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }]
+}
+
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Challenge | Get challenges for a user
+
+Get challenges the user has access to. Includes public challenges, challenges belonging to the user's group, and challenges the user has already joined. Returns 10 results per page.
+
+get
+
+https://habitica.com/api/v3/challenges/user
+
+Query Parameters
+Field 	Type 	Description
+page 	Number 	
+
+This parameter can be used to specify the page number for the user challenges result (the initial page is number 0).
+member 	String 	
+
+If set to true it limits results to challenges where the user is a member, or the user owns the challenge.
+owned 	String 	
+
+If set to owned it limits results to challenges owned by the user. If set to not_owned it limits results to challenges not owned by the user.
+search 	String 	
+
+Optional query parameter to filter results to challenges that include (even partially) the search query parameter in the name or description.
+categories 	String 	
+
+Optional comma separated list of categories. If set it limits results to challenges that are part of the given categories.
+Success 200
+Field 	Type 	Description
+challenges 	Object[] 	
+
+An array of challenges sorted with official challenges first, followed by the challenges in order from newest to oldest.
+    _id 	UUID 	
+
+The group id.
+    type 	String 	
+
+Group type: guild or party.
+    privacy 	String 	
+
+Group privacy: public or private.
+  name 	String 	
+
+Full name of challenge.
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  leader 	Object 	
+
+User details of challenge leader.
+    _id 	UUID 	
+
+User ID of challenge leader.
+    profile 	Object 	
+
+Profile information of leader.
+      name 	Object 	
+
+Display Name of leader.
+  updatedAt 	String 	
+
+Timestamp of last update.
+  createdAt 	String 	
+
+Timestamp of challenge creation.
+  id 	UUID 	
+
+Id number of newly created challenge.
+  _id 	UUID 	
+
+Same as challenge.id.
+  prize 	String 	
+
+Number of gems offered as prize to winner (can be 0).
+  memberCount 	String 	
+
+Number users participating in challenge.
+  tasksOrder 	Object 	
+
+Object containing IDs of the challenge's tasks and rewards in their preferred sort order.
+    rewards 	Array 	
+
+Array of reward task IDs.
+    todos 	Array 	
+
+Array of todo task IDs.
+    dailys 	Array 	
+
+Array of daily task IDs.
+    habits 	Array 	
+
+Array of habit task IDs.
+  official 	Boolean 	
+
+Boolean indicating if this is an official Habitica challenge.
+
+    Successful response with array of challenges
+
+{
+  "data": [{
+    "group": {
+      "_id": "group-id-associated-with-challenge",
+      "name": "MyGroup",
+      "type": "guild",
+      "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }]
+}
+
+400
+Name 	Type 	Description
+queryPageInteger 	BadRequest 	
+
+Page query parameter must be a positive integer
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Challenge | Join a challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/join
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Success 200
+Field 	Type 	Description
+challenge 	Object 	
+
+The challenge the user joined
+    _id 	UUID 	
+
+The group id.
+    type 	String 	
+
+Group type: guild or party.
+    privacy 	String 	
+
+Group privacy: public or private.
+  name 	String 	
+
+Full name of challenge.
+  shortName 	String 	
+
+A shortened name for the challenge, to be used as a tag.
+  leader 	Object 	
+
+User details of challenge leader.
+    _id 	UUID 	
+
+User ID of challenge leader.
+    profile 	Object 	
+
+Profile information of leader.
+      name 	Object 	
+
+Display Name of leader.
+  updatedAt 	String 	
+
+Timestamp of last update.
+  createdAt 	String 	
+
+Timestamp of challenge creation.
+  id 	UUID 	
+
+Id number of newly created challenge.
+  _id 	UUID 	
+
+Same as challenge.id.
+  prize 	String 	
+
+Number of gems offered as prize to winner (can be 0).
+  memberCount 	String 	
+
+Number users participating in challenge.
+  tasksOrder 	Object 	
+
+Object containing IDs of the challenge's tasks and rewards in their preferred sort order.
+    rewards 	Array 	
+
+Array of reward task IDs.
+    todos 	Array 	
+
+Array of todo task IDs.
+    dailys 	Array 	
+
+Array of daily task IDs.
+    habits 	Array 	
+
+Array of habit task IDs.
+  official 	Boolean 	
+
+Boolean indicating if this is an official Habitica challenge.
+
+    Successful response with single challenge
+
+{
+  "data": {
+    "group": {
+     "_id": "group-id-associated-with-challenge",
+     "name": "MyGroup",
+     "type": "guild",
+     "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }
+}
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Challenge | Leave a challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/leave
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Body Parameters
+Field 	Type 	Description
+keep 	String 	
+
+Whether or not to keep or remove the challenge's tasks.
+
+Default value: keep-all
+
+Allowed values: "remove-all", "keep-all"
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Challenge | Select winner for challenge
+post
+
+https://habitica.com/api/v3/challenges/:challengeId/selectWinner/:winnerId
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The _id for the challenge to close with a winner
+winnerId 	UUID 	
+
+The _id of the winning user
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Challenge | Update a challenge's name, description, or summary
+put
+
+https://habitica.com/api/v3/challenges/:challengeId
+
+Permission: ChallengeLeader
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Body Parameters
+Field 	Type 	Description
+  name 	String 	
+
+The new full name of the challenge.
+  summary 	String 	
+
+The new challenge summary.
+  description 	String 	
+
+The new challenge description.
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated challenge
+
+    Successful response with single challenge
+
+{
+  "data": {
+    "group": {
+     "_id": "group-id-associated-with-challenge",
+     "name": "MyGroup",
+     "type": "guild",
+     "privacy": "public"
+    },
+    "name": "Long Detailed Name of Challenge",
+    "shortName": "my challenge",
+    "leader": {
+      "_id": "user-id-of-challenge-creator",
+      "profile": {
+        "name": "MyUserName"
+      }
+    },
+    "updatedAt": "timestamp,
+    "createdAt": "timestamp",
+    "_id": "challenge-id",
+    "prize": 0,
+    "memberCount": 1,
+    "tasksOrder": {
+      "rewards": [
+        "uuid-of-challenge-reward"
+      ],
+      "todos": [
+        "uuid-of-challenge-todo"
+      ],
+      "dailys": [
+        "uuid-of-challenge-daily"
+      ],
+      "habits": [
+        "uuid-of-challenge-habit"
+      ]
+    },
+    "official": false,
+    "id": "challenge-id"
+  }
+}
+
+401
+Name 	Type 	Description
+MustBeChallengeLeader 	NotAuthorized 	
+
+Only challenge leader can update the challenge.
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Chat
+Chat | Clear flags
+
+Resets the flag count on a chat message. Retains the id of the user's that have flagged the message. (Only visible to moderators)
+
+post
+
+https://habitica.com/api/v3/groups/:groupId/chat/:chatId/clearflags
+
+Permission: Admin
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group id ('party' for the user party and 'habitrpg' for tavern are accepted)
+chatId 	UUID 	
+
+The chat message id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+groupIdRequired 	badRequest 	
+
+A group ID is required
+chatIdRequired 	badRequest 	
+
+A chat ID is required
+404
+Name 	Type 	Description
+MustBeAdmin 	NotAuthorized 	
+
+Must be a moderator to use this route
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+MessageNotFound 	NotFound 	
+
+The specified message could not be found.
+Chat | Delete chat message from a group
+
+Delete's a chat message from a group
+
+delete
+
+https://habitica.com/api/v3/groups/:groupId/chat/:chatId
+
+Query Parameters
+Field 	Type 	Description
+previousMsg 	UUID 	
+
+The last message's ID fetched by the client so that the whole chat will be returned only if new messages have been posted in the meantime.
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+chatId 	UUID 	
+
+The chat message id
+Success 200
+Field 	Description
+data 	
+
+The updated chat array or an empty object if no message was posted after previousMsg.
+400
+Name 	Type 	Description
+onlyCreatorOrAdminCanDeleteChat 		
+
+Only the creator of the message and admins can delete a chat message.
+groupIdRequired 	badRequest 	
+
+A group ID is required
+chatIdRequired 	badRequest 	
+
+A chat ID is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+MessageNotFound 	NotFound 	
+
+The specified message could not be found.
+Chat | Flag a group chat message
+
+A message will be hidden from chat if two or more users flag a message. It will be hidden immediately if a moderator flags the message. An email is sent to the moderators about every flagged message.
+
+post
+
+https://habitica.com/api/v3/groups/:groupId/chat/:chatId/flag
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group id ('party' for the user party and 'habitrpg' for tavern are accepted)
+chatId 	UUID 	
+
+The chat message id
+Body Parameters
+Field 	Type 	Description
+comment 	String 	
+
+explain why the message was flagged
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The flagged chat message
+  id 	UUID 	
+
+The id of the message
+  text 	String 	
+
+The text of the message
+  timestamp 	Number 	
+
+The timestamp of the message in milliseconds
+  likes 	Object 	
+
+The likes of the message
+  flags 	Object 	
+
+The flags of the message
+  flagCount 	Number 	
+
+The number of flags the message has
+  uuid 	UUID 	
+
+The User ID of the author of the message
+  user 	String 	
+
+The username of the author of the message
+400
+Name 	Type 	Description
+groupIdRequired 	badRequest 	
+
+A group ID is required
+chatIdRequired 	badRequest 	
+
+A chat ID is required
+404
+Name 	Type 	Description
+AlreadyFlagged 	NotFound 	
+
+Chat messages cannot be flagged more than once by a user
+messageGroupChatFlagAlreadyReported 	NotFound 	
+
+The message has already been flagged.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+MessageNotFound 	NotFound 	
+
+The specified message could not be found.
+Chat | Get chat messages from a group
+
+Fetches an array of messages from a group
+
+get
+
+https://habitica.com/api/v3/groups/:groupId/chat
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+Query Parameters
+Field 	Type 	Description
+limit 	Number 	
+
+The number of messages to fetch (max 400).
+
+Default value: 50
+before 	String 	
+
+Fetch messages older than this message ID.
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of chat messages
+400
+Name 	Type 	Description
+groupIdRequired 	badRequest 	
+
+A group ID is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Chat | Like a group chat message
+
+Likes a chat message from a group
+
+post
+
+https://habitica.com/api/v3/groups/:groupId/chat/:chatId/like
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+chatId 	UUID 	
+
+The chat message _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The liked chat message
+400
+Name 	Type 	Description
+groupIdRequired 	badRequest 	
+
+A group ID is required
+chatIdRequired 	badRequest 	
+
+A chat ID is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+MessageNotFound 	NotFound 	
+
+The specified message could not be found.
+Chat | Mark all messages as read for a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/chat/seen
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted)
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+groupIdRequired 	badRequest 	
+
+A group ID is required
+Chat | Post chat message to a group
+
+Posts a chat message to a group
+
+post
+
+https://habitica.com/api/v3/groups/:groupId/chat
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted)
+Body Parameters
+Field 	Type 	Description
+message 	String 	
+
+Message The message to post
+Query Parameters
+Field 	Type 	Description
+previousMsg 	UUID 	
+
+The previous chat message's UUID which will force a return of the full group chat.
+400
+Name 	Type 	Description
+chatPriviledgesRevoked 	NotAuthorized 	
+
+You cannot do that because your chat privileges have been revoked.
+groupIdRequired 	badRequest 	
+
+A group ID is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Content
+Content | Get all available content objects
+
+Does not require authentication.
+
+get
+
+https://habitica.com/api/v3/content
+
+Query Parameters
+Field 	Type 	Description
+language 	String 	
+
+Language code used for the items' strings. If the authenticated user makes the request, the content will return with the user's configured language.
+
+Default value: en
+
+Allowed values: "bg", "cs", "da", "de", "en", "en@pirate", "en_GB", "es", "es_419", "fr", "he", "hu", "id", "it", "ja", "nl", "pl", "pt", "pt_BR", "ro", "ru", "sk", "sr", "sv", "uk", "zh", "zh_TW"
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Various data about the content of Habitica. The content route contains many keys, but the data listed below are the recommended data to use.
+  mystery 	Object 	
+
+The mystery sets awarded to paying subscribers.
+  gear 	Object 	
+
+The gear that can be equipped.
+    tree 	Object 	
+
+Detailed information about the gear, organized by type.
+    flat 	Object 	
+
+The full key of each equipment.
+  spells 	Object 	
+
+The skills organized by class. Includes cards and visual buffs.
+  potion 	Object 	
+
+Data about the health potion.
+  armoire 	Object 	
+
+Data about the armoire.
+  classes 	Array 	
+
+The available classes.
+  eggs 	Object 	
+
+All available eggs.
+  timeTravelStable 	Object 	
+
+The animals available in the Time Traveler's stable, separated into pets and mounts.
+  hatchingPotions 	Object 	
+
+All the hatching potions.
+  petInfo 	Object 	
+
+All the pets with extra info.
+  mountInfo 	Object 	
+
+All the mounts with extra info.
+  food 	Object 	
+
+All the food.
+  userCanOwnQuestCategories 	Array 	
+
+The types of quests that a user can own.
+  quests 	Object 	
+
+Data about the quests.
+  appearances 	Object 	
+
+Data about the appearance properties.
+    hair 	Object 	
+
+Data about available hair options.
+    shirt 	Object 	
+
+Data about available shirt options.
+    size 	Object 	
+
+Data about available body size options.
+    skin 	Object 	
+
+Data about available skin options.
+    chair 	Object 	
+
+Data about available chair options.
+    background 	Object 	
+
+Data about available background options.
+  backgrounds 	Object 	
+
+Data about the background sets.
+  subscriptionBlocks 	Object 	
+
+Data about the various subscriptions blocks.
+Coupon
+Coupon | Generate coupons for an event
+post
+
+https://habitica.com/api/v3/coupons/generate/:event
+
+Permission: sudo
+Path Parameters
+Field 	Type 	Description
+event 	String 	
+
+The event for which the coupon should be generated
+
+Allowed values: wondercon, google_6mo
+Query Parameters
+Field 	Type 	Description
+count 	Number 	
+
+The number of coupon codes to generate
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+Generated coupons
+400
+Name 	Type 	Description
+CouponValidationError 	BadRequest 	
+
+The request was missing the count query parameter or used an invalid event.
+Coupon | Get coupons
+get
+
+https://habitica.com/api/v3/coupons
+
+Permission: sudo
+Success 200
+Field 	Type 	Description
+Coupons 	String 	
+
+in CSV format
+
+    Example success:
+
+code,event,date,user
+GJG4-WEA4-QX3P,wondercon,1476929528704,user-uuid
+TT32-EYQA-JPBT,wondercon,1476929528705,
+V3EK-GE8M-LMJ4,wondercon,1476929528705,another-user-uuid
+
+Coupon | Redeem a coupon code
+post
+
+https://habitica.com/api/v3/coupons/enter/:code
+
+Path Parameters
+Field 	Type 	Description
+code 	String 	
+
+The coupon code to apply
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+User object
+Coupon | Validate a coupon code
+post
+
+https://habitica.com/api/v3/coupons/validate/:code
+
+Path Parameters
+Field 	Type 	Description
+code 	String 	
+
+The coupon code to validate
+Success 200
+Field 	Type 	Description
+  valid 	Boolean 	
+
+True or False
+Cron
+Cron | Run cron
+
+This causes cron to run. It assumes that the user has already been shown the Record Yesterday's Activity ("Check off any Dailies you did yesterday") screen and so it will immediately apply damage for incomplete due Dailies.
+
+post
+
+https://habitica.com/api/v3/cron
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Data Export
+
+These routes allow you to download backups of your data.
+
+Note: They are intended to be used on the website only and as such are part of the private API and may change at any time.
+
+Data Export | Export user data in JSON format
+get
+
+https://habitica.com/export/userdata.json
+
+Success 200
+Field 	Type 	Description
+File 	JSON 	
+
+A JSON file of the user object and tasks.
+Data Export | Export user data in XML format
+
+This XML export feature is not currently working (https://github.com/HabitRPG/habitica/issues/10100).
+
+get
+
+https://habitica.com/export/userdata.xml
+
+Success 200
+Field 	Type 	Description
+File 	XML 	
+
+An xml file of the user object.
+Data Export | Export user private messages as HTML document
+get
+
+https://habitica.com/export/inbox.html
+
+Success 200
+Field 	Type 	Description
+File 	HTML 	
+
+An html page of the user's private messages.
+Data Export | Export user tasks history in CSV format
+
+History is only available for habits and dailies so todos and rewards won't be included. Can only be used on https://habitica.com.
+
+get
+
+https://habitica.com/export/history.csv
+
+Success 200
+Field 	Type 	Description
+File 	CSV 	
+
+A csv file of your task history.
+
+    history.csv
+
+Task Name,Task ID,Task Type,Date,Value
+Be Awesome,e826ddfa-dc2e-445f-a06c-64d3881982ea,habit,2016-06-02 13:26:05,1
+Be Awesome,e826ddfa-dc2e-445f-a06c-64d3881982ea,habit,2016-06-03 05:06:55,1.026657310999762
+...
+
+Development
+
+These routes only exist while Habitica is in development mode. (Such as running a local instance on your computer).
+
+Development | Add Hourglass to the current user
+post
+
+https://habitica.com/api/v3/debug/add-hourglass
+
+Permission: Developers
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Development | Add ten gems to the current user
+post
+
+https://habitica.com/api/v3/debug/add-ten-gems
+
+Permission: Developers
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Development | Artificially accelerate quest progress
+post
+
+https://habitica.com/api/v3/debug/quest-progress
+
+Permission: Developers
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Development | Artificially trigger boss rage bar
+post
+
+https://habitica.com/api/v3/debug/boss-rage
+
+Permission: Developers
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Development | Manipulate user's inventory
+post
+
+https://habitica.com/api/v3/debug/modify-inventory
+
+Permission: Developers
+Body Parameters
+Field 	Type 	Description
+gear 	Object 	
+
+Object to replace user's gear.owned object.
+special 	Object 	
+
+Object to replace user's special object.
+pets 	Object 	
+
+Object to replace user's pets object.
+mounts 	Object 	
+
+Object to replace user's mounts object.
+eggs 	Object 	
+
+Object to replace user's eggs object.
+hatchingPotions 	Object 	
+
+Object to replace user's hatchingPotions object.
+food 	Object 	
+
+Object to replace user's food object.
+quests 	Object 	
+
+Object to replace user's quests object.
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Development | Set lastCron for user
+post
+
+https://habitica.com/api/v3/debug/set-cron
+
+Permission: Developers
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+Group
+Group | Add a manager to a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/add-manager
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+Body Parameters
+Field 	Type 	Description
+managerId 	UUID 	
+
+The user _id of the member to promote to manager
+
+    party:
+
+/api/v3/groups/party/add-manager
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+managerId 	NotAuthorized 	
+
+req.body.managerId is required
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+Group | Create a Group and then redirect to the correct payment
+post
+
+https://habitica.com/api/v3/groups/create-plan
+
+201
+Field 	Type 	Description
+data 	Object 	
+
+The created group
+Group | Create group
+post
+
+https://habitica.com/api/v3/groups
+
+Body Parameters
+Field 	Type 	Description
+name 	String 	
+type 	String 	
+
+Type of group (guild or party)
+
+Allowed values: "guild", "party"
+privacy 	String 	
+
+Privacy of group (party MUST be private)
+
+Allowed values: "private", "public"
+
+    Private Guild:
+
+{
+    "name": "The Best Guild",
+    "type": "guild",
+    "privacy": "private"
+}
+
+201
+Field 	Type 	Description
+data 	Object 	
+
+The created group (See /website/server/models/group.js)
+
+    Private Guild:
+
+HTTP/1.1 200 OK
+{
+  "name": "The Best Guild",
+  "leader": {
+    "_id": "authenticated-user-id",
+    "profile": {authenticated user's profile}
+  },
+  "type": "guild",
+  "privacy": "private",
+  "chat": [],
+  "leaderOnly": {
+    "challenges": false
+  },
+  memberCount: 1,
+  challengeCount: 0,
+  balance: 1,
+  logo: "",
+  leaderMessage: ""
+}
+
+401
+Name 	Type 	Description
+messageInsufficientGems 	NotAuthorized 	
+
+User does not have enough gems (4)
+partyMustbePrivate 	NotAuthorized 	
+
+Party must have privacy set to private
+messageGroupAlreadyInParty 	NotAuthorized 	
+Group | Get group plans for a user
+get
+
+https://habitica.com/api/v3/group-plans
+
+Success 200
+Field 	Type 	Description
+data 	Object[] 	
+
+An array of the requested groups with a group plan (See /website/server/models/group.js)
+
+    Groups the user is in with a group plan:
+
+HTTP/1.1 200 OK
+[
+  {groupPlans}
+]
+
+Group | Get group
+get
+
+https://habitica.com/api/v3/groups/:groupId
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted)
+
+    Tavern:
+
+/api/v3/groups/habitrpg
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The group object (See /website/server/models/group.js)
+
+    Tavern:
+
+HTTP/1.1 200 OK
+{
+  "name": "Tavern",
+  ...
+}
+
+400
+Name 	Type 	Description
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Group | Get groups for a user
+get
+
+https://habitica.com/api/v3/groups
+
+Query Parameters
+Field 	Type 	Description
+type 	String 	
+
+The type of groups to retrieve. Must be a query string representing a list of values like 'tavern,party'. Possible values are party, guilds, privateGuilds, publicGuilds, tavern.
+paginate 	String 	
+
+Public guilds support pagination. When true guilds are returned in groups of 30.
+
+Allowed values: "true", "false"
+page 	Number 	
+
+When pagination is enabled for public guilds this parameter can be used to specify the page number (the initial page is number 0 and not required).
+
+    Private Guilds, Tavern:
+
+{
+    "type": "privateGuilds,tavern"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object[] 	
+
+An array of the requested groups (See /website/server/models/group.js)
+
+    Private Guilds, Tavern:
+
+HTTP/1.1 200 OK
+[
+  {guilds}
+]
+
+400
+Name 	Type 	Description
+groupTypesRequired 	BadRequest 	
+
+Group types are required
+guildsPaginateBooleanString 	BadRequest 	
+
+Paginate query parameter must be a boolean (true or false).
+queryPageInteger 	BadRequest 	
+
+Page query parameter must be a positive integer
+guildsOnlyPaginate 	BadRequest 	
+
+Only public guilds support pagination
+Group | Get users in search of parties
+get
+
+https://habitica.com/api/v3/looking-for-party
+
+Query Parameters
+Field 	Type 	Description
+page 	Number 	
+
+Page number, defaults to 0
+Success 200
+Field 	Type 	Description
+data 	Object[] 	
+
+An array of users looking for a party
+400
+Name 	Type 	Description
+notPartyLeader 	BadRequest 	
+
+You are not the leader of a Party.
+Group | Invite users to a group
+
+You can provide both emails and uuids, or just one. You must provide at least one.
+
+post
+
+https://habitica.com/api/v3/groups/:groupId/invite
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted)
+Body Parameters
+Field 	Type 	Description
+emails 	Object[] 	
+
+An array of objects, each representing one email address to invite.
+  email 	String 	
+
+The email address of the user being invited.
+  name 	String 	
+
+The name of the user being invited.
+uuids 	Array 	
+
+An array of uuids to invite
+
+    Emails
+    User IDs
+    User IDs and Emails
+
+{
+    "emails": [
+        {
+            "email": "user-1@example.com"
+        },
+        {
+            "name": "User2",
+            "email": "user-2@example.com"
+        }
+    ]
+}
+
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+The invites
+data[0] 	Object 	
+
+If the invitation was a User ID, you'll receive back an object. You'll receive one Object for each successful User ID invite.
+data[1] 	String 	
+
+If the invitation was an email, you'll receive back the email. You'll receive one String for each successful email invite.
+
+    Successful Response with Emails
+    Successful Response with User ID
+    Successful Response with User IDs and Emails
+
+{
+    "data": [
+        "user-1@example.com",
+        "user-2@exmaple.com"
+    ]
+}
+
+400
+Name 	Type 	Description
+NoEmailProvided 	BadRequest 	
+
+An email address was not provided in the emails body param Array.
+UuidOrEmailOnly 	BadRequest 	
+
+The emails and uuids params were both missing and/or a. key other than emails or uuids was provided in the body param.
+CannotInviteSelf 	BadRequest 	
+
+User ID or email of invitee matches that of the inviter.
+MustBeArray 	BadRequest 	
+
+The uuids or emails body param was not an array.
+TooManyInvites 	BadRequest 	
+
+A max of 100 invites (combined emails and User IDs) can be sent out at a time.
+ExceedsMembersLimit 	BadRequest 	
+
+A max of 30 members can join a party.
+GroupBodyInvalid 	BadRequest 	
+
+A parameter in the group body was invalid.
+401
+Name 	Type 	Description
+UserAlreadyInvited 	NotAuthorized 	
+
+The user has already been invited to the group.
+UserAlreadyInGroup 	NotAuthorized 	
+
+The user is already a member of the group.
+CannotInviteWhenMuted 	NotAuthorized 	
+
+You cannot invite anyone to a guild or party because your chat privileges have been revoked.
+NotAuthorizedToSendMessageToThisUser 	NotAuthorized 	
+
+You can't send a message to this player because they have chosen to block messages.
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+PartyNotFound 	NotFound 	
+
+The user's party could not be found.
+Group | Join a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/join
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+
+    Tavern:
+
+/api/v3/groups/habitrpg/join
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The joined group (See /website/server/models/group.js)
+
+    Tavern:
+
+HTTP/1.1 200 OK
+{
+  "name": "Tavern",
+  ...
+}
+
+400
+Name 	Type 	Description
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+messageGroupRequiresInvite 	NotAuthorized 	
+
+Group requires an invitation to join (e.g. private group, party).
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Group | Leave a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/leave
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+Query Parameters
+Field 	Type 	Description
+keep 	String 	
+
+Whether or not to keep challenge tasks belonging to the group being left.
+
+Default value: keep-all
+
+Allowed values: "remove-all", "keep-all"
+Body Parameters
+Field 	Type 	Description
+keepChallenges 	String 	
+
+Whether or not to remain in the challenges of the group being left.
+
+Default value: leave-challenges
+
+Allowed values: "remain-in-challenges", "leave-challenges"
+
+    Leave Party:
+
+/api/v3/groups/party/leave
+{
+  "keepChallenges": "remain-in-challenges"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+keepOrRemoveAll 	BadRequest 	
+
+"keep" parameter is not "remove-all" or "keep-all"
+questLeaderCannotLeaveGroup 	NotAuthorized 	
+
+User could not leave party because they are the owner of a quest currently running.
+cannotLeaveWhileActiveQuest 	NotAuthorized 	
+
+User could not leave party due to being in a quest.
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Group | Reject a group invitation
+post
+
+https://habitica.com/api/v3/groups/:groupId/reject-invite
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+
+    party:
+
+/api/v3/groups/party/reject-invite
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+messageGroupRequiresInvite 	NotAuthorized 	
+
+Group requires an invitation to join (e.g. private group, party).
+Group | Remove a manager from a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/remove-manager
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+Body Parameters
+Field 	Type 	Description
+managerId 	UUID 	
+
+The user _id of the member to remove
+
+    party:
+
+/api/v3/groups/party/add-manager
+
+Success 200
+Field 	Type 	Description
+group 	Object 	
+
+The group
+400
+Name 	Type 	Description
+managerId 	NotAuthorized 	
+
+req.body.managerId is required
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+Group | Remove a member from a group
+post
+
+https://habitica.com/api/v3/groups/:groupId/removeMember/:memberId
+
+Permission: GroupLeader, Admin
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+memberId 	UUID 	
+
+The _id of the member to remove
+Query Parameters
+Field 	Type 	Description
+message 	String 	
+
+Query parameter - The message to send to the removed members
+
+    Remove member from party:
+
+/api/v3/groups/party/removeMember/[User's ID]?message=Bye
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+userIdrequired 	BadRequest 	
+
+"memberId" cannot be empty or not a UUID
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+401
+Name 	Type 	Description
+onlyLeaderCanRemoveMember 	NotAuthorized 	
+
+Only the group leader can remove members.
+memberCannotRemoveYourself 	NotAuthorized 	
+
+Group leader cannot remove themselves
+cannotRemoveQuestOwner 	NotAuthorized 	
+
+Group leader cannot remove the owner of an active quest
+404
+Name 	Type 	Description
+groupMemberNotFound 	NotFound 	
+
+Group member was not found
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Group | Update group
+put
+
+https://habitica.com/api/v3/groups/:groupId
+
+Permission: GroupLeader, Admin
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id ('party' for the user party and 'habitrpg' for tavern are accepted).
+
+    Tavern:
+
+/api/v3/groups/habitrpg
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated group (See /website/server/models/group.js)
+
+    Tavern:
+
+HTTP/1.1 200 OK
+{
+  "name": "Tavern",
+  ...
+}
+
+400
+Name 	Type 	Description
+messageGroupOnlyLeaderCanUpdate 	NotAuthorized 	
+
+Only the group's leader can update the party.
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Hall
+Hall | Get all Heroes (contributors)
+
+Returns an array of objects containing the heroes who have contributed for Habitica. The array is sorted by the contribution level in descending order.
+
+get
+
+https://habitica.com/api/v3/hall/heroes
+
+Success 200
+Field 	Type 	Description
+heroes 	Array 	
+
+An array of heroes
+
+    Example response:
+
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "e6e01d2a-c2fa-4b9f-9c0f-7865b777e7b5",
+            "profile": {
+                "name": "test2"
+            },
+            "contributor": {
+                "admin": false,
+                "level": 2,
+                "text": "Linguist"
+            },
+            "backer": {}
+        }
+    ]
+}
+
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+
+    Missing authentication headers
+    No account
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Hall | Get all patrons
+
+Returns an array of objects containing the patrons who backed Habitica's original kickstarter. The array is sorted by the backer tier in descending order. By default, only the first 50 patrons are returned. More can be accessed by passing ?page=n
+
+get
+
+https://habitica.com/api/v3/hall/patrons
+
+Query Parameters
+Field 	Type 	Description
+page 	Number 	
+
+The result page.
+
+Default value: 0
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of patrons
+
+    Example response
+
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "3adb52a9-0dfb-4752-81f2-a62d911d1bf5",
+            "profile": {
+                "name": "mattboch"
+            },
+            "contributor": {},
+            "backer": {
+                "tier": 800,
+                "npc": "Beast Master"
+            }
+        },
+        {
+            "_id": "9da65443-ed43-4c21-804f-d260c1361596",
+            "profile": {
+                "name": "ʎǝlᴉɐq s,┴I"
+            },
+            "contributor": {
+                "text": "Pollen Purveyor",
+                "admin": true,
+                "level": 8
+            },
+            "backer": {
+                "npc": "Town Crier",
+                "tier": 800,
+                "tokensApplied": true
+            }
+        }
+    ]
+}
+
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+
+    Missing authentication headers
+    No account
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Hall | Get any Party given its ID
+
+Returns some basic information about a given Party, to assist admins with user support.
+
+get
+
+https://habitica.com/api/v3/hall/heroes/party/:groupId
+
+Permission: userSupport
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+party's group ID
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The party object (contains computed fields that are not in the Group model)
+400
+Name 	Type 	Description
+groupIdRequired 	BadRequest 	
+
+A groupId is required
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NoPrivs 	NotAuthorized 	
+
+User does not have the required admin privileges.
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    User does not have the required privileges.
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Hall | Get any user ("hero") given the UUID or Username
+
+Returns various data about the user. User does not need to be a contributor.
+
+get
+
+https://habitica.com/api/v3/hall/heroes/:heroId
+
+Permission: Admin
+Path Parameters
+Field 	Type 	Description
+heroId 	UUID 	
+
+user ID
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The user object
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NotAdmin 	NotAuthorized 	
+
+User is not an admin
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    No admin access
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Hall | Get Group Plans for a user
+
+Returns some basic information about group plans, to assist admins with user support.
+
+get
+
+https://habitica.com/api/v3/hall/heroes/:heroId
+
+Permission: userSupport
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+party's group ID
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The active group plans
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NoPrivs 	NotAuthorized 	
+
+User does not have the required admin privileges.
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    User does not have the required privileges.
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Hall | Update any user ("hero")
+
+Update various details in the user's User document, including but not limited to privileges, gems, contributions, items.
+
+put
+
+https://habitica.com/api/v3/hall/heroes/:heroId
+
+Permission: Admin
+
+    Example Body:
+
+{
+   "balance": 1000,
+   "auth": {"blocked": false},
+   "flags": {
+     "chatRevoked": true,
+     "chatShadowMuted": true
+   },
+   "purchased": {"ads": true},
+   "contributor": {
+     "admin": true,
+     "newsPoster": false,
+     "contributions": "Improving API documentation",
+     "level": 5,
+     "text": "Scribe, Blacksmith"
+   },
+   "secret": {
+     "text": "child with permission to use site",
+   },
+   "itemPath": "items.pets.BearCub-Skeleton",
+   "itemVal": 5,
+   "changeApiToken": true,
+}
+
+Path Parameters
+Field 	Type 	Description
+heroId 	UUID 	
+
+User ID
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated user object
+401
+Name 	Type 	Description
+NoAuthHeaders 	NotAuthorized 	
+
+Missing authentication headers
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials
+NotAdmin 	NotAuthorized 	
+
+User is not an admin
+404
+Name 	Type 	Description
+NoUser 	NotFound 	
+
+The specified user could not be found.
+
+    Missing authentication headers
+    No account
+    No user
+    No admin access
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Missing authentication headers."
+}
+
+Inbox
+Inbox | Get inbox messages for a user
+
+Get inbox messages for a user
+
+get
+
+https://habitica.com/api/v3/inbox/messages
+
+Query Parameters
+Field 	Type 	Description
+page 	Number 	
+
+Load the messages of the selected Page - 10 Messages per Page
+conversation 	GUID 	
+
+Loads only the messages of a conversation
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of inbox messages
+Inbox | Like a private message
+
+Likes a private message, this uses the uniqueMessageId which is a shared ID between message copies of both chat participants
+
+post
+
+https://habitica.com/api/v4//inbox/like-private-message/:uniqueMessageId
+
+Path Parameters
+Field 	Type 	Description
+uniqueMessageId 	UUID 	
+
+This is NOT private message.id, but rather message.uniqueMessageId
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The liked private message
+404
+Name 	Type 	Description
+MessageNotFound 	NotFound 	
+
+The specified message could not be found.
+Member
+Member | Delete a user
+delete
+
+https://habitica.com/api/v4/members/:memberId
+
+Member | Get a challenge member progress
+get
+
+https://habitica.com/api/v3/challenges/:challengeId/members/:memberId
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+memberId 	UUID 	
+
+The member _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Return an object with member _id, profile.name and a tasks object with the challenge tasks for the member.
+
+    Success-Response:
+
+{
+  "data": {
+    "_id": "b0413351-405f-416f-8787-947ec1c85199",
+    "profile": {"name": "MadPink"},
+    "tasks": [
+      {
+        "_id": "9cd37426-0604-48c3-a950-894a6e72c156",
+      "text": "Make sure the place where you sleep is quiet, dark, and cool.",
+        "updatedAt": "2017-06-17T17:44:15.916Z",
+        "createdAt": "2017-06-17T17:44:15.916Z",
+        "reminders": [],
+        "group": {
+          "approval": {
+            "requested": false,
+            "approved": false,
+            "required": false
+          },
+          "assignedUsers": []
+        },
+        "challenge": {
+          "taskId": "6d3758b1-071b-4bfa-acd6-755147a7b5f6",
+          "id": "4db6bd82-b829-4bf2-bad2-535c14424a3d",
+          "shortName": "Take This June 2017"
+        },
+        "attribute": "str",
+        "priority": 1,
+        "value": 0,
+        "notes": "",
+        "type": "todo",
+        "checklist": [],
+        "collapseChecklist": false,
+        "completed": false,
+      },
+        "startDate": "2016-09-01T05:00:00.000Z",
+        "everyX": 1,
+        "frequency": "weekly",
+        "id": "b207a15e-8bfd-4aa7-9e64-1ba89699da06"
+      }
+    ]
+  }
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Member | Get a member profile
+get
+
+https://habitica.com/api/v3/members/:memberId
+
+Path Parameters
+Field 	Type 	Description
+memberId 	UUID 	
+
+The member's id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The member object
+  inbox 	Object 	
+
+Basic information about person's inbox
+  stats 	Object 	
+
+Includes current stats and buffs
+  profile 	Object 	
+
+Includes name
+  preferences 	Object 	
+
+Includes info about appearance and public prefs
+  party 	Object 	
+
+Includes basic info about current party and quests
+  items 	Object 	
+
+Basic inventory information includes quests, food, potions, eggs, gear, special items
+  achievements 	Object 	
+
+Lists current achievements
+  auth 	Object 	
+
+Includes latest timestamps
+
+    Success-Response:
+
+{
+ "success": true,
+ "data": {
+   "_id": "99999999-9999-9999-9999-8f14c101aeff",
+   "inbox": {
+     "optOut": false
+   },
+   "stats": {
+   ---INCLUDES STATS AND BUFFS---
+   },
+   "profile": {
+     "name": "Ezra"
+   },
+   "preferences": {
+     ---INCLUDES INFO ABOUT APPEARANCE AND PUBLIC PREFS---
+   },
+   "party": {
+     "_id": "12345678-0987-abcd-82a6-837c81db4c1e",
+     "quest": {
+       "RSVPNeeded": false,
+       "progress": {}
+     },
+   },
+   "items": {
+     "lastDrop": {
+       "count": 0,
+       "date": "2017-01-15T02:41:35.009Z"
+     },
+       ----INCLUDES QUESTS, FOOD, POTIONS, EGGS, GEAR, CARDS, SPECIAL ITEMS (E.G. SNOWBALLS)----
+     }
+   },
+   "achievements": {
+     "partyUp": true,
+     "habitBirthdays": 2,
+   },
+   "auth": {
+     "timestamps": {
+       "loggedin": "2017-03-05T12:30:54.545Z",
+       "created": "2017-01-12T03:30:11.842Z"
+     }
+   },
+   "id": "99999999-9999-9999-9999-8f14c101aeff"
+ }
+}
+)
+
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Member | Get invites for a group
+
+With a limit of 30 member per request (by default). To get all invites run requests against this routes (updating the lastId query parameter) until you get less than 30 results.
+
+get
+
+https://habitica.com/api/v3/groups/:groupId/invites
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group id ('party' for the user party is accepted)
+Query Parameters
+Field 	Type 	Description
+lastId 	UUID 	
+
+Query parameter to specify the last invite returned in a previous request to this route and get the next batch of results.
+limit 	Number 	
+
+BETA Query parameter to specify the number of results to return. Max is 60.
+
+Default value: 30
+includeAllPublicFields 	Boolean 	
+
+If set to true then all public fields for members will be returned (similar to when making a request for a single member).
+Success 200
+Field 	Type 	Description
+data 	array 	
+
+An array of invites, sorted by _id
+
+    Success-Response:
+
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "99f3cb9d-4af8-4ca4-9b82-6b2a6bf59b7a",
+            "profile": {
+                "name": "DoomSmoocher"
+            },
+            "id": "99f3cb9d-4af8-4ca4-9b82-6b2a6bf59b7a"
+        }
+    ]
+}
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Member | Get member achievements object
+
+Get a list of achievements of the requested member, grouped by basic / seasonal / special.
+
+get
+
+https://habitica.com/api/v3/members/:memberId/achievements
+
+Path Parameters
+Field 	Type 	Description
+memberId 	UUID 	
+
+The member's id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The achievements object
+  basic 	Object 	
+
+The basic achievements object
+  seasonal 	Object 	
+
+The seasonal achievements object
+  special 	Object 	
+
+The special achievements object
+  label 	String 	
+
+The label for that category
+  achievements 	Object 	
+
+The achievements in that category
+    title 	String 	
+
+The localized title string
+    text 	String 	
+
+The localized description string
+    earned 	Boolean 	
+
+Whether the user has earned the achievement
+    index 	Number 	
+
+The unique index assigned to the achievement (only for sorting purposes).
+    value 	Anything 	
+
+The value related to the achievement (if applicable)
+    optionalCount 	Number 	
+
+The count related to the achievement (if applicable)
+
+    Successful Response
+
+{
+  basic: {
+    label: "Basic",
+    achievements: {
+      streak: {
+        title: "0 Streak Achievements",
+        text: "Has performed 0 21-day streaks on Dailies",
+        icon: "achievement-thermometer",
+        earned: false,
+        value: 0,
+        index: 60,
+        optionalCount: 0
+      },
+      perfect: {
+        title: "5 Perfect Days",
+        text: "Completed all active Dailies on 5 days. With this achievement
+               you get a +level/2 buff to all attributes for the next day.
+               Levels greater than 100 don't have any additional effects on buffs.",
+        icon: "achievement-perfect",
+        earned: true,
+        value: 5,
+        index: 61,
+        optionalCount: 5
+      }
+    }
+  },
+  seasonal: {
+    label: "Seasonal",
+    achievements: {
+      habiticaDays: {
+        title: "Habitica Naming Day",
+        text: "Celebrated 0 Naming Days! Thanks for being a fantastic user.",
+        icon: "achievement-habiticaDay",
+        earned: false,
+        value: 0,
+        index: 72,
+        optionalCount: 0
+      }
+    }
+  },
+  special: {
+    label: "Special",
+    achievements: {
+      habitSurveys: {
+        title: "Helped Habitica Grow",
+        text: "Helped Habitica grow on 0 occasions, either by filling out
+              a survey or helping with a major testing effort. Thank you!",
+        icon: "achievement-tree",
+        earned: false,
+        value: 0,
+        index: 88,
+        optionalCount: 0
+      }
+    }
+  }
+}
+
+400
+Name 	Type 	Description
+MemberIdRequired 	BadRequest 	
+
+The id param is required and must be a valid UUID.
+404
+Name 	Type 	Description
+UserWithIdNotFound 	NotFound 	
+
+The id param did not belong to an existing member.
+Member | Get members for a challenge
+
+With a limit of 30 member per request (by default). To get all members run requests against this routes (updating the lastId query parameter) until you get less than 30 results. BETA You can also use ?includeAllMembers=true. This option is currently in BETA and may be removed in future. Its use is discouraged and its performances are not optimized especially for large challenges.
+
+get
+
+https://habitica.com/api/v3/challenges/:challengeId/members
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge id
+Query Parameters
+Field 	Type 	Description
+lastId 	UUID 	
+
+Query parameter to specify the last member returned in a previous request to this route and get the next batch of results.
+limit 	Number 	
+
+BETA Query parameter to specify the number of results to return. Max is 60.
+
+Default value: 30
+includeTasks 	Boolean 	
+
+BETA Query parameter - If 'true' then include challenge tasks of each member
+includeAllPublicFields 	Boolean 	
+
+If set to true then all public fields for members will be returned (similar to when making a request for a single member).
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of members, sorted by _id
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Member | Get members for a group
+
+With a limit of 30 member per request (by default). To get all members run requests against this routes (updating the lastId query parameter) until you get less than 30 results (or the specified limit).
+
+get
+
+https://habitica.com/api/v3/groups/:groupId/members
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The group id ('party' for the user party is accepted)
+Query Parameters
+Field 	Type 	Description
+lastId 	UUID 	
+
+Query parameter to specify the last member returned in a previous request to this route and get the next batch of results.
+limit 	Number 	
+
+BETA Query parameter to specify the number of results to return. Max is 60.
+
+Default value: 30
+includeAllPublicFields 	Boolean 	
+
+If set to true then all public fields for members will be returned (similar to when making a request for a single member).
+includeTasks 	Boolean 	
+
+If set to true, then response should include all tasks per user related to the challenge
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of members, sorted by _id
+
+    Success-Response:
+
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "00000001-1111-9999-9000-111111111111",
+      "profile": {
+        "name": "Jiminy"
+      },
+      "id": "00000001-1111-9999-9000-111111111111"
+    },
+ }
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+Member | Get members purchase history
+get
+
+https://habitica.com/api/v4/members/:memberId/purchase-history
+
+Member | Get objections to interaction
+
+Get any objections that would occur if the given interaction was attempted - BETA.
+
+get
+
+https://habitica.com/api/v3/members/:toUserId/objections/:interaction
+
+Path Parameters
+Field 	Type 	Description
+toUserId 	UUID 	
+
+The user to interact with
+interaction 	String 	
+
+Name of the interaction to query.
+
+Allowed values: "send-private-message", "transfer-gems"
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+Return an array of objections, if the interaction would be blocked; otherwise an empty array.
+Member | Send a gem gift to a member
+post
+
+https://habitica.com/api/v3/members/transfer-gems
+
+Body Parameters
+Field 	Type 	Description
+message 	String 	
+
+The message to the user
+toUserId 	UUID 	
+
+The user to send the gift to
+gemAmount 	Integer 	
+
+The number of gems to send
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Member | Send a private message to a member
+post
+
+https://habitica.com/api/v3/members/send-private-message
+
+Body Parameters
+Field 	Type 	Description
+message 	String 	
+
+The message
+toUserId 	UUID 	
+
+The id of the user to contact
+Success 200
+Field 	Type 	Description
+  message 	Object 	
+
+The message just sent
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Members
+Members | Delete flags from a user
+
+Removes any abuse reports flagged on a user profile.
+
+post
+
+https://habitica.com/api/v3/members/:memberId/clear-flags
+
+Permission: Admin
+Path Parameters
+Field 	Type 	Description
+memberId 	UUID 	
+
+The unique ID of the flagged user to reset
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+MemberIdRequired 	BadRequest 	
+
+The memberId param is required and must be a valid UUID.
+MustBeAdmin 	BadRequest 	
+
+Must be a moderator to use this route
+404
+Name 	Type 	Description
+UserWithIdNotFound 	NotFound 	
+
+The memberId param did not belong to an existing user.
+Members | Flag (report) a user
+
+Sends an email to staff about another user or their profile
+
+post
+
+https://habitica.com/api/v3/members/:memberId/flag
+
+Path Parameters
+Field 	Type 	Description
+memberId 	UUID 	
+
+The unique ID of the user being flagged
+Body Parameters
+Field 	Type 	Description
+comment 	String 	
+
+explain why the user was flagged
+source 	String 	
+
+URL or view from which the user was flagged
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The flagged user
+  id 	UUID 	
+
+The id of the flagged user
+  username 	String 	
+
+The username of the flagged user
+  profile 	Object 	
+
+The flagged user's profile information
+    blurb 	String 	
+
+Text of the flagged user's profile bio
+    flags 	Object 	
+
+Data about flags the profile has received. Restricted to the reporting user's own flag unless the reporting user is a moderator. Each key is a UUID, and fields are comment, source, and timestamp.
+    imageUrl 	String 	
+
+URL of the flagged user's profile image
+    name 	String 	
+
+The flagged user's display name
+400
+Name 	Type 	Description
+AlreadyFlagged 	BadRequest 	
+
+A profile cannot be flagged more than once by the same user.
+MemberIdRequired 	BadRequest 	
+
+The memberId param is required and must be a valid UUID.
+404
+Name 	Type 	Description
+UserWithIdNotFound 	NotFound 	
+
+The memberId param did not belong to an existing user.
+Meta
+Meta | Get all paths for the specified model
+
+Doesn't require authentication
+
+get
+
+https://habitica.com/api/v3/models/:model/paths
+
+    Tag
+
+curl https://habitica.com/api/v3/models/tag/paths
+
+Path Parameters
+Field 	Type 	Description
+model 	String 	
+
+The name of the model
+
+Allowed values: "user", "group", "challenge", "tag", "habit", "daily", "todo", "reward"
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+A key-value object made of fieldPath: fieldType (like {'field.nested': Boolean})
+
+    Tag
+
+{
+    "success": true,
+    "data": {
+        "id": "String",
+        "name": "String",
+        "challenge": "String"
+    }
+}
+
+400
+Name 	Type 	Description
+modelNotFound 	badRequest 	
+
+The model specified was not found
+News
+News | Allow latest Bailey announcement to be read later
+
+Add a notification to allow viewing of the latest "New Stuff by Bailey" message. Prevent this specific Bailey message from appearing automatically.
+
+post
+
+https://habitica.com/api/v3/news/tell-me-later
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+News | Create a new news post
+post
+
+https://habitica.com/api/v4/news
+
+Permission: NewsPoster
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The created news post (See /website/server/models/newsPost.js)
+
+    Post:
+
+HTTP/1.1 200 OK
+{
+  "title": "News Title",
+  ...
+}
+
+News | Delete a news post
+delete
+
+https://habitica.com/api/v4/news/:postId
+
+Permission: NewsPoster
+Path Parameters
+Field 	Type 	Description
+postId 	String 	
+
+The posts _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+postIdRequired 	BadRequest 	
+
+A postId is required
+404
+Name 	Type 	Description
+NewsPostNotFound 	NotFound 	
+
+The specified news post could not be found.
+News | Get a specific news post
+get
+
+https://habitica.com/api/v4/news/:postId
+
+Path Parameters
+Field 	Type 	Description
+postId 	String 	
+
+The posts _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The news post (See /website/server/models/newsPost.js)
+
+    Post:
+
+HTTP/1.1 200 OK
+{
+  "title": "News Title",
+  ...
+}
+
+400
+Name 	Type 	Description
+postIdRequired 	BadRequest 	
+
+A postId is required
+404
+Name 	Type 	Description
+NewsPostNotFound 	NotFound 	
+
+The specified news post could not be found.
+News | Get latest Bailey announcement
+get
+
+https://habitica.com/api/v3/news
+
+Success 200
+Field 	Type 	Description
+html 	Object 	
+
+Latest Bailey html
+News | Mark the latest Bailey announcement as read
+post
+
+https://habitica.com/api/v4/news/read
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+News | Update a news post
+put
+
+https://habitica.com/api/v4/news/:postId
+
+Permission: NewsPoster
+Path Parameters
+Field 	Type 	Description
+postId 	String 	
+
+The posts _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated news post (See /website/server/models/newsPost.js)
+
+    Post:
+
+HTTP/1.1 200 OK
+{
+  "title": "News Title",
+  ...
+}
+
+400
+Name 	Type 	Description
+postIdRequired 	BadRequest 	
+
+A postId is required
+404
+Name 	Type 	Description
+NewsPostNotFound 	NotFound 	
+
+The specified news post could not be found.
+Notification
+Notification | Mark multiple notifications as read
+post
+
+https://habitica.com/api/v3/notifications/read
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.notifications
+Notification | Mark multiple notifications as seen
+post
+
+https://habitica.com/api/v3/notifications/see
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.notifications
+Notification | Mark one notification as read
+post
+
+https://habitica.com/api/v3/notifications/:notificationId/read
+
+Path Parameters
+Field 	Type 	Description
+notificationId 	UUID 	
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.notifications
+Notification | Mark one notification as seen
+
+Mark a notification as seen. Different from marking them as read in that the notification isn't removed but the seen field is set to true.
+
+post
+
+https://habitica.com/api/v3/notifications/:notificationId/see
+
+Path Parameters
+Field 	Type 	Description
+notificationId 	UUID 	
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The modified notification
+Quest
+Quest | Abort the current quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/abort
+
+Permission: QuestLeader GroupLeader
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Accept a pending quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/accept
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Cancel a quest that is not active
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/cancel
+
+Permission: QuestLeader GroupLeader
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Force-start a pending quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/force-start
+
+Permission: QuestLeader GroupLeader
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Invite users to a quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/invite/:questKey
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+questKey 	String 	
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Leave the active quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/leave
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Quest | Reject a quest
+post
+
+https://habitica.com/api/v3/groups/:groupId/quests/reject
+
+Path Parameters
+Field 	Type 	Description
+groupId 	String 	
+
+The group _id (or 'party')
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Quest Object
+404
+Name 	Type 	Description
+GroupNotFound 	NotFound 	
+
+The specified group could not be found.
+QuestNotFound 	NotFound 	
+
+The specified quest could not be found.
+Status
+Status | Get Habitica's API status
+get
+
+https://habitica.com/api/v3/status
+
+Success 200
+Field 	Type 	Description
+  status 	String 	
+
+'up' if everything is ok
+
+    Server is Up
+
+{
+  'status': 'up',
+}
+
+Status | Get Habitica's Server readiness status
+get
+
+https://habitica.com/api/v3/ready
+
+Success 200
+Field 	Type 	Description
+  status 	String 	
+
+'ready' if everything is ok
+
+    Server is Ready
+
+{
+  'status': 'ready',
+}
+
+Tag
+Tag | Create a new tag
+post
+
+https://habitica.com/api/v3/tags
+
+Body Parameters
+Field 	Type 	Description
+name 	string 	
+
+The name of the tag to be added.
+
+    Example body:
+
+{
+    "name": "practicetag"
+}
+
+201
+Field 	Type 	Description
+data 	Object 	
+
+The newly created tag
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "name": "practicetag",
+        "id": "8bc0afbf-ab8e-49a4-982d-67a40557ed1a"
+    },
+    "notifications": []
+}
+
+Tag | Delete a user tag
+delete
+
+https://habitica.com/api/v3/tags/:tagId
+
+Path Parameters
+Field 	Type 	Description
+tagId 	UUID 	
+
+The tag _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+
+    Example return:
+
+{"success":true,"data":{},"notifications":[]}
+
+400
+Name 	Type 	Description
+InvalidRequestParameters 	BadRequest 	
+
+"tagId" must be a valid UUID corresponding to a tag belonging to the user.
+404
+Name 	Type 	Description
+TagNotFound 	NotFound 	
+
+The specified tag could not be found.
+Tag | Get a tag
+get
+
+https://habitica.com/api/v3/tags/:tagId
+
+Path Parameters
+Field 	Type 	Description
+tagId 	UUID 	
+
+The tag _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The tag object
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "name": "practicetag",
+        "id": "8bc0afbf-ab8e-49a4-982d-67a40557ed1a"
+    },
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+InvalidRequestParameters 	BadRequest 	
+
+"tagId" must be a valid UUID corresponding to a tag belonging to the user.
+404
+Name 	Type 	Description
+TagNotFound 	NotFound 	
+
+The specified tag could not be found.
+Tag | Get a user's tags
+get
+
+https://habitica.com/api/v3/tags
+
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of tags
+
+    Example return:
+
+{
+    "success": true,
+    "data": [
+        {
+            "name": "Work",
+            "id": "3d5d324d-a042-4d5f-872e-0553e228553e"
+        },
+        {
+            "name": "apitester",
+            "challenge": "true",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        {
+            "name": "practicetag",
+            "id": "8bc0afbf-ab8e-49a4-982d-67a40557ed1a"
+        }
+    ],
+    "notifications": []
+}
+
+Tag | Reorder a tag
+post
+
+https://habitica.com/api/v3/reorder-tags
+
+Body Parameters
+Field 	Type 	Description
+tagId 	UUID 	
+
+Id of the tag to move
+to 	Number 	
+
+Position the tag is moving to
+
+    Example request:
+
+{
+    "tagId": "c6855fae-ca15-48af-a88b-86d0c65ead47",
+    "to": 0
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+
+    Example return:
+
+{
+    "success": true,
+    "data": {},
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TagNotFound 	NotFound 	
+
+The specified tag could not be found.
+Tag | Update a tag
+put
+
+https://habitica.com/api/v3/tags/:tagId
+
+Path Parameters
+Field 	Type 	Description
+tagId 	UUID 	
+
+The tag _id
+Body Parameters
+Field 	Type 	Description
+name 	string 	
+
+The new name of the tag.
+
+    Example body:
+
+{
+    "name": "prac-tag"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated tag
+
+    Example result:
+
+{
+    "success": true,
+    "data": {
+        "name": "practice-tag",
+        "id": "8bc0afbf-ab8e-49a4-982d-67a40557ed1a"
+    },
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+InvalidRequestParameters 	BadRequest 	
+
+"tagId" must be a valid UUID corresponding to a tag belonging to the user.
+404
+Name 	Type 	Description
+TagNotFound 	NotFound 	
+
+The specified tag could not be found.
+Task
+Task | Add a tag to a task
+post
+
+https://habitica.com/api/v3/tasks/:taskId/tags/:tagId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+tagId 	UUID 	
+
+The tag id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "_id": "84f02d6a-7b43-4818-a35c-d3336cec4880",
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "text": "Test API Params",
+        "alias": "test-api-params",
+        "type": "todo",
+        "notes": "",
+        "tags": [
+            "3d5d324d-a042-4d5f-872e-0553e228553e"
+        ],
+        "value": -1,
+        "priority": 2,
+        "attribute": "int",
+        "challenge": {
+            "taskId": "4a29874c-0308-417b-a909-2a7d262b49f6",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "createdAt": "2017-01-13T21:23:05.949Z",
+        "updatedAt": "2017-01-14T19:41:29.466Z",
+        "checklist": [],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "84f02d6a-7b43-4818-a35c-d3336cec4880"
+    },
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+Invalid-request-parameters 	BadRequest 	
+
+"tagId" must be a valid UUID corresponding to a tag belonging to the user.
+TagExists 	BadRequest 	
+
+The task is already tagged with given tag.
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Add an item to the task's checklist
+post
+
+https://habitica.com/api/v3/tasks/:taskId/checklist
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+Body Parameters
+Field 	Type 	Description
+text 	String 	
+
+The text of the checklist item
+completed 	Boolean 	
+
+Whether the checklist item is checked off.
+
+Default value: false
+
+    Example body data:
+
+{
+    "text": "Do this subtask"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "_id": "84f02d6a-7b43-4818-a35c-d3336cec4880",
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "text": "Test API Params",
+        "alias": "test-api-params",
+        "type": "todo",
+        "notes": "",
+        "tags": [],
+        "value": 0,
+        "priority": 2,
+        "attribute": "int",
+        "challenge": {
+            "taskId": "4a29874c-0308-417b-a909-2a7d262b49f6",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "createdAt": "2017-01-13T21:23:05.949Z",
+        "updatedAt": "2017-01-14T03:38:07.406Z",
+        "checklist": [
+            {
+                "id": "afe4079d-dff1-47d9-9b06-5d76c69ddb12",
+                "text": "Do this subtask",
+                "completed": false
+            }
+        ],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "84f02d6a-7b43-4818-a35c-d3336cec4880"
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Assign a group task to a user or users
+
+Assign users to a group task
+
+post
+
+https://habitica.com/api/v3/tasks/:taskId/assign
+
+Path Parameters
+Field 	Type 	Description
+taskId 	UUID 	
+
+The id of the task that will be assigned
+Body Parameters
+Field 	Type 	Description
+assignedUserIds 	UUID[] 	
+
+Array of user IDs to be assigned to the task
+Success 200
+Field 	Description
+data 	
+
+The assigned task
+Task | Create a new task belonging to a challenge
+
+Can be passed an object to create a single task or an array of objects to create multiple tasks.
+
+post
+
+https://habitica.com/api/v3/tasks/challenge/:challengeId
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The id of the challenge the new task(s) will belong to
+Body Parameters
+Field 	Type 	Description
+text 	String 	
+
+The text to be displayed for the task
+type 	String 	
+
+Task type, options are: "habit", "daily", "todo", "reward".
+
+Allowed values: "habit", "daily", "todo", "reward"
+attribute 	String 	
+
+User's attribute to use, options are: "str", "int", "per", "con".
+
+Allowed values: "str", "int", "per", "con"
+collapseChecklist 	Boolean 	
+
+Determines if a checklist will be displayed
+
+Default value: false
+notes 	String 	
+
+Extra notes
+date 	Date 	
+
+Due date to be shown in task list. Only valid for type "todo."
+priority 	Number 	
+
+Difficulty, options are 0.1, 1, 1.5, 2; equivalent of Trivial, Easy, Medium, Hard.
+
+Default value: 1
+
+Allowed values: "0.1", "1", "1.5", "2"
+reminders 	String[] 	
+
+Array of reminders, each an object that must include: a UUID, startDate and time. For example {"id":"ed427623-9a69-4aac-9852-13deb9c190c3", "startDate":"1/16/17","time":"1/16/17" }
+frequency 	String 	
+
+Values "weekly" and "monthly" enable use of the "repeat" field. All frequency values enable use of the "everyX" field. Value "monthly" enables use of the "weeksOfMonth" and "daysOfMonth" fields. Frequency is only valid for type "daily".
+
+Default value: weekly
+
+Allowed values: "daily", "weekly", "monthly", "yearly"
+repeat 	String 	
+
+List of objects for days of the week, Days that are true will be repeated upon. Only valid for type "daily". Any days not specified will be marked as true. Days are: su, m, t, w, th, f, s. Value of frequency must be "weekly". For example, to skip repeats on Mon and Fri: "repeat":{"f":false,"m":false}
+
+Default value: true
+everyX 	Number 	
+
+Value of frequency must be "daily", the number of days until this daily task is available again.
+
+Default value: 1
+streak 	Number 	
+
+Number of days that the task has consecutively been checked off. Only valid for type "daily"
+
+Default value: 0
+daysOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+weeksOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+startDate 	Date 	
+
+Date when the task will first become available. Only valid for type "daily"
+up 	Boolean 	
+
+Only valid for type "habit" If true, enables the "+" under "Directions/Action" for "Good habits"
+
+Default value: true
+down 	Boolean 	
+
+Only valid for type "habit" If true, enables the "-" under "Directions/Action" for "Bad habits"
+
+Default value: true
+value 	Number 	
+
+Only valid for type "reward." The cost in gold of the reward
+
+Default value: 0
+
+    Request-Example:
+
+{
+    "type": "todo",
+    "text": "Test API Params"
+}
+
+201
+Field 	Description
+data 	
+
+An object if a single task was created, otherwise an array of tasks
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "text": "Test API Params",
+        "type": "todo",
+        "notes": "",
+        "tags": [],
+        "value": 0,
+        "priority": 1,
+        "attribute": "str",
+        "challenge": {
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "_id": "4a29874c-0308-417b-a909-2a7d262b49f6",
+        "createdAt": "2017-01-13T21:23:05.949Z",
+        "updatedAt": "2017-01-13T21:23:05.949Z",
+        "checklist": [],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "4a29874c-0308-417b-a909-2a7d262b49f6"
+    },
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+MustBeType 	BadRequest 	
+
+Task type must be one of "habit", "daily", "todo", "reward".
+Text-ValidationFailed 	BadRequest 	
+
+Path 'text' is required.
+Alias-ValidationFailed 	BadRequest 	
+
+Task short names can only contain alphanumeric characters, underscores and dashes.
+Value-ValidationFailed 	BadRequest 	
+
+x is not a valid enum value for path (body param).
+401
+Name 	Type 	Description
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials.
+404
+Name 	Type 	Description
+ChecklistNotFound 	NotFound 	
+
+The specified checklist item could not be found.
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Task | Create a new task belonging to a group
+
+Can be passed an object to create a single task or an array of objects to create multiple tasks.
+
+post
+
+https://habitica.com/api/v3/tasks/group/:groupId
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The id of the group the new task(s) will belong to
+Success 200
+Field 	Description
+data 	
+
+An object if a single task was created, otherwise an array of tasks
+Task | Create a new task belonging to the user
+
+Can be passed an object to create a single task or an array of objects to create multiple tasks.
+
+post
+
+https://habitica.com/api/v3/tasks/user
+
+Body Parameters
+Field 	Type 	Description
+text 	String 	
+
+The text to be displayed for the task
+type 	String 	
+
+Task type, options are: "habit", "daily", "todo", "reward".
+
+Allowed values: "habit", "daily", "todo", "reward"
+tags 	String[] 	
+
+Array of UUIDs of tags
+alias 	String 	
+
+Alias to assign to task
+attribute 	String 	
+
+User's attribute to use, options are: "str", "int", "per", "con"
+
+Allowed values: "str", "int", "per", "con"
+checklist 	Array 	
+
+An array of checklist items. For example, [{"text":"buy tools", "completed":true}, {"text":"build shed", "completed":false}]
+collapseChecklist 	Boolean 	
+
+Determines if a checklist will be displayed
+
+Default value: false
+notes 	String 	
+
+Extra notes
+date 	Date 	
+
+Due date to be shown in task list. Only valid for type "todo."
+priority 	Number 	
+
+Difficulty, options are 0.1, 1, 1.5, 2; equivalent of Trivial, Easy, Medium, Hard.
+
+Default value: 1
+
+Allowed values: "0.1", "1", "1.5", "2"
+reminders 	String[] 	
+
+Array of reminders, each an object that must include: a UUID, startDate and time. For example {"id":"ed427623-9a69-4aac-9852-13deb9c190c3", "startDate":"1/16/17","time":"1/16/17" }
+frequency 	String 	
+
+Values "weekly" and "monthly" enable use of the "repeat" field. All frequency values enable use of the "everyX" field. Value "monthly" enables use of the "weeksOfMonth" and "daysOfMonth" fields. Frequency is only valid for type "daily".
+
+Default value: weekly
+
+Allowed values: "daily", "weekly", "monthly", "yearly"
+repeat 	String 	
+
+List of objects for days of the week, Days that are true will be repeated upon. Only valid for type "daily". Any days not specified will be marked as true. Days are: su, m, t, w, th, f, s. Value of frequency must be "weekly". For example, to skip repeats on Mon and Fri: "repeat":{"f":false,"m":false}
+
+Default value: true
+everyX 	Number 	
+
+Value of frequency must be "daily", the number of days until this daily task is available again.
+
+Default value: 1
+streak 	Number 	
+
+Number of days that the task has consecutively been checked off. Only valid for type "daily"
+
+Default value: 0
+daysOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+weeksOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+startDate 	Date 	
+
+Date when the task will first become available. Only valid for type "daily"
+up 	Boolean 	
+
+Only valid for type "habit" If true, enables the "+" under "Directions/Action" for "Good habits"-
+
+Default value: true
+down 	Boolean 	
+
+Only valid for type "habit" If true, enables the "-" under "Directions/Action" for "Bad habits"
+
+Default value: true
+value 	Number 	
+
+Only valid for type "reward." The cost in gold of the reward. Should be greater then or equal to 0.
+
+Default value: 0
+
+    Request-Example:
+
+{
+    "text": "Update Habitica API Documentation - Tasks",
+    "type": "todo",
+    "alias": "hab-api-tasks",
+    "notes": "Update the tasks api on GitHub",
+    "tags": [
+        "ed427623-9a69-4aac-9852-13deb9c190c3"
+    ],
+    "checklist": [
+        {
+            "text": "read wiki",
+            "completed": true
+        },
+        {
+            "text": "write code"
+        }
+    ],
+    "priority": 2
+}
+
+201
+Field 	Description
+data 	
+
+An object if a single task was created, otherwise an array of tasks
+
+    Success-Response:
+
+{
+    "success": true,
+    "data": {
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "alias": "hab-api-tasks",
+        "text": "Update Habitica API Documentation - Tasks",
+        "type": "todo",
+        "notes": "Update the tasks api on GitHub",
+        "tags": [
+            "ed427623-9a69-4aac-9852-13deb9c190c3"
+        ],
+        "value": 0,
+        "priority": 2,
+        "attribute": "str",
+        "challenge": {},
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "_id": "829d435b-edc4-498c-a30e-e52361a0f35a",
+        "createdAt": "2017-01-12T02:11:02.876Z",
+        "updatedAt": "2017-01-12T02:11:02.876Z",
+        "checklist": [
+            {
+                "completed": true,
+                "text": "read wiki",
+                "id": "91edadda-fb62-4e6e-b110-aff26f936678"
+            },
+            {
+                "completed": false,
+                "text": "write code",
+                "id": "d1ddad50-ab22-49c4-8261-9996ae337b6a"
+            }
+        ],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "829d435b-edc4-498c-a30e-e52361a0f35a"
+    },
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+MustBeType 	BadRequest 	
+
+Task type must be one of "habit", "daily", "todo", "reward".
+Text-ValidationFailed 	BadRequest 	
+
+Path 'text' is required.
+Alias-ValidationFailed 	BadRequest 	
+
+Task short names can only contain alphanumeric characters, underscores and dashes.
+Value-ValidationFailed 	BadRequest 	
+
+x is not a valid enum value for path (body param).
+401
+Name 	Type 	Description
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials.
+404
+Name 	Type 	Description
+ChecklistNotFound 	NotFound 	
+
+The specified checklist item could not be found.
+
+    Error-Response:
+
+{
+    "success": false,
+    "error": "BadRequest",
+    "message": "todo validation failed",
+    "errors": [
+        {
+            "message": "Path `text` is required.",
+            "path": "text"
+        }
+    ]
+}
+
+Task | Delete a checklist item from a task
+delete
+
+https://habitica.com/api/v3/tasks/:taskId/checklist/:itemId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+itemId 	UUID 	
+
+The checklist item _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "_id": "84f02d6a-7b43-4818-a35c-d3336cec4880",
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "text": "Test API Params",
+        "alias": "test-api-params",
+        "type": "todo",
+        "notes": "",
+        "tags": [],
+        "value": -1,
+        "priority": 2,
+        "attribute": "int",
+        "challenge": {
+            "taskId": "4a29874c-0308-417b-a909-2a7d262b49f6",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "createdAt": "2017-01-13T21:23:05.949Z",
+        "updatedAt": "2017-01-14T19:35:41.881Z",
+        "checklist": [],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "84f02d6a-7b43-4818-a35c-d3336cec4880"
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+ChecklistNotFound 	NotFound 	
+
+The specified checklist item could not be found.
+Task | Delete a tag from a task
+delete
+
+https://habitica.com/api/v3/tasks/:taskId/tags/:tagId
+
+    Example use:
+
+curl -X "DELETE" https://habitica.com/api/v3/tasks/test-api-params/tags/3d5d324d-a042-4d5f-872e-0553e228553e
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+tagId 	UUID 	
+
+The tag id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "_id": "84f02d6a-7b43-4818-a35c-d3336cec4880",
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "text": "Test API Params",
+        "alias": "test-api-params",
+        "type": "todo",
+        "notes": "",
+        "tags": [],
+        "value": -1,
+        "priority": 2,
+        "attribute": "int",
+        "challenge": {
+            "taskId": "4a29874c-0308-417b-a909-2a7d262b49f6",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "createdAt": "2017-01-13T21:23:05.949Z",
+        "updatedAt": "2017-01-14T20:02:18.206Z",
+        "checklist": [],
+        "collapseChecklist": false,
+        "completed": false,
+        "id": "84f02d6a-7b43-4818-a35c-d3336cec4880"
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+TagNotFound 	NotFound 	
+
+The specified tag could not be found.
+Task | Delete a task
+delete
+
+https://habitica.com/api/v3/tasks/:taskId
+
+    Example call:
+
+curl -X "DELETE" https://habitica.com/api/v3/tasks/3d5d324d-a042-4d5f-872e-0553e228553e
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+401
+Name 	Type 	Description
+Challenge 	NotAuthorized 	
+
+A task belonging to a challenge can't be deleted.
+Group 	NotAuthorized 	
+
+Can't delete group tasks that are assigned to you
+ChallengeLeader 	NotAuthorized 	
+
+Tasks belonging to a challenge can only be edited by the leader.
+GroupLeader 	NotAuthorized 	
+
+Not authorized to manage tasks!
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Delete user's completed todos
+
+Deletes all of a user's completed To Do's except those belonging to active Challenges and Group Plans.
+
+post
+
+https://habitica.com/api/v3/tasks/clearCompletedTodos
+
+    Example call:
+
+curl -X "POST" https://habitica.com/api/v3/tasks/ClearCompletedTodos
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+
+    Example return:
+
+{
+    "success": true,
+    "data": {},
+    "notifications": []
+}
+
+Task | Get a challenge's tasks
+get
+
+https://habitica.com/api/v3/tasks/challenge/:challengeId
+
+    Example use:
+
+curl -i https://habitica.com/api/v3/tasks/challenge/f23c12f2-5830-4f15-9c36-e17fd729a812
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The id of the challenge from which to retrieve the tasks
+Query Parameters
+Field 	Type 	Description
+type 	String 	
+
+Query parameter to return just a type of tasks.
+
+Allowed values: "habits", "dailys", "todos", "rewards"
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of tasks
+
+    Example return:
+
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "5f12bfba-da30-4733-ad01-9c42f9817975",
+            "text": "API Trial",
+            "type": "habit",
+            "notes": "",
+            "tags": [],
+            "value": 27.70767809690112,
+            "priority": 1.5,
+            "attribute": "str",
+            "challenge": {
+                "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+            },
+            "group": {
+                "assignedUsers": [],
+                "approval": {
+                    "required": false,
+                    "approved": false,
+                    "requested": false
+                }
+            },
+            "reminders": [],
+            "createdAt": "2017-01-12T19:03:33.485Z",
+            "updatedAt": "2017-01-13T17:45:52.442Z",
+            "history": [
+                {
+                    "date": 1484257319183,
+                    "value": 18.53316748293123
+                },
+                {
+                    "date": 1484329552441,
+                    "value": 27.70767809690112
+                }
+            ],
+            "down": false,
+            "up": true,
+            "id": "5f12bfba-da30-4733-ad01-9c42f9817975"
+        },
+        {
+            "_id": "54a81d23-529c-4daa-a6f7-c5c6e7e84936",
+            "text": "Challenge TODO",
+            "type": "todo",
+            "notes": "",
+            "tags": [],
+            "value": 2,
+            "priority": 2,
+            "attribute": "str",
+            "challenge": {
+                "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+            },
+            "group": {
+                "assignedUsers": [],
+                "approval": {
+                    "required": false,
+                    "approved": false,
+                    "requested": false
+                }
+            },
+            "reminders": [],
+            "createdAt": "2017-01-12T19:07:10.310Z",
+            "updatedAt": "2017-01-13T20:24:51.070Z",
+            "checklist": [],
+            "collapseChecklist": false,
+            "completed": false,
+            "id": "54a81d23-529c-4daa-a6f7-c5c6e7e84936"
+        }
+    ],
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Task | Get a group's tasks
+get
+
+https://habitica.com/api/v3/tasks/group/:groupId
+
+Path Parameters
+Field 	Type 	Description
+groupId 	UUID 	
+
+The id of the group from which to retrieve the tasks
+Query Parameters
+Field 	Type 	Description
+type 	string 	
+
+Query parameter to return just a type of tasks
+
+Allowed values: "habits", "dailys", "todos", "rewards"
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of tasks
+Task | Get a task
+get
+
+https://habitica.com/api/v3/tasks/:taskId
+
+    Example use:
+
+curl -i https://habitica.com/api/v3/tasks/54a81d23-529c-4daa-a6f7-c5c6e7e84936
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The task object
+
+    Example returned object:
+
+{
+    "success": true,
+    "data": {
+        "_id": "2b774d70-ec8b-41c1-8967-eb6b13d962ba",
+        "userId": "b0413351-405f-416f-8787-947ec1c85199",
+        "text": "API Trial",
+        "alias": "apiTrial",
+        "type": "habit",
+        "notes": "",
+        "tags": [],
+        "value": 11.996661122825959,
+        "priority": 1.5,
+        "attribute": "str",
+        "challenge": {
+            "taskId": "5f12bfba-da30-4733-ad01-9c42f9817975",
+            "id": "f23c12f2-5830-4f15-9c36-e17fd729a812"
+        },
+        "group": {
+            "assignedUsers": [],
+            "approval": {
+                "required": false,
+                "approved": false,
+                "requested": false
+            }
+        },
+        "reminders": [],
+        "createdAt": "2017-01-12T19:03:33.495Z",
+        "updatedAt": "2017-01-13T20:52:02.927Z",
+        "history": [
+            {
+                "value": 1,
+                "date": 1484248053486
+            },
+            {
+                "value": 1.9747,
+                "date": 1484252965224
+            },
+            {
+                "value": 2.9253562257358428,
+                "date": 1484252966902
+            },
+            {
+                "value": 6.415599723011605,
+                "date": 1484329050485
+            },
+            {
+                "value": 10.482627142836241,
+                "date": 1484329089835
+            },
+            {
+                "value": 11.24705848799571,
+                "date": 1484329095500
+            },
+            {
+                "value": 11.996661122825959,
+                "date": 1484329552423
+            }
+        ],
+        "down": false,
+        "up": true,
+        "id": "2b774d70-ec8b-41c1-8967-eb6b13d962ba"
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Get a user's tasks
+get
+
+https://habitica.com/api/v3/tasks/user
+
+Query Parameters
+Field 	Type 	Description
+type 	String 	
+
+Optional query parameter to return just a type of tasks. By default all types will be returned except completed todos that must be requested separately. The "completedTodos" type returns only the 30 most recently completed.
+
+Allowed values: "habits", "dailys", "todos", "rewards", "completedTodos"
+dueDate 		
+
+type Optional date to use for computing the nextDue field for each returned task.
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+An array of tasks
+
+    Example return:
+
+{"success":true,"data":[{"_id":"8a9d461b-f5eb-4a16-97d3-c03380c422a3",
+"userId":"b0413351-405f-416f-8787-947ec1c85199","text":"15 minute break",
+"type":"reward","notes":"","tags":[],"value":10,"priority":1,"attribute":"str",
+"challenge":{},"group":{"assignedUsers":[],"approval":{"required":false,"approved":false,
+"requested":false}},"reminders":[],"createdAt":"2017-01-07T17:52:09.121Z",
+"updatedAt":"2017-01-11T14:25:32.504Z","id":"8a9d461b-f5eb-4a16-97d3-c03380c422a3"},
+,{"_id":"84c2e874-a8c9-4673-bd31-d97a1a42e9a3","userId":"b0413351-405f-416f-8787-947ec1c85199",
+"alias":"prac31","text":"Practice Task 31","type":"daily","notes":"","tags":[],"value":1,
+"priority":1,"attribute":"str","challenge":{},"group":{"assignedUsers":[],
+"approval":{"required":false,"approved":false,"requested":false}},
+"reminders":[{"time":"2017-01-13T16:21:00.074Z","startDate":"2017-01-13T16:20:00.074Z",
+"id":"b8b549c4-8d56-4e49-9b38-b4dcde9763b9"}],"createdAt":"2017-01-13T16:34:06.632Z",
+"updatedAt":"2017-01-13T16:49:35.762Z","checklist":[],"collapseChecklist":false,
+"completed":true,"history":[],"streak":1,"repeat":{"su":false,"s":false,"f":true,
+"th":true,"w":true,"t":true,"m":true},"startDate":"2017-01-13T00:00:00.000Z",
+"everyX":1,"frequency":"weekly","id":"84c2e874-a8c9-4673-bd31-d97a1a42e9a3"}],"notifications":[]}
+
+401
+Name 	Type 	Description
+NoAccount 	NotAuthorized 	
+
+There is no account that uses those credentials.
+Name 	Type 	Description
+Invalid_request_parameters 		
+
+Error returned if the type URL param was not correct.
+Task | Move a group task to a specified position
+
+Moves a group task to a specified position
+
+post
+
+https://habitica.com/api/v3/group/:groupId/tasks/:taskId/move/to/:position
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id
+position 	Number 	
+
+Where to move the task. 0 = top of the list ("push to top"). -1 = bottom of the list ("push to bottom").
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+The new tasks order (group.tasksOrder.{task.type}s)
+Task | Move a task to a new position
+
+Note: completed To Do's are not sortable, do not appear in user.tasksOrder.todos, and are ordered by date of completion.
+
+post
+
+https://habitica.com/api/v3/tasks/:taskId/move/to/:position
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+position 	Number 	
+
+Where to move the task. 0 = top of the list ("push to top"). -1 = bottom of the list ("push to bottom").
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+The new tasks order for the specific type that the taskID belongs to.
+
+    Example return:
+
+{
+    "success": true,
+    "data": [
+        "8d7e237a-b259-46ee-b431-33621256bb0b",
+        "2b774d70-ec8b-41c1-8967-eb6b13d962ba",
+        "f03d4a2b-9c36-4f33-9b5f-bae0aed23a49"
+    ],
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Require more work for a group task
+
+Mark an assigned group task as needing more work before it can be approved
+
+post
+
+https://habitica.com/api/v3/tasks/:taskId/needs-work/:userId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	UUID 	
+
+The id of the task that is the original group task
+userId 	UUID 	
+
+The id of the assigned user
+Success 200
+Field 	Description
+task 	
+
+The task that needs more work
+Task | Score a checklist item
+post
+
+https://habitica.com/api/v3/tasks/:taskId/checklist/:itemId/score
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+itemId 	UUID 	
+
+The checklist item _id
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+ChecklistNotFound 	NotFound 	
+
+The specified checklist item could not be found.
+Task | Score a task
+post
+
+https://habitica.com/api/v3/tasks/:taskId/score/:direction
+
+    Example call:
+
+curl -X "POST" https://habitica.com/api/v3/tasks/test-api-params/score/up
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+direction 	String 	
+
+The direction for scoring the task
+
+Allowed values: "up", "down"
+202
+Field 	Type 	Description
+  requiresApproval 	Boolean 	
+
+Approval was requested for team task
+message 	String 	
+
+Acknowledgment of team task approval request
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The user stats
+  _tmp 	Object 	
+
+If an item was dropped it'll be returned in te _tmp object
+  delta 	Number 	
+
+The delta
+
+    Example result:
+    Example result with item drop:
+
+{
+    "success": true,
+    "data": {
+        "delta": 0.9746999906450404,
+        "_tmp": {},
+        "hp": 49.06645205596985,
+        "mp": 37.2008917491047,
+        "exp": 101.93810026267543,
+        "gp": 77.09694176716997,
+        "lvl": 19,
+        "class": "rogue",
+        "points": 0,
+        "str": 5,
+        "con": 3,
+        "int": 3,
+        "per": 8,
+        "buffs": {
+            "str": 9,
+            "int": 9,
+            "per": 9,
+            "con": 9,
+            "stealth": 0,
+            "streaks": false,
+            "snowball": false,
+            "spookySparkles": false,
+            "shinySeed": false,
+            "seafoam": false
+        },
+        "training": {
+            "int": 0,
+            "per": 0,
+            "str": 0,
+            "con": 0
+        }
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Unassign a user from a task
+
+Unassigns a user from a group task
+
+post
+
+https://habitica.com/api/v3/tasks/:taskId/unassign/:assignedUserId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	UUID 	
+
+The id of the task that is the original group task
+assignedUserId 	UUID 	
+
+The id of the user that will be unassigned from the task
+Success 200
+Field 	Description
+data 	
+
+The unassigned task
+Task | Unlink a challenge task
+post
+
+https://habitica.com/api/v3/tasks/unlink-one/:taskId
+
+    Example call:
+
+curl -X "POST" https://habitica.com/api/v3/tasks/unlink-one/ee882e1d-ebd1-4716-88f2-4f9e47d947a8?keep=keep
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+Query Parameters
+Field 	Type 	Description
+keep 	String 	
+
+Specifies if the task should be kept(keep) or removed(remove).
+
+Allowed values: 'keep', 'remove'
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+400
+Name 	Type 	Description
+Broken 	BadRequest 	
+
+Only broken challenges tasks can be unlinked.
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Task | Unlink all tasks from a challenge
+post
+
+https://habitica.com/api/v3/tasks/unlink-all/:challengeId
+
+    Example call:
+
+curl -X "POST" https://habitica.com/api/v3/tasks/unlink-all/f23c12f2-5830-4f15-9c36-e17fd729a812?keep=remove-all
+
+Path Parameters
+Field 	Type 	Description
+challengeId 	UUID 	
+
+The challenge _id
+Query Parameters
+Field 	Type 	Description
+keep 	String 	
+
+Specifies if tasks should be kept(keep-all) or removed(remove-all) after the unlink.
+
+Allowed values: 'keep-all', 'remove-all'
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty object
+
+    Example return:
+
+{
+    "success": true,
+    "data": {},
+    "notifications": []
+}
+
+400
+Name 	Type 	Description
+Broken 	BadRequest 	
+
+Only broken challenges tasks can be unlinked.
+Task | Update a checklist item
+put
+
+https://habitica.com/api/v3/tasks/:taskId/checklist/:itemId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+itemId 	UUID 	
+
+The checklist item _id
+Body Parameters
+Field 	Type 	Description
+text 	String 	
+
+The replacement text for the current checklist item.
+completed 	Boolean 	
+
+Whether the checklist item is checked off.
+
+Default value: false
+
+    Example body:
+
+{
+    "text": "learn Czech",
+    "completed": true
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+ChecklistNotFound 	NotFound 	
+
+The specified checklist item could not be found.
+ChallengeNotFound 	NotFound 	
+
+The specified challenge could not be found.
+Task | Update a task
+put
+
+https://habitica.com/api/v3/tasks/:taskId
+
+Path Parameters
+Field 	Type 	Description
+taskId 	String 	
+
+The task _id or alias
+Body Parameters
+Field 	Type 	Description
+text 	String 	
+
+The text to be displayed for the task
+attribute 	String 	
+
+User's attribute to use, options are: "str", "int", "per", "con".
+
+Allowed values: "str", "int", "per", "con"
+collapseChecklist 	Boolean 	
+
+Determines if a checklist will be displayed
+
+Default value: false
+notes 	String 	
+
+Extra notes
+date 	Date 	
+
+Due date to be shown in task list. Only valid for type "todo."
+priority 	Number 	
+
+Difficulty, options are 0.1, 1, 1.5, 2; equivalent of Trivial, Easy, Medium, Hard.
+
+Default value: 1
+
+Allowed values: "0.1", "1", "1.5", "2"
+reminders 	String[] 	
+
+Array of reminders, each an object that must include: a UUID, startDate and time.
+frequency 	String 	
+
+Values "weekly" and "monthly" enable use of the "repeat" field. All frequency values enable use of the "everyX" field. Value "monthly" enables use of the "weeksOfMonth" and "daysOfMonth" fields. Frequency is only valid for type "daily".
+
+Default value: weekly
+
+Allowed values: "daily", "weekly", "monthly", "yearly"
+repeat 	String 	
+
+List of objects for days of the week, Days that are true will be repeated upon. Only valid for type "daily". Any days not specified will be marked as true. Days are: su, m, t, w, th, f, s. Value of frequency must be "weekly". For example, to skip repeats on Mon and Fri: "repeat":{"f":false,"m":false}
+
+Default value: true
+everyX 	Number 	
+
+Value of frequency must be "daily", the number of days until this daily task is available again.
+
+Default value: 1
+streak 	Number 	
+
+Number of days that the task has consecutively been checked off. Only valid for type "daily",
+
+Default value: 0
+daysOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+weeksOfMonth 	Integer[] 	
+
+Array of integers. Only valid for type "daily"
+startDate 	Date 	
+
+Date when the task will first become available. Only valid for type "daily".
+up 	Boolean 	
+
+Only valid for type "habit" If true, enables the "+" under "Directions/Action" for "Good habits".
+
+Default value: true
+down 	Boolean 	
+
+Only valid for type "habit" If true, enables the "-" under "Directions/Action" for "Bad habits".
+
+Default value: true
+value 	Number 	
+
+Only valid for type "reward." The cost in gold of the reward
+
+Default value: 0
+
+    Request-Example:
+
+{
+    "notes": "This will be replace the notes, anything not specified will remain the same"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated task
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+Unsubscribe
+Unsubscribe | Unsubscribe an email address or user from email notifications
+
+This is a POST method for compliance with RFC 8058. It works identically to the GET method on the same URI, allowing the user to unsubscribe from emails either via visiting a hyperlink or activating a one-click Unsubscribe button in their email client. Does not require authentication.
+
+post
+
+https://habitica.com/email/unsubscribe
+
+Query Parameters
+Field 	Type 	Description
+code 	String 	
+
+An unsubscription code that contains an encrypted User ID or email address
+Success 200
+Field 	Type 	Description
+Webpage 	String 	
+
+An html success message
+400
+Name 	Type 	Description
+missingUnsubscriptionCode 	BadRequest 	
+
+The unsubscription code is missing.
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+Unsubscribe | Unsubscribe an email address or user from email notifications
+
+This is a GET method included in official emails from Habitica that will unsubscribe the user from emails. Does not require authentication.
+
+get
+
+https://habitica.com/email/unsubscribe
+
+Query Parameters
+Field 	Type 	Description
+code 	String 	
+
+An unsubscription code that contains an encrypted User ID or email address
+Success 200
+Field 	Type 	Description
+Webpage 	String 	
+
+An html success message
+400
+Name 	Type 	Description
+missingUnsubscriptionCode 	BadRequest 	
+
+The unsubscription code is missing.
+404
+Name 	Type 	Description
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+User
+User | Allocate a single Stat Point (previously called Attribute Point)
+
+Allocates a single Stat Point.
+
+post
+
+https://habitica.com/api/v3/user/allocate
+
+Query Parameters
+Field 	Type 	Description
+stat 	String 	
+
+The Stat to increase. Default is 'str'
+
+Allowed values: "str", "con", "int", "per"
+
+    Example call:
+
+curl -X POST -d "" https://habitica.com/api/v3/user/allocate?stat=int
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Returns stats and notifications from the user profile
+Error 4xx
+Name 	Type 	Description
+NoPoints 	NotAuthorized 	
+
+You don't have enough Stat Points.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You don't have enough Stat Points."
+}
+
+User | Allocate all Stat Points
+
+Uses the user's chosen automatic allocation method, or if none, assigns all to STR. Note: will return success, even if there are 0 points to allocate.
+
+post
+
+https://habitica.com/api/v3/user/allocate-now
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.stats
+
+    Success-Response:
+
+ {
+  "success": true,
+  "data": {
+    "hp": 50,
+    "mp": 38,
+    "exp": 7,
+    "gp": 284.8637271160258,
+    "lvl": 10,
+    "class": "rogue",
+    "points": 0,
+    "str": 2,
+    "con": 2,
+    "int": 3,
+    "per": 3,
+    "buffs": {
+      "str": 0,
+      "int": 0,
+      "per": 0,
+      "con": 0,
+      "stealth": 0,
+      "streaks": false,
+      "snowball": false,
+      "spookySparkles": false,
+      "shinySeed": false,
+      "seafoam": false
+    },
+    "training": {
+      "int": 0,
+      "per": 0,
+      "str": 0,
+      "con": 0
+    },
+    "notifications": [ .... ],
+  }
+}
+
+User | Allocate multiple Stat Points
+post
+
+https://habitica.com/api/v3/user/allocate-bulk
+
+Body Parameters
+Field 	Type 	Description
+stats 	Object 	
+
+Body parameter
+
+    Example request
+
+{
+ stats: {
+   "int": int,
+   "str": str,
+   "con": con,
+   "per": per
+ }
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Returns stats and notifications from the user profile
+Error 4xx
+Name 	Type 	Description
+NoPoints 	NotAuthorized 	
+
+You don't have enough Stat Points.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You don't have enough Stat Points."
+}
+
+User | Block / unblock a user from sending you a PM
+post
+
+https://habitica.com/api/v3/user/block/:uuid
+
+Path Parameters
+Field 	Type 	Description
+uuid 	UUID 	
+
+The uuid of the user to block / unblock
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+user.inbox.blocks
+
+    Example return:
+
+{
+    "success": true,
+    "data": [
+        "e4842579-g987-d2d2-8660-2f79e725fb79"
+    ],
+    "notifications": []
+}
+
+Error 4xx
+Name 	Type 	Description
+InvalidUUID 	BadRequest 	
+
+UUID is incorrect.
+User | Buy a health potion
+post
+
+https://habitica.com/api/v3/user/buy-health-potion
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+User's current stats
+message 	String 	
+
+Success message
+
+    Example return:
+
+ {
+  "success": true,
+  "data": {
+    ---DATA TRUNCATED---
+  },
+  "message": "Bought Health Potion"
+}
+
+400
+Name 	Type 	Description
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+messageHealthAlreadyMax 	NotAuthorized 	
+
+Health is already full.
+
+    NotAuthorized Not enough gold
+    NotAuthorized Already at max health
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not Enough Gold"
+}
+
+User | Buy a Mystery Item set
+
+This buys a Mystery Item set using an Hourglass.
+
+post
+
+https://habitica.com/api/v3/user/buy-mystery-set/:key
+
+Path Parameters
+Field 	Type 	Description
+key 	String 	
+
+The mystery set to buy
+Success 200
+Field 	Type 	Description
+  items 	Object 	
+
+user.items
+  purchasedPlanConsecutive 	Object 	
+
+user.purchased.plan.consecutive
+message 	String 	
+
+Success message
+
+    Successful purchase
+
+{
+  "success": true,
+  "data": {
+    ---DATA TRUNCATED---
+  },
+  "message": "Purchased an item set using a Mystic Hourglass!"
+}
+
+400
+Name 	Type 	Description
+notEnoughHourglasses 	NotAuthorized 	
+
+Not enough Mystic Hourglasses.
+mysterySetNotFound 	NotFound 	
+
+Specified item does not exist or already owned.
+
+    Not enough hourglasses
+    Already own, or doesn't exist
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You don't have enough Mystic Hourglasses."
+}
+
+User | Buy a piece of gear
+post
+
+https://habitica.com/api/v3/user/buy-gear/:key
+
+Path Parameters
+Field 	Type 	Description
+key 	String 	
+
+The item to buy
+Success 200
+Field 	Type 	Description
+  items 	Object 	
+
+User's item inventory
+  flags 	Object 	
+
+User's flags
+  achievements 	Object 	
+
+User's achievements
+  stats 	Object 	
+
+User's current stats
+message 	String 	
+
+Success message, item purchased
+
+    Purchased a warrior's wooden shield for example:
+
+{
+  "success": true,
+  "data": {
+    ---TRUNCATED USER RECORD---
+  },
+  "message": "Bought Wooden Shield"
+}
+
+400
+Name 	Type 	Description
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+messageAlreadyOwnGear 	NotAuthorized 	
+
+Already own equipment
+404
+Name 	Type 	Description
+messageNotFound 	NotFound 	
+
+Item does not exist.
+
+    NotAuthorized Already own
+    NotAuthorized Not enough gold
+    NotFound Item not found
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You already own that piece of equipment"
+}
+
+User | Buy a quest with gold
+post
+
+https://habitica.com/api/v3/user/buy-quest/:key
+
+Path Parameters
+Field 	Type 	Description
+key 	String 	
+
+The quest scroll to buy
+Success 200
+Field 	Type 	Description
+  quests 	Object 	
+
+User's quest list
+message 	String 	
+
+Success message
+
+    Success response:
+
+{
+  "success": true,
+  "data": {
+    --- DATA TRUNCATED---
+  },
+  "message": "Bought Dilatory Distress, Part 1: Message in a Bottle"
+}
+
+400
+Name 	Type 	Description
+questNotFound 	NotFound 	
+
+Specified quest does not exist
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+
+    Quest chosen does not exist
+    You must first complete this quest's prerequisites
+    NotAuthorized Not enough gold
+
+{
+    "success": false,
+    "error": "NotFound",
+    "message": "Quest \"dilatoryDistress99\" not found."
+}
+
+User | Buy an Enchanted Armoire item
+post
+
+https://habitica.com/api/v3/user/buy-armoire
+
+Success 200
+Field 	Type 	Description
+  items 	Object 	
+
+User's item inventory
+  flags 	Object 	
+
+User's flags
+  armoire 	Object 	
+
+Item given by the armoire
+message 	String 	
+
+Success message
+
+    Received a fish:
+
+{
+ "success": true,
+ "data": {
+   ---DATA TRUNCATED---
+   "armoire": {
+     "type": "food",
+     "dropKey": "Fish",
+     "dropArticle": "a ",
+     "dropText": "Fish"
+   }
+ },
+
+400
+Name 	Type 	Description
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+
+    NotAuthorized Not enough gold
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not Enough Gold"
+}
+
+User | Buy gear, armoire or potion
+
+Under the hood uses UserBuyGear, UserBuyPotion and UserBuyArmoire
+
+post
+
+https://habitica.com/api/v3/user/buy/:key
+
+Path Parameters
+Field 	Type 	Description
+key 	String 	
+
+The item to buy
+Success 200
+Field 	Description
+data 	
+
+User's data profile
+message 	
+
+Item purchased
+
+    Purchased a rogue short sword for example:
+
+{
+  "success": true,
+  "data": {
+    ---TRUNCATED USER RECORD---
+  },
+  "message": "Bought Short Sword"
+}
+
+400
+Name 	Type 	Description
+messageAlreadyOwnGear 	NotAuthorized 	
+
+Already own equipment
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+
+    NotAuthorized Already own
+    NotAuthorized Not enough gold
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You already own that piece of equipment"
+}
+
+User | Buy special item (card, avatar transformation)
+
+Includes gift cards (e.g., birthday card), and avatar Transformation Items and their antidotes (e.g., Snowball item and Salt reward).
+
+post
+
+https://habitica.com/api/v3/user/buy-special-spell/:key
+
+Path Parameters
+Field 	Type 	Description
+key 	String 	
+
+The special item to buy. Must be one of the keys from "content.special", such as birthday, snowball, salt.
+Success 200
+Field 	Type 	Description
+  stats 	Object 	
+
+User's current stats
+  items 	Object 	
+
+User's current inventory
+message 	String 	
+
+Success message
+
+    Purchased a greeting card:
+
+{
+    "success": true,
+    "data": {},
+    "message": "Bought Greeting Card"
+}
+
+400
+Name 	Type 	Description
+messageNotEnoughGold 	NotAuthorized 	
+
+Not enough gold for the purchase
+
+    Not enough gold
+    Item name not found
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not Enough Gold"
+}
+
+User | Cast a skill (spell) on a target
+
+Skill Key to Name Mapping
+
+Mage: fireball="Burst of Flames", mpheal="Ethereal Surge", earth="Earthquake", frost="Chilling Frost"
+
+Warrior: smash="Brutal Smash", defensiveStance="Defensive Stance", valorousPresence="Valorous Presence", intimidate="Intimidating Gaze"
+
+Rogue: pickPocket="Pickpocket", backStab="Backstab", toolsOfTrade="Tools of the Trade", stealth="Stealth"
+
+Healer: heal="Healing Light", protectAura="Protective Aura", brightness="Searing Brightness", healAll="Blessing"
+
+Transformation Items: snowball="Snowball", spookySparkles="Spooky Sparkles", seafoam="Seafoam", shinySeed="Shiny Seed"
+
+post
+
+https://habitica.com/api/v3/user/class/cast/:spellId
+
+Path Parameters
+Field 	Type 	Description
+spellId 	String 	
+
+The skill to cast.
+
+Allowed values: fireball, mpheal, earth, frost, smash, defensiveStance, valorousPresence, intimidate, pickPocket, backStab, toolsOfTrade, stealth, heal, protectAura, brightness, healAll, snowball, spookySparkles, seafoam, shinySeed
+Query Parameters
+Field 	Type 	Description
+targetId 	UUID 	
+
+Query parameter, necessary if the spell is cast on a party member or task. Not used if the spell is casted on the user or the user's current party.
+
+    Query example:
+
+Cast "Pickpocket" on a task:
+ https://habitica.com/api/v3/user/class/cast/pickPocket?targetId=fd427623...
+
+Cast "Tools of the Trade" on the party:
+ https://habitica.com/api/v3/user/class/cast/toolsOfTrade
+
+Success 200
+Field 	Description
+data 	
+
+Will return the modified targets. For party members only the necessary fields will be populated. The user is always returned.
+400
+Name 	Type 	Description
+Not 	NotAuthorized 	
+
+enough mana.
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+PartyNotFound 	NotFound 	
+
+The user's party could not be found.
+UserNotFound 	NotFound 	
+
+The specified user could not be found.
+User | Change class
+
+User must be at least level 10. If ?class is defined and user.flags.classSelected is false it'll change the class. If user.preferences.disableClasses it'll enable classes, otherwise it sets user.flags.classSelected to false (costs 3 gems).
+
+post
+
+https://habitica.com/api/v3/user/change-class
+
+Query Parameters
+Field 	Type 	Description
+class 	String 	
+
+Query parameter - ?class={warrior|rogue|wizard|healer}
+Success 200
+Field 	Type 	Description
+  flags 	Object 	
+
+user.flags
+  stats 	Object 	
+
+user.stats
+  preferences 	Object 	
+
+user.preferences
+  items 	Object 	
+
+user.items
+Error 4xx
+Name 	Type 	Description
+Gems 	NotAuthorized 	
+
+Not enough gems, if class was already selected and gems needed to be paid.
+Level 	NotAuthorized 	
+
+To change class you must be at least level 10.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not enough Gems"
+}
+
+User | Check if email is used
+
+Check if the email is already used by another user
+
+put
+
+https://habitica.com/api/v4/user/auth/check-email
+
+Body Parameters
+Field 	Type 	Description
+email 	String 	
+
+The checked email address.
+Success 200
+Field 	Type 	Description
+  email 	String 	
+
+The checked email address
+  valid 	Boolean 	
+
+True if available, false if in use
+User | Delete a message
+delete
+
+https://habitica.com/api/v3/user/messages/:id
+
+Path Parameters
+Field 	Type 	Description
+id 	UUID 	
+
+The id of the message to delete
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.inbox.messages
+
+    Example return:
+
+{
+    "success": true,
+    "data": {
+        "74d9a2e7-4c6e-4f3b-c3c4-517873f41592": {
+            "sort": 0,
+            "user": "MadPink",
+            "backer": {},
+            "contributor": {},
+            "uuid": "b0413351-405f-416f-9999-947ec1c85199",
+            "flagCount": 0,
+            "flags": {},
+            "likes": {},
+            "timestamp": 1487276826704,
+            "text": "Hi there!",
+            "id": "74d9a2e7-4c6e-4f3b-c3c4-517873f41592"
+        }
+    }
+}
+
+User | Delete all messages
+delete
+
+https://habitica.com/api/v3/user/messages
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.inbox.messages which should be empty
+
+    Example return:
+
+{
+    "success": true,
+    "data": {},
+    "notifications": []
+}
+
+User | Delete an authenticated user's account
+delete
+
+https://habitica.com/api/v3/user
+
+Body Parameters
+Field 	Type 	Description
+password 	String 	
+
+The user's password if the account uses local authentication, otherwise the localized word "DELETE"
+feedback 	String 	
+
+User's optional feedback explaining reasons for deletion
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+
+    Result:
+
+{
+    "success": true,
+    "data": {}
+}
+
+Error 4xx
+Name 	Type 	Description
+MissingPassword 	BadRequest 	
+
+Missing password.
+NotAuthorized 	BadRequest 	
+
+Wrong password.
+BadRequest 	BadRequest 	
+
+Account deletion feedback is limited to 10,000 characters. For lengthy feedback, email ${TECH_ASSISTANCE_EMAIL}.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "BadRequest",
+    "message": "Invalid request parameters.",
+    "errors": [
+        {
+            "message": "Missing password.",
+            "param": "password"
+        }
+    ]
+}
+
+User | Delete social authentication method
+
+Remove a social authentication method from a user profile. The user must have another authentication method enabled.
+
+delete
+
+https://habitica.com/api/v3/user/auth/social/:network
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Empty object
+User | Disable classes
+post
+
+https://habitica.com/api/v3/user/disable-classes
+
+Success 200
+Field 	Type 	Description
+  flags 	Object 	
+
+user.flags
+  stats 	Object 	
+
+user.stats
+  preferences 	Object 	
+
+user.preferences
+User | Equip or unequip an item
+post
+
+https://habitica.com/api/v3/user/equip/:type/:key
+
+Path Parameters
+Field 	Type 	Description
+type 	String 	
+
+The type of item to equip or unequip.
+
+Allowed values: "mount", "pet", "costume", "equipped"
+key 	String 	
+
+The item to equip or unequip
+
+    Example-URL
+
+https://habitica.com/api/v3/user/equip/equipped/weapon_warrior_2
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.items
+message 	String 	
+
+Optional success message for unequipping an items
+
+    Example return:
+
+ {
+  "success": true,
+  "data": {---DATA TRUNCATED---},
+  "message": "Training Sword unequipped."
+}
+
+Error 4xx
+Name 	Type 	Description
+notOwned 	NotFound 	
+
+Item is not in inventory, item doesn't exist, or item is of the wrong type.
+
+    Item not owned or doesn't exist.
+
+{"success":false,"error":"NotFound","message":"You do not own this item."}
+{"success":false,"error":"NotFound","message":"You do not own this pet."}
+{"success":false,"error":"NotFound","message":"You do not own this mount."}
+
+User | Feed a pet
+post
+
+https://habitica.com/api/v3/user/feed/:pet/:food
+
+Path Parameters
+Field 	Type 	Description
+pet 	String 	
+food 	String 	
+Query Parameters
+Field 	Type 	Description
+amount 	Number 	
+
+The amount of food to feed. Note: Pet can eat 50 units. Preferred food offers 5 units per food, other food 2 units.
+
+    Example-URL
+
+https://habitica.com/api/v3/user/feed/Armadillo-Shade/Chocolate
+https://habitica.com/api/v3/user/feed/Armadillo-Shade/Chocolate?amount=9
+
+Success 200
+Field 	Type 	Description
+data 	Number 	
+
+The pet value
+message 	String 	
+
+Success message
+
+    Example success:
+
+{"success":true,"data":10,"message":"Shade Armadillo
+really likes the Chocolate!","notifications":[]}
+
+Error 4xx
+Name 	Type 	Description
+PetNotOwned 	NotFound 	
+
+:pet not found in user.items.pets
+InvalidPet 	BadRequest 	
+
+Invalid pet name supplied.
+FoodNotOwned 	NotFound 	
+
+:food not found in user.items.food Note: also sent if food name is invalid.
+notEnoughFood 	NotAuthorized 	
+
+:Not enough food to feed the pet as requested.
+tooMuchFood 	NotAuthorized 	
+
+:You try to feed too much food. Action ancelled.
+User | Get anonymized user data
+
+Returns the user's data without: Authentication information, NewMessages/Invitations/Inbox, Profile, Purchased information, Contributor information, Special items, Webhooks, Notifications.
+
+get
+
+https://habitica.com/api/v3/user/anonymized
+
+Success 200
+Field 	Type 	Description
+  user 	Object 	
+  tasks 	Object 	
+User | Get equipment/gear items available for purchase for the authenticated user
+get
+
+https://habitica.com/api/v3/user/inventory/buy
+
+    Success-Response:
+
+{
+    "success": true,
+    "data": [
+        {
+            "text": "Training Sword",
+            "notes": "Practice weapon. Confers no benefit.",
+            "value": 1,
+            "type": "weapon",
+            "key": "weapon_warrior_0",
+            "set": "warrior-0",
+            "klass": "warrior",
+            "index": "0",
+            "str": 0,
+            "int": 0,
+            "per": 0,
+            "con": 0
+        }
+    ]
+}
+
+User | Get the authenticated user's profile
+
+The user profile contains data related to the authenticated user including (but not limited to): Achievements; Authentications (including types and timestamps); Challenges memberships (Challenge IDs); Flags (including armoire, tutorial, tour etc...); Guilds memberships (Guild IDs); History (including timestamps and values, only for Experience and summed To Do values); Inbox; Invitations (to parties/guilds); Items (character's full inventory); New Messages (flags for party/guilds that have new messages; also reported in Notifications); Notifications; Party (includes current quest information); Preferences (user selected prefs); Profile (name, photo url, blurb); Purchased (includes subscription data and some gem-purchased items); PushDevices (identifiers for mobile devices authorized); Stats (standard RPG stats, class, buffs, xp, etc..); Tags; TasksOrder (list of all IDs for Dailys, Habits, Rewards and To Do's).
+
+get
+
+https://habitica.com/api/v3/user
+
+    Example use:
+
+curl -i https://habitica.com/api/v3/user?userFields=achievements,items.mounts
+
+Query Parameters
+Field 	Type 	Description
+userFields 	String 	
+
+A list of comma-separated user fields to be returned instead of the entire document. Notifications are always returned.
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The user object
+
+    Result:
+
+ {
+  "success": true,
+  "data": {
+  --  User data included here, for details of the user model see:
+  --  https://github.com/HabitRPG/habitica/tree/develop/website/server/models/user
+  }
+}
+
+User | Get the in app items appearing in the user's reward column
+get
+
+https://habitica.com/api/v3/user/in-app-rewards
+
+    Success-Response:
+
+{
+  "success": true,
+  "data": [
+    {
+      "key":"weapon_armoire_battleAxe",
+      "text":"Battle Axe",
+      "notes":"This fine iron axe is well-suited to battling your fiercest
+              foes or your most difficult tasks. Increases Intelligence by 6 and
+              Constitution by 8. Enchanted Armoire: Independent Item.",
+      "value":1,
+      "type":"weapon",
+      "locked":false,
+      "currency":"gems",
+      "purchaseType":"gear",
+      "class":"shop_weapon_armoire_battleAxe",
+      "path":"gear.flat.weapon_armoire_battleAxe",
+      "pinType":"gear"
+    }
+  ]
+}
+
+User | Get users purchase history
+get
+
+https://habitica.com/api/v4/user/purchase-history
+
+User | Hatch a pet
+post
+
+https://habitica.com/api/v3/user/hatch/:egg/:hatchingPotion
+
+Path Parameters
+Field 	Type 	Description
+egg 	String 	
+
+The egg to use
+hatchingPotion 	String 	
+
+The hatching potion to use
+
+    Example-URL
+
+https://habitica.com/api/v3/user/hatch/Dragon/CottonCandyPink
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.items
+message 	String 	
+
+    Successfully hatched
+
+{
+    "success": true,
+    "data": {},
+    "message": "Your egg hatched! Visit your stable to equip your pet."
+}
+
+Error 4xx
+Name 	Type 	Description
+messageAlreadyPet 	NotAuthorized 	
+
+Already have the specific pet combination
+messageMissingEggPotion 	NotFound 	
+
+One or both of the ingredients are missing.
+messageInvalidEggPotionCombo 	NotFound 	
+
+Cannot use that combination of egg and potion.
+
+    Already have that pet.
+    Either potion or egg (or both) not in inventory
+    Cannot use that combination
+
+{"success":false,"error":"NotAuthorized","message":"You already have that pet.
+Try hatching a different combination"}
+
+User | Login
+
+Login a user with email / username and password
+
+post
+
+https://habitica.com/api/v3/user/auth/local/login
+
+Body Parameters
+Field 	Type 	Description
+username 	String 	
+
+Username or email of the user
+password 	String 	
+
+The user's password
+Success 200
+Field 	Type 	Description
+  _id 	String 	
+
+The user's unique identifier
+  apiToken 	String 	
+
+The user's api token that must be used to authenticate requests.
+  newUser 	Boolean 	
+
+Returns true if the user was just created (always false for local login).
+User | Make the user start / stop sleeping (resting in the Inn)
+
+Toggles the sleep key under user preference true and false.
+
+post
+
+https://habitica.com/api/v3/user/sleep
+
+Success 200
+Field 	Type 	Description
+data 	boolean 	
+
+user.preferences.sleep
+
+    Return-example
+
+{
+    "success": true,
+    "data": false
+}
+
+User | Mark Private Messages as read
+post
+
+https://habitica.com/api/v3/user/mark-pms-read
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.inbox.newMessages
+
+    Example return:
+
+{
+    "success": true,
+    "data": [
+        0,
+        "Your private messages have been marked as read"
+    ],
+    "notifications": []
+}
+
+User | Move a pinned item in the rewards column to a new position after being sorted
+post
+
+https://habitica.com/api/v3/user/move-pinned-item/:type/:path/move/to/:position
+
+Path Parameters
+Field 	Type 	Description
+path 	String 	
+
+The unique item path used for pinning
+position 	Number 	
+
+Where to move the task. 0 = top of the list ("push to top"). -1 = bottom of the list ("push to bottom").
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+The new pinned items order.
+
+    Example success:
+
+{
+    "success": true,
+    "data": {
+        "path": "quests.mayhemMistiflying3",
+        "type": "quests",
+        "_id": "5a32d357232feb3bc94c2bdf"
+    },
+    "notifications": []
+}
+
+404
+Name 	Type 	Description
+TaskNotFound 	NotFound 	
+
+The specified task could not be found.
+User | Open the Mystery Item box
+post
+
+https://habitica.com/api/v3/user/open-mystery-item
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The item obtained
+message 	String 	
+
+Success message
+
+    Example success:
+
+{ "success": true,
+  "data": {
+    "mystery": "201612",
+    "value": 0,
+    "type": "armor",
+    "key": "armor_mystery_201612",
+    "set": "mystery-201612",
+    "klass": "mystery",
+    "index": "201612",
+    "str": 0,
+    "int": 0,
+    "per": 0,
+    "con": 0
+  },
+  "message": "Mystery item opened."
+
+Error 4xx
+Name 	Type 	Description
+Empty 	BadRequest 	
+
+No mystery items to open.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "BadRequest",
+    "message": "Mystery items are empty"
+}
+
+User | Purchase Gem or Gem-purchasable item
+post
+
+https://habitica.com/api/v3/user/purchase/:type/:key
+
+Path Parameters
+Field 	Type 	Description
+type 	String 	
+
+Type of item to purchase.
+
+Allowed values: "gems", "eggs", "hatchingPotions", "premiumHatchingPotions", "food", "quests", "gear", "pets"
+key 	String 	
+
+Item's key (use "gem" for purchasing gems)
+Body Parameters
+Field 	Type 	Description
+quantity 	Integer 	
+
+Count of items to buy. Defaults to 1 and is ignored for items where quantity is irrelevant.
+
+Default value: 1
+Success 200
+Field 	Type 	Description
+  items 	Object 	
+
+user.items
+  balance 	Number 	
+
+user.balance
+message 	String 	
+
+Success message
+Error 4xx
+Name 	Type 	Description
+NotAvailable 	NotAuthorized 	
+
+Item is not available to be purchased (not unlocked for the user).
+Gems 	NotAuthorized 	
+
+Not enough gems
+Key 	NotFound 	
+
+Key not found for Content type.
+Type 	NotFound 	
+
+Type invalid.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "This item is not currently available for purchase."
+}
+
+User | Purchase Hourglass-purchasable item
+
+Purchases an Hourglass-purchasable item. Does not include Mystery Item sets (use /api/v3/user/buy-mystery-set/:key).
+
+post
+
+https://habitica.com/api/v3/user/purchase-hourglass/:type/:key
+
+Path Parameters
+Field 	Type 	Description
+type 	String 	
+
+The type of item to purchase
+
+Allowed values: "pets", "mounts"
+key 	String 	
+
+Ex: {Phoenix-Base}. The key for the mount/pet
+Body Parameters
+Field 	Type 	Description
+quantity 	Integer 	
+
+Count of items to buy. Defaults to 1 and is ignored for items where quantity is irrelevant.
+
+Default value: 1
+Success 200
+Field 	Type 	Description
+  items 	Object 	
+
+user.items
+  purchasedPlanConsecutive 	Object 	
+
+user.purchased.plan.consecutive
+message 	String 	
+
+Success message
+Error 4xx
+Name 	Type 	Description
+NotAvailable 	NotAuthorized 	
+
+Item is not available to be purchased or is not valid.
+Hourglasses 	NotAuthorized 	
+
+User does not have enough Mystic Hourglasses.
+Quantity 	BadRequest 	
+
+Quantity to purchase must be a number.
+Type 	NotFound 	
+
+Type invalid.
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "You don't have enough Mystic Hourglasses."
+}
+
+User | Read a card
+post
+
+https://habitica.com/api/v3/user/read-card/:cardType
+
+Path Parameters
+Field 	Type 	Description
+cardType 	String 	
+
+Type of card to read (e.g. - birthday, greeting, nye, thankyou, valentine).
+Success 200
+Field 	Type 	Description
+  specialItems 	Object 	
+
+user.items.special
+  cardReceived 	Boolean 	
+
+user.flags.cardReceived
+message 	String 	
+
+Success message
+
+    Example success:
+
+{
+    "success": true,
+    "data": {
+        "specialItems": {
+            "snowball": 0,
+            "spookySparkles": 0,
+            "shinySeed": 0,
+            "seafoam": 0,
+            "valentine": 0,
+            "valentineReceived": [],
+            "nye": 0,
+            "nyeReceived": [],
+            "greeting": 0,
+            "greetingReceived": [
+                "MadPink"
+            ],
+            "thankyou": 0,
+            "thankyouReceived": [],
+            "birthday": 0,
+            "birthdayReceived": []
+        },
+        "cardReceived": false
+    },
+    "message": "valentine has been read"
+}
+
+Error 4xx
+Name 	Type 	Description
+CardType 	NotAuthorized 	
+
+Unknown card type.
+User | Register
+
+Register a new user with email, login name, and password or attach local authentication to a social auth user
+
+post
+
+https://habitica.com/api/v3/user/auth/local/register
+
+Body Parameters
+Field 	Type 	Description
+username 	String 	
+
+Login name of the new user. Must be 1-36 characters, containing only a-z, 0-9, hyphens (-), or underscores (_).
+email 	String 	
+
+Email address of the new user
+password 	String 	
+
+Password for the new user
+confirmPassword 	String 	
+
+Password confirmation
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The user object, if local auth was just attached to a social user then only user.auth.local
+User | Release mounts
+post
+
+https://habitica.com/api/v3/user/release-mounts
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.items.mounts
+message 	String 	
+
+Success message
+
+    Example success:
+
+ {
+  "success": true,
+  "data": {
+    },
+    "items": {}
+  },
+  "message": "Mounts released"
+}
+
+Error 4xx
+Name 	Type 	Description
+Gems 	NotAuthorized 	
+
+Not enough gems
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not enough Gems"
+}
+
+User | Release pets and mounts and grants Triad Bingo
+post
+
+https://habitica.com/api/v3/user/release-both
+
+Success 200
+Field 	Type 	Description
+  achievements 	Object 	
+  items 	Object 	
+  balance 	Number 	
+message 	String 	
+
+Success message
+
+    Example success:
+
+{
+    "success": true,
+    "data": {
+        "achievements": {
+            "ultimateGearSets": {},
+            "challenges": [],
+            "quests": {},
+            "perfect": 0,
+            "beastMaster": true,
+            "beastMasterCount": 1,
+            "mountMasterCount": 1,
+            "triadBingoCount": 1,
+            "mountMaster": true,
+            "triadBingo": true
+        },
+        "items": {}
+    },
+    "message": "Mounts and pets released"
+}
+
+Error 4xx
+Name 	Type 	Description
+Gems 	NotAuthorized 	
+
+Not enough gems
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not enough Gems"
+}
+
+User | Request a refresh of user stats, including processing of pending level-ups
+post
+
+https://habitica.com/api/v3/user/stat-sync
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The user object
+User | Reroll a user (reset tasks) using the Fortify Potion
+post
+
+https://habitica.com/api/v3/user/reroll
+
+Success 200
+Field 	Type 	Description
+  user 	Object 	
+  tasks 	Object 	
+
+User's modified tasks (no rewards)
+message 	Object 	
+
+Success message
+
+    Example success:
+
+{
+    "success": true,
+    "data": {},
+    "message": "Fortify complete!"
+}
+
+Error 4xx
+Name 	Type 	Description
+Gems 	NotAuthorized 	
+
+Not enough gems
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not enough Gems"
+}
+
+User | Reset password (email a reset link)
+
+Send the user an email to let them reset their password
+
+post
+
+https://habitica.com/api/v3/user/reset-password
+
+Body Parameters
+Field 	Type 	Description
+email 	String 	
+
+The email address of the user
+Success 200
+Field 	Type 	Description
+message 	String 	
+
+The localized success message
+User | Reset password (set a new one)
+
+Set a new password for a user that reset theirs. Not meant for public usage.
+
+post
+
+https://habitica.com/api/v3/user/auth/reset-password-set-new-one
+
+Body Parameters
+Field 	Type 	Description
+newPassword 	String 	
+
+The new password.
+confirmPassword 	String 	
+
+Password confirmation.
+Success 200
+Field 	Type 	Description
+data 	String 	
+
+An empty object
+User | Reset user
+post
+
+https://habitica.com/api/v3/user/reset
+
+Success 200
+Field 	Type 	Description
+  user 	Object 	
+  tasksToRemove 	Array 	
+
+IDs of removed tasks
+message 	String 	
+
+Success message
+
+    Example success:
+
+ {
+  "success": true,
+  "data": {--TRUNCATED--},
+    "tasksToRemove": [
+      "ebb8748c-0565-431e-9036-b908da25c6b4",
+      "12a1cecf-68eb-40a7-b282-4f388c32124c"
+    ]
+  },
+  "message": "Reset complete!"
+}
+
+User | Revive user from death
+post
+
+https://habitica.com/api/v3/user/revive
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.items
+message 	String 	
+
+Success message
+Error 4xx
+Name 	Type 	Description
+NotDead 	NotAuthorized 	
+
+Cannot revive player if player is not dead yet
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Cannot revive if not dead"
+}
+
+User | Sell a gold-sellable item owned by the user
+post
+
+https://habitica.com/api/v3/user/sell/:type/:key
+
+Path Parameters
+Field 	Type 	Description
+type 	String 	
+
+The type of item to sell.
+
+Allowed values: "eggs", "hatchingPotions", "food"
+key 	String 	
+
+The key of the item
+Query Parameters
+Field 	Type 	Description
+amount 	Number 	
+
+The amount to sell
+Success 200
+Field 	Type 	Description
+  stats 	Object 	
+  items 	Object 	
+Error 4xx
+Name 	Type 	Description
+InvalidKey 	NotFound 	
+
+Key not found for user.items eggs (either the key does not exist or the user has none in inventory).
+InvalidType 	NotAuthorized 	
+
+Type is not a valid type.
+
+    Example error:
+
+{"success":false,"error":"NotAuthorized","message":"Type is not sellable.
+Must be one of the following eggs, hatchingPotions, food"}
+
+User | Set Custom Day Start time for user.
+post
+
+https://habitica.com/api/v3/user/custom-day-start
+
+Body Parameters
+Field 	Type 	Description
+dayStart 	number 	
+
+The hour number 0-23 for day to begin. If not supplied, will default to 0.
+
+Default value: 0
+
+    Request-Example:
+
+{
+    "dayStart": 2
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+An empty Object
+message 	String 	
+
+Success message
+
+    Success-Example:
+
+{
+    "success": true,
+    "data": {
+        "message": "Your custom day start has changed."
+    },
+    "notifications": []
+}
+
+Error 4xx
+Name 	Type 	Description
+Validation 	BadRequest 	
+
+Value provided is not a number, or is outside the range of 0-23
+
+    Error-Example:
+
+{
+    "success": false,
+    "error": "BadRequest",
+    "message": "User validation failed",
+    "errors": [
+        {
+            "message": "Path `preferences.dayStart` (25) is more than maximum allowed value (23).",
+            "path": "preferences.dayStart",
+            "value": 25
+        }
+    ]
+}
+
+User | Toggle an item to be pinned
+get
+
+https://habitica.com/user/toggle-pinned-item/:key
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+Pinned items array
+
+    Result:
+
+ {
+  "success": true,
+  "data": {
+    "pinnedItems": [
+       "type": "gear",
+       "path": "gear.flat.weapon_1"
+    ]
+  }
+}
+
+User | Unequip all items by type
+post
+
+https://habitica.com/api/v4/user/unequip/:type
+
+Path Parameters
+Field 	Type 	Description
+type 	String 	
+
+The type of items to unequip.
+
+Allowed values: "pet-mount-background", "costume", "equipped"
+
+    Example-URL
+
+https://habitica.com/api/v4/user/unequip/equipped
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+user.items
+message 	String 	
+
+Optional success message for unequipping an items
+
+    Example return:
+
+ {
+  "success": true,
+  "data": {---DATA TRUNCATED---},
+  "message": "Battle Gear unequipped.
+}
+
+User | Unlock item or set of items by purchase
+post
+
+https://habitica.com/api/v3/user/unlock
+
+Query Parameters
+Field 	Type 	Description
+path 	String 	
+
+Full path to unlock. See "content" API call for list of items.
+
+    Example call:
+
+curl -X POST https://habitica.com/api/v3/user/unlock?path=background.midnight_clouds
+curl -X POST https://habitica.com/api/v3/user/unlock?path=hair.color.midnight
+
+Success 200
+Field 	Type 	Description
+  purchased 	Object 	
+  items 	Object 	
+  preferences 	Object 	
+message 	String 	
+
+"Items have been unlocked"
+
+    Example success:
+
+{
+    "success": true,
+    "data": {},
+    "message": "Items have been unlocked"
+}
+
+Error 4xx
+Name 	Type 	Description
+Path 	BadRequest 	
+
+Path to unlock not specified
+Gems 	NotAuthorized 	
+
+Not enough gems available.
+Unlocked 	NotAuthorized 	
+
+Full set already unlocked.
+
+    Example error:
+
+{"success":false,"error":"BadRequest","message":"Path string is required"}
+{"success":false,"error":"NotAuthorized","message":"Full set already unlocked."}
+
+User | Update email
+
+Change the user email address
+
+put
+
+https://habitica.com/api/v3/user/auth/update-email
+
+Body Parameters
+Field 	Type 	Description
+newEmail 	String 	
+
+The new email address.
+password 	String 	
+
+The user password.
+Success 200
+Field 	Type 	Description
+  email 	String 	
+
+The updated email address
+User | Update password
+
+Update the password of a local user
+
+put
+
+https://habitica.com/api/v3/user/auth/update-password
+
+Body Parameters
+Field 	Type 	Description
+password 	String 	
+
+The old password
+newPassword 	String 	
+
+The new password
+confirmPassword 	String 	
+
+New password confirmation
+Success 200
+Field 	Type 	Description
+  apiToken 	String 	
+
+The new apiToken
+User | Update the user
+
+Some of the user items can be updated, such as preferences, flags and stats. ^
+
+put
+
+https://habitica.com/api/v3/user
+
+    Request-Example:
+
+{
+    "achievements.habitBirthdays": 2,
+    "profile.name": "MadPink",
+    "stats.hp": 53,
+    "flags.warnedLowHealth": false,
+    "preferences.allocationMode": "flat",
+    "preferences.hair.bangs": 3
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated user object, the result is identical to the get user call
+401
+Name 	Type 	Description
+messageUserOperationProtected 	NotAuthorized 	
+
+Returned if the change is not allowed.
+
+    Error-Response:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "path `stats.class` was not saved, as it's a protected path."
+}
+
+User | Update username
+
+Update and verify the user's username
+
+put
+
+https://habitica.com/api/v3/user/auth/update-username
+
+Body Parameters
+Field 	Type 	Description
+username 	String 	
+
+The new username
+password 	String 	
+
+The user's password if they use local authentication. Omit if they use social auth.
+Success 200
+Field 	Type 	Description
+  username 	String 	
+
+The new username
+User | Use Orb of Rebirth on user
+post
+
+https://habitica.com/api/v3/user/rebirth
+
+Success 200
+Field 	Type 	Description
+  user 	Object 	
+  tasks 	Array 	
+
+User's modified tasks (no rewards)
+message 	String 	
+
+Success message
+
+    Example success:
+
+ {
+  "success": true,
+  "data": {
+  },
+  "message": "You have been reborn!"
+    {
+      "type": "REBIRTH_ACHIEVEMENT",
+      "data": {},
+      "id": "424d69fa-3a6d-47db-96a4-6db42ed77a43"
+    }
+  ]
+}
+
+Error 4xx
+Name 	Type 	Description
+Gems 	NotAuthorized 	
+
+Not enough gems
+
+    Example error:
+
+{
+    "success": false,
+    "error": "NotAuthorized",
+    "message": "Not enough Gems"
+}
+
+Webhook
+
+Webhooks fire when a particular action is performed, such as updating a task, or sending a message in a group.
+
+Your user's configured webhooks are stored as an Array on the user object under the webhooks property.
+
+Webhook | Create a new webhook - BETA
+post
+
+https://habitica.com/api/v3/user/webhook
+
+Body Parameters
+Field 	Type 	Description
+id 	UUID 	
+
+The webhook's id
+
+Default value: Randomly Generated UUID
+url 	String 	
+
+The webhook's URL
+label 	String 	
+
+A label to remind you what this webhook does
+enabled 	Boolean 	
+
+If the webhook should be enabled
+
+Default value: true
+type 	String 	
+
+The webhook's type.
+
+Default value: taskActivity
+
+Allowed values: "taskActivity", "groupChatReceived", "userActivity", "questActivity"
+options 	Object 	
+
+The webhook's options. Will differ depending on type. Required for groupChatReceived type. If a webhook supports options, the default values are displayed in the examples below
+
+    Task Activity Example
+    Group Chat Received Example
+    User Activity Example
+    Quest Activity Example
+    Minimal Example
+
+{
+  "enabled": true, // default
+  "url": "https://some-webhook-url.com",
+  "label": "My Webhook",
+  "type": "taskActivity", // default
+  "options": {
+    "created": false, // default
+    "updated": false, // default
+    "deleted": false, // default
+    "scored": true // default
+  }
+}
+
+201
+Field 	Type 	Description
+data 	Object 	
+
+The created webhook
+  id 	UUID 	
+
+The uuid of the webhook
+  url 	String 	
+
+The url of the webhook
+  label 	String 	
+
+A label for you to keep track of what this webhooks is for
+  enabled 	Boolean 	
+
+Whether the webhook should be sent
+  type 	String 	
+
+The type of the webhook
+  options 	Object 	
+
+The options for the webhook (See examples)
+400
+Name 	Type 	Description
+WebhookBodyInvalid 	BadRequest 	
+
+A body parameter passed in the request did not pass validation.
+Webhook | Delete a webhook - BETA
+delete
+
+https://habitica.com/api/v3/user/webhook/:id
+
+Path Parameters
+Field 	Type 	Description
+id 	UUID 	
+
+The id of the webhook to delete
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+The remaining webhooks for the user
+404
+Name 	Type 	Description
+WebhookNotFound 	NotFound 	
+
+The specified webhook could not be found.
+Webhook | Edit a webhook - BETA
+
+Can change url, enabled, type, and options properties. Cannot change id.
+
+put
+
+https://habitica.com/api/v3/user/webhook/:id
+
+Path Parameters
+Field 	Type 	Description
+id 	UUID 	
+
+URL parameter - The id of the webhook to update
+Body Parameters
+Field 	Type 	Description
+url 	String 	
+
+The webhook's URL
+label 	String 	
+
+A label to remind you what this webhook does
+enabled 	Boolean 	
+
+If the webhook should be enabled
+type 	String 	
+
+The webhook's type.
+
+Allowed values: "taskActivity", "groupChatReceived", "userActivity", "questActivity"
+options 	Object 	
+
+The webhook's options. Will differ depending on type. The options are enumerated in the add webhook examples.
+
+    Update Enabled and Type Properties
+    Update Group Id for Group Chat Receieved Webhook
+
+{
+    "enabled": false,
+    "type": "taskActivity"
+}
+
+Success 200
+Field 	Type 	Description
+data 	Object 	
+
+The updated webhook
+  id 	UUID 	
+
+The uuid of the webhook
+  url 	String 	
+
+The url of the webhook
+  label 	String 	
+
+A label for you to keep track of what this webhooks is for
+  enabled 	Boolean 	
+
+Whether the webhook should be sent
+  type 	String 	
+
+The type of the webhook
+  options 	Object 	
+
+The options for the webhook (See webhook add examples)
+400
+Name 	Type 	Description
+WebhookBodyInvalid 	BadRequest 	
+
+A body parameter passed in the request did not pass validation.
+404
+Name 	Type 	Description
+WebhookNotFound 	NotFound 	
+
+The specified webhook could not be found.
+Webhook | Get webhooks
+get
+
+https://habitica.com/api/v3/user/webhook
+
+Success 200
+Field 	Type 	Description
+data 	Array 	
+
+User's webhooks
+WorldState
+WorldState | Get the state for the game world
+
+Does not require authentication.
+
+get
+
+https://habitica.com/api/v3/world-state
+
+Success 200
+Field 	Type 	Description
+    active 	Object 	
+
+Boolean, true if world boss quest is underway
+      worldDmg 	Object 	
+
+Object with NPC names as Boolean properties, true if they are affected by Rage Strike.
+    key 	Object 	
+
+String, Quest content key for the world boss
+      hp 	Object 	
+
+Number, Current Health of the world boss
+      rage 	Object 	
+
+Number, Current Rage of the world boss
+  npcImageSuffix 	Object 	
+
+String, trailing component of NPC image filenames
+  currentEvent 	Object 	
+
+The current active event
+i18n
+i18n | Returns the i18n JS script.
+
+Returns the i18n JS script to make all the i18n strings available in the browser under window.i18n.strings. Does not require authentication.
+
+get
+
+https://habitica.com/api/v3/i18n/core
+
+Generated with apidoc 0.54.0 - Tue May 19 2026 20:12:42 GMT+0000 (Coordinated Universal Time)

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { HabiticaDailys } from './HabiticaDailys'
 
 async function fetchJson<T>(path: string): Promise<T> {
   let res: Response
@@ -68,6 +69,7 @@ function App() {
             <h2>RescueTime — productivity pulse</h2>
             <pre>{productivity ?? '…'}</pre>
           </section>
+          <HabiticaDailys />
           <section>
             <h2>Linear — cycle progress</h2>
             {linear ? (
