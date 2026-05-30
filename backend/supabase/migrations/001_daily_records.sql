@@ -1,2 +1,1 @@
--- TODO
-create table ...
+-- TODO create tables for Habitica, Linear, REscueTime

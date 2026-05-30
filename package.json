@@ -1,6 +1,9 @@
 {
   "name": "analytics-workspace",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "concurrently --kill-others-on-fail -n api,web -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix analytics\"",
     "dev:web": "npm run dev --prefix analytics",

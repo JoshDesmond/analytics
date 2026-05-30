@@ -31,6 +31,7 @@ export async function findEntryForDate(
   return { tab, entry: null };
 }
 
+// TODO: Just have a get that takes a date param, no unique call for today
 export async function getTodayEntry(
   _req: Request,
   res: Response,

@@ -19,7 +19,6 @@ app.use('/api/habitica', habiticaReaderRouter);
 app.use('/api/habitica', habiticaWriterRouter);
 app.use('/api/google-sheets', googleSheetsReaderRouter);
 // TODO: app.use('/api/google-sheets', googleSheetsWriterRouter);
-// TODO: app.use('/api/daily', dailyRouter);
 
 app.listen(port, () => {
   console.log(`backend listening on http://localhost:${port}`);
