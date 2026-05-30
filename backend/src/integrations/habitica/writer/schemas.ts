@@ -1,6 +1,4 @@
-export interface SetDailyCompletedBody {
-  completed: boolean;
-}
+import type { SetDailyCompletedBody } from '../../../shared/habitica-types.js';
 
 export function parseSetDailyCompletedBody(
   body: unknown,

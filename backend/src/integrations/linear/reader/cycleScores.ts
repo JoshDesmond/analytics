@@ -1,4 +1,4 @@
-import type { Request, Response } from 'express';
+import type { LinearCycleScores } from '../../../shared/linear-types.js';
 import { LinearClient, type LinearCycle } from '../client.js';
 
 const client = new LinearClient();
@@ -10,11 +10,6 @@ export interface CycleProgress {
   ends_at: string;
   points_scoped: number;
   points_completed: number;
-}
-
-export interface LinearCycleScoresResponse {
-  this_week: CycleProgress | null;
-  last_week: CycleProgress | null;
 }
 
 /** Latest value in a scope history array (current or final snapshot). */
@@ -88,7 +83,7 @@ export function findPreviousCycle(
 export function buildCycleScoresResponse(
   cycles: LinearCycle[],
   now = new Date(),
-): LinearCycleScoresResponse {
+): LinearCycleScores {
   const active = findActiveCycle(cycles, now);
   const previous = findPreviousCycle(cycles, active, now);
 
@@ -98,20 +93,9 @@ export function buildCycleScoresResponse(
   };
 }
 
-/**
- * Returns scoped/completed points for the active cycle and the previous cycle.
- */
-export async function getCycleScores(
-  _req: Request,
-  res: Response,
-): Promise<void> {
-  try {
-    const cycles = await client.fetchCycles();
-    res.json(buildCycleScoresResponse(cycles));
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: err instanceof Error ? err.message : String(err),
-    });
-  }
+export async function fetchCycleScores(
+  now = new Date(),
+): Promise<LinearCycleScores> {
+  const cycles = await client.fetchCycles();
+  return buildCycleScoresResponse(cycles, now);
 }

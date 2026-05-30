@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { postJson } from '../lib/api'
+import { postJson } from '@/lib/api'
 import type { DailySummary } from './useHabiticaReader'
 
 type HabiticaWriterDeps = {

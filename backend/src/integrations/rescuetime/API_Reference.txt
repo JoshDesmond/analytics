@@ -1,0 +1,47 @@
+From https://www.rescuetime.com/api-docs/time-tracking:
+
+"""
+Timesheets Timeline
+
+The timeline endpoints power the timesheet UI: a normalized stream of activities for a given day plus a bulk delete-by-range action. Use these when you're rendering or curating the user's day rather than logging individual entries.
+GET
+/api/resource/timeline/activities(/:date)
+Return the timeline activities for a date and the schedule-aligned interval breaks the UI uses to render them. Defaults to the current local day if :date is omitted.
+Parameters
+Name 	Type 	Required 	Description
+date 	string 	Optional 	Day to fetch (path segment, parsed in the user's timezone).
+Response
+200 OK
+Returns { activities: [...], activity_intervals: [...] }.
+Example Request
+
+        
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/api/resource/timeline/activities/2026-04-15
+
+
+Daily User Summaries
+
+Pre-computed daily roll-ups (productive vs. distracting time, top categories, etc.) for a date range. Use these for dashboards and history views — they're considerably cheaper than reaggregating the raw data.
+GET
+/api/resource/daily_user_summaries
+Return one summary record per day in the requested range. Honors the standard report-context parameters (start_date, end_date, etc.).
+Parameters
+Name 	Type 	Required 	Description
+start_date 	string 	Required 	Range start (YYYY-MM-DD).
+end_date 	string 	Required 	Range end (YYYY-MM-DD).
+verbose 	boolean 	Optional 	When "true", returns the full summary hash; otherwise returns a compact day-explore shape.
+Response
+200 OK
+Returns an array of daily summary objects.
+Example Request
+
+        
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/api/resource/daily_user_summaries?start_date=2026-04-01&end_date=2026-04-15"
+
+"""
+
+For more reference, see `API_Reference_Extended.txt`.

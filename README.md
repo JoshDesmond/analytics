@@ -7,7 +7,7 @@ A web application for viewing personal data over time.
 | Folder | Stack | Role |
 |--------|-------|------|
 | `analytics/` | Vite, React, TypeScript, Tailwind | Frontend |
-| `backend/` | Express, TypeScript | API server |
+| `backend/` | Express, TypeScript | API server (`integrations/` + `warehouse/` + `shared/`) |
 
 ## Development
 

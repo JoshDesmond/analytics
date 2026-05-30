@@ -10,23 +10,36 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "lint": "eslint src",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:integration:watch": "vitest --config vitest.integration.config.ts",
     "db:migration": "supabase migration new",
-    "db:push": "supabase db push",
-    "db:types": "supabase gen types typescript --linked > src/supabase/database.types.ts"
+    "db:push": "supabase db push && npm run db:types",
+    "db:types": "supabase gen types typescript --linked > src/shared/supabase-types/database.types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^5.1.0",
-    "googleapis": "^173.0.0"
+    "googleapis": "^173.0.0",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.12.4",
+    "@types/supertest": "^7.2.0",
+    "@types/ws": "^8.18.1",
+    "eslint": "^9.39.1",
     "supabase": "^2.102.0",
+    "supertest": "^7.2.2",
     "tsx": "^4.20.6",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^4.1.7"
   }
 }

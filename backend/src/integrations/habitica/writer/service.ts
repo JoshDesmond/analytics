@@ -1,5 +1,5 @@
 import { HabiticaClient } from '../client.js';
-import type { SetDailyCompletedBody } from './schemas.js';
+import type { SetDailyCompletedBody } from '../../../shared/habitica-types.js';
 
 const client = new HabiticaClient();
 

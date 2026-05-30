@@ -1,4 +1,4 @@
-import type { Request, Response } from 'express';
+import type { AllDailysResponse, DailySummary } from '../../../shared/habitica-types.js';
 import {
   HabiticaClient,
   type HabiticaDailyRepeat,
@@ -8,18 +8,6 @@ import {
 const client = new HabiticaClient();
 
 const DAY_KEYS = ['su', 'm', 't', 'w', 'th', 'f', 's'] as const;
-
-export interface DailySummary {
-  id: string;
-  name: string;
-  completed: boolean;
-}
-
-export interface AllDailysResponse {
-  date: string;
-  dueToday: DailySummary[];
-  other: DailySummary[];
-}
 
 function formatDueDate(date: Date): string {
   return date.toISOString().slice(0, 10);
@@ -92,22 +80,20 @@ export function buildAllDailysResponse(
   return { date, dueToday, other };
 }
 
-/**
- * Returns all dailies, split into those due today and the rest.
- */
-export async function getTodaysDailys(
-  _req: Request,
-  res: Response,
-): Promise<void> {
-  try {
-    const now = new Date();
-    const dueDate = formatDueDate(now);
-    const tasks = await client.fetchDailys(dueDate);
-    res.json(buildAllDailysResponse(tasks, now));
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: err instanceof Error ? err.message : String(err),
-    });
-  }
+function calendarDayFromIso(isoDate: string): Date {
+  return new Date(`${isoDate}T12:00:00.000Z`);
+}
+
+export async function fetchDailysForDate(
+  isoDate: string,
+): Promise<AllDailysResponse> {
+  const day = calendarDayFromIso(isoDate);
+  const tasks = await client.fetchDailys(isoDate);
+  return buildAllDailysResponse(tasks, day);
+}
+
+export async function fetchTodaysDailys(
+  now = new Date(),
+): Promise<AllDailysResponse> {
+  return fetchDailysForDate(formatDueDate(now));
 }

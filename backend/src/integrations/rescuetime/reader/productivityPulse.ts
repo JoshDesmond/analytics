@@ -1,4 +1,3 @@
-import type { Request, Response } from 'express';
 import {
   RescueTimeClient,
   type RescueTimeIntervalProductivityData,
@@ -8,7 +7,6 @@ const client = new RescueTimeClient();
 
 /**
  * Computes a 0–100 productivity pulse from RescueTime interval rows.
- * @param data - Daily interval payload from the RescueTime API.
  */
 export function calculateProductivityPulse(
   data: RescueTimeIntervalProductivityData,
@@ -31,22 +29,7 @@ export function calculateProductivityPulse(
   return (weightedTotal / (total * 4)) * 100;
 }
 
-/**
- * Returns the RescueTime productivity pulse (0–100) for the current day.
- */
-export async function getProductivityPulse(
-  _req: Request,
-  res: Response,
-): Promise<void> {
-  try {
-    const data = await client.fetchDailyProductivityData();
-    const pulse = calculateProductivityPulse(data);
-    console.log(`Productivity pulse: ${pulse}`);
-    res.json(pulse);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: `failed to load data: ${err instanceof Error ? err.message : String(err)}`,
-    });
-  }
+export async function fetchProductivityPulse(date: string): Promise<number> {
+  const data = await client.fetchDailyProductivityData(date);
+  return calculateProductivityPulse(data);
 }

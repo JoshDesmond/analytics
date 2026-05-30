@@ -1,17 +1,6 @@
-export type Entry = {
-  date: string;
-  successfulPomodoros: number;
-  workQuality: number;
-  overallProductivity: number;
-  meditation: boolean;
-  exercise: boolean;
-  noSnooze: boolean;
-  compositeScore: number;
-  workScore: number;
-  enjoymentNovelty: number;
-  notes: string;
-  sickness: string;
-};
+import type { SheetsEntry } from '../../../shared/google-sheets-types.js';
+
+export type Entry = SheetsEntry;
 
 const COLS = {
   date: 1,

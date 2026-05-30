@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { fetchJson } from '../lib/api'
+import { withDateQuery } from '@/lib/api-paths'
+import { fetchJson } from '@/lib/api'
 
 export type DailySummary = {
   id: string
@@ -13,28 +14,41 @@ type AllDailysResponse = {
   other: DailySummary[]
 }
 
-export function useHabiticaReader() {
-  const [date, setDate] = useState<string | null>(null)
+export function useHabiticaReader(date: string) {
   const [dueToday, setDueToday] = useState<DailySummary[]>([])
   const [other, setOther] = useState<DailySummary[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchJson<AllDailysResponse>('/api/habitica/dailys/today')
+    let cancelled = false
+    setLoading(true)
+    setError(null)
+    setDueToday([])
+    setOther([])
+
+    fetchJson<AllDailysResponse>(
+      withDateQuery('/api/habitica/dailys/today', date),
+    )
       .then((data) => {
-        setDate(data.date)
+        if (cancelled) return
         setDueToday(data.dueToday)
         setOther(data.other)
       })
       .catch((err: unknown) => {
+        if (cancelled) return
         setError(err instanceof Error ? err.message : String(err))
       })
-      .finally(() => setLoading(false))
-  }, [])
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [date])
 
   return {
-    date,
     dueToday,
     other,
     loading,

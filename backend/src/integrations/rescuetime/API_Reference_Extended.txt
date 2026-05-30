@@ -1,0 +1,672 @@
+From https://www.rescuetime.com/developers:
+
+"""
+
+
+    Product
+    Pricing
+    Blog
+
+    Demo For Teams
+    Dashboard
+
+RescueTime Analytic Data API
+
+Access your RescueTime data programmatically. Query activity logs, productivity metrics, daily summaries, alerts, highlights, and more.
+
+This page gives an overview of the RescueTime Developer APIs, details on how to access them, and the types of data that can be retrieved.
+Looking for the Resource API?
+
+The Resource API Documentation provides RESTful CRUD operations for managing RescueTime resources like projects, tasks, focus sessions, alerts, goals, and time entries.
+
+The Analytic Data API (documented on this page) is designed for querying historical activity data and productivity metrics with flexible parameters.
+Data Sync Timing
+
+User data, particularly activity logs, is synced to the RescueTime servers on a set interval depending on the user's plan subscription:
+
+    Premium/Organization (paid) plans: Activities synced every 3 minutes
+    Lite (free) plans: Activities synced every 30 minutes
+
+Once the RescueTime app has synced with our servers, the data is immediately available in API results.
+Table of Contents
+
+    Work/Productivity Equivalents
+    Connecting to the RescueTime API
+    API Endpoints
+        Analytic Data API Documentation
+        Daily Summary Feed API Documentation
+        Alerts Feed API Documentation
+        Daily Highlights Feed API Documentation
+        Daily Highlights Post API Documentation
+        Focus Session Trigger API Documentation
+        Focus Session Feed API Documentation
+        Offline Time POST API Documentation
+    Security Considerations
+
+Work/Productivity Equivalents
+
+The following table shows the productivity level equivalents referenced in the documentation below for various types of activities.
+Activity 	Productivity Equivalent
+Focus Work 	Very Productive
+Other Work 	Productive
+Neutral 	Neutral
+Personal 	Distracting
+Distracting 	Very Distracting
+Connecting to the RescueTime API
+
+There are two ways to connect to a user's data in RescueTime: via API Keys or via an OAuth2 Connection. API keys are ideal for personal use, while web services wishing to offer a way for their users to use their RescueTime data should use an OAuth2 connection.
+API Key Access
+
+Users can set up an API key by going to their key management page and creating a new key. That key must be included with each API request. The user can revoke keys at any time.
+
+The recommended way to send your key is as a Bearer token in the Authorization header. This keeps your credentials out of URLs, server logs, browser history, and referrer headers:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/anapi/daily_summary_feed
+
+
+        
+
+A ?key=YOUR_API_KEY query string parameter is also accepted for backward compatibility, but is not recommended for new integrations.
+OAuth2 Connection Access
+
+Please contact us and we'll work with you to set up an OAuth2 application. After the user connects their account via OAuth2, an access token will be created. That access token must be included in each API request. The user can revoke access to a service at any time.
+OAuth2 Authorization Flow
+
+Once we have created your OAuth2 application, your app will be assigned a client_id and a client_secret. These tokens can then be used, along with the secure redirect_uri provided in the request for an OAuth application, in the following steps to authorize your application's user access to their RescueTime data:
+
+    Get authorization code:
+    Make a GET request to:
+
+                    
+
+    https://www.rescuetime.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=YOUR_SCOPES
+
+
+                  
+    This will return the
+    auth_code, which will expire in 10 minutes.
+    Exchange code for access token:
+    Make a POST request to:
+
+                    
+
+    https://www.rescuetime.com/oauth/token
+
+
+                  
+    with a JSON body of:
+
+                    
+
+    {
+      "client_id": "YOUR_CLIENT_ID",
+      "client_secret": "YOUR_APP_SECRET",
+      "grant_type": "authorization_code",
+      "code": "AUTH_CODE",
+      "redirect_uri": "YOUR_REDIRECT_URI"
+    }
+
+
+                  
+    This will return the
+    access_token.
+    Access data:
+    Data can then be accessed by sending the access_token as a Bearer token in the Authorization header (recommended):
+
+                    
+
+    curl -H "Authorization: Bearer ACCESS_TOKEN" \
+      "https://www.rescuetime.com/api/oauth/data?by=interval&taxonomy=productivity&interval=hour&restrict_begin=2018-01-01&restrict_end=2018-01-31&format=json&scopes=time_data"
+
+
+                  
+
+    The access_token may also be sent as a query parameter for backward compatibility, but this is not recommended.
+
+OAuth2 Access Scopes
+
+When users connect their accounts to your application via OAuth2, you can specify access scopes to let the user know exactly how you will be using their RescueTime data. Scopes will be requested during the initial authorization request.
+
+The following scopes are currently supported:
+
+    time_data - Access activity history and summary time data or post offline time for the authorized user
+    category_data - Access how much time the authorizing user spent in specific categories
+    productivity_data - Access how much time the authorizing user spent in different productivity levels
+    alert_data - Access the authorizing user's alert history
+    highlight_data - Read from and post to the authorizing user's daily highlights list
+    focustime_data - Access the authorizing user's Focus Session history and session starting and stopping
+
+API Endpoints
+
+There are several API endpoints that can be used to access different types of data within RescueTime.
+Analytic Data API
+
+Brings developers prepared and pre-organized data structures already familiar through the reporting views of www.rescuetime.com.
+Daily Summary Feed API
+
+Provides a structured rollup of daily data about the time logged by a user including productivity levels and major categories.
+Alerts Feed API
+
+Provides a feed of recent occurrences of user-defined alerts. Premium feature only.
+Highlights Feed API
+
+Provides a feed of recently entered daily highlights. Premium feature only.
+Highlights POST API
+
+Allows users to post a daily highlight entry programmatically. Premium feature only.
+Focus Session Trigger API
+
+Allows users to start Focus Session on their active devices programmatically. Premium feature only.
+Focus Session Feed API
+
+Provides a feed of recent Focus Session started/ended events. Premium feature only.
+Offline Time POST API
+
+Allows users to post offline time to their account programmatically. Premium feature only.
+Analytic Data API Documentation
+
+RescueTime data is detailed and complicated. The Analytic Data API is targeted at bringing developers the prepared and pre-organized data structures already familiar through the reporting views of www.rescuetime.com. The data is read-only through the webservice, but you can perform any manipulations on the consumer side you want.
+
+The Analytic Data API allows for parameterized access, which means you can change the subject and scope of data, and is especially targeted for developer use. The data can be accessed via the HTTP Query interface in several formats.
+Service Access
+
+The base URL to reach this HTTP query API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/data
+    For OAuth2 connections:
+        https://www.rescuetime.com/api/oauth/data - Least restrictive, requires time_data access scope
+        Restricted Report: https://www.rescuetime.com/api/oauth/overview_data - Top level category data only, requires category_data scope
+        Restricted Report: https://www.rescuetime.com/api/oauth/category_data - Sub-category data only, requires category_data scope
+        Restricted Report: https://www.rescuetime.com/api/oauth/productivity_data - Productivity data only, requires productivity_data scope
+
+About restricted reports: Restricted reports may be useful if your application requires a less-granular rollup of the data, such as the category view, but NOT the actual activities themselves. These restricted reports help ensure the user's privacy, and may be a preferable option when asking them to link their accounts.
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+    format - Output format: csv or json
+
+Query Parameters
+
+Primary names are chosen for human reading. The short names are for when GET query length is at a premium. The alias is for understanding roughly how it maps into the language used in reporting views.
+Principle Name 	Short 	Alias 	Values 	Description
+perspective 	pv 	by 	[ 'rank' | 'interval' ] 	Consider this the X-axis of the returned data. Determines how data is organized for return.
+
+    rank: (default) Organized around a calculated value, usually a sum like time spent
+    interval: Organized around calendar time
+
+resolution_time 	rs 	interval 	[ 'month' | 'week' | 'day' | 'hour' | 'minute' ] 	Default is "hour". In an interval report, the X axis unit. Data is summarized into chunks of this size. "minute" returns data grouped into five-minute buckets, which is the most granular view available.
+restrict_begin 	rb 	- 	date (YYYY-MM-DD) 	Sets the start day for data batch, inclusive (always at time 00:00, start hour/minute not supported). Format: ISO 8601 "YYYY-MM-DD"
+restrict_end 	re 	- 	date (YYYY-MM-DD) 	Sets the end day for data batch, inclusive (always at time 00:00, end hour/minute not supported). Format: ISO 8601 "YYYY-MM-DD"
+restrict_kind 	rk 	taxonomy 	[ 'category' | 'activity' | 'productivity' | 'document' ]
+
+('efficiency' is option when perspective is 'interval') 	Allows you to preprocess data through different statistical engines. The perspective dictates the main grouping of the data, this provides different aspects of that main grouping.
+
+    overview: sums statistics for all activities into their top level category
+    category: sums statistics for all activities into their sub category
+    activity: sums statistics for individual applications / web sites / activities
+    productivity: productivity calculation
+    efficiency: efficiency calculation (not applicable in "rank" perspective)
+    document: sums statistics for individual documents and web pages
+
+restrict_thing 	rt 	taxon 	name (of category, activity, or overview) 	The name of a specific overview, category, application or website. For websites, use the domain component only if it starts with "www", e.g. "www.nytimes.com" would be "nytimes.com". The easiest way to see what name you should be using is to retrieve a list that contains the name you want, and inspect it for the exact names.
+restrict_thingy 	ry 	sub_taxon 	name 	Refers to the specific "document" or "activity" we record for the currently active application, if supported. For example, the document name active when using Microsoft Word. Available for most major applications and web sites.
+restrict_source_type 	- 	- 	[ 'computers' | 'mobile' | 'offline' ] 	Allows for querying by source device type.
+restrict_schedule_id 	rsi 	schedule_id 	id (integer id of user's schedule/time filter) 	Allows for filtering results by schedule.
+Output Formats
+
+The Analytic Data API supports CSV and JSON output.
+
+    csv - Layout provides rows of comma separated data with a header for column names at top
+    json - Returns a JavaScript ready object with these properties:
+        notes = String, a short explanation of the data envelope
+        row_headers = Array, a label for the contents of each index in a row, in the order they appear
+        rows = Array of Arrays, data rows where each row is itself an array described by the row_headers
+
+Example Queries
+
+          
+
+Request information about the user's productivity levels, by hour, for January 1, 2020:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/data?perspective=interval&restrict_kind=productivity&interval=hour&restrict_begin=2020-01-01&restrict_end=2020-01-01&format=json"
+
+
+        
+
+          
+
+Request a list of time spent in each top level category, ranked by duration, for January 1, 2020:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/data?perspective=rank&restrict_kind=overview&restrict_begin=2020-01-01&restrict_end=2020-01-01&format=csv"
+
+
+        
+Daily Summary Feed API Documentation
+
+The Daily Summary Feed API provides a high level rollup of the time a user has logged for a full 24 hour period (defined by the user's selected time zone). This is useful for generating notifications that don't need to be real-time and don't require much granularity (for greater precision or more timely alerts, see the Alerts Feed API).
+
+PLEASE NOTE: The Daily Summary Feed is 'point in time' data - use the data api or export CSVs from reports if you want your latest categorization results. This can be used to construct a customized daily progress report delivered via email. The summary can also be used to alert people to specific conditions. For example, if a user has more than 20% of their time labeled as 'uncategorized', that can be used to offer people a message to update their categorizations on the website.
+Service Access
+
+The base URL to reach this Daily Summary Feed API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/daily_summary_feed
+    For OAuth2 connections: https://www.rescuetime.com/api/oauth/daily_summary_feed
+
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+
+Output Format
+
+The Daily Summary Feed API returns an array of JSON objects representing rollup information for each day logged by the user in the previous two weeks. It does not include the current day, and new summaries for the previous day are available at 12:01 am in the user's local time zone. The returned value for each daily summary includes the following information:
+
+General Information:
+
+    id - Unix Timestamp representation of the date. Can be useful for deduplication of items in the feed
+    date - Summary Date
+    productivity_pulse - Overall productivity pulse. A scale between 0-100
+
+Percentage representation of time spent in different categories (Float with one decimal place. Min: 0, Max: 100):
+
+    very_productive_percentage
+    productive_percentage
+    neutral_percentage
+    distracting_percentage
+    very_distracting_percentage
+    all_productive_percentage
+    all_distracting_percentage
+    uncategorized_percentage
+    business_percentage
+    communication_and_scheduling_percentage
+    social_networking_percentage
+    design_and_composition_percentage
+    entertainment_percentage
+    news_percentage
+    software_development_percentage
+    reference_and_learning_percentage
+    shopping_percentage
+    utilities_percentage
+
+Numeric representation of HOURS spent in different categories (Float with two decimal places):
+
+    total_hours
+    very_productive_hours
+    productive_hours
+    neutral_hours
+    distracting_hours
+    very_distracting_hours
+    all_productive_hours
+    all_distracting_hours
+    uncategorized_hours
+    business_hours
+    communication_and_scheduling_hours
+    social_networking_hours
+    design_and_composition_hours
+    entertainment_hours
+    news_hours
+    software_development_hours
+    reference_and_learning_hours
+    shopping_hours
+    utilities_hours
+
+String representations of time spent in different categories (format - Xh Ym Zs):
+
+    total_duration_formatted
+    very_productive_duration_formatted
+    productive_duration_formatted
+    neutral_duration_formatted
+    distracting_duration_formatted
+    very_distracting_duration_formatted
+    all_productive_duration_formatted
+    all_distracting_duration_formatted
+    uncategorized_duration_formatted
+    business_duration_formatted
+    communication_and_scheduling_duration_formatted
+    social_networking_duration_formatted
+    design_and_composition_duration_formatted
+    entertainment_duration_formatted
+    news_duration_formatted
+    software_development_duration_formatted
+    reference_and_learning_duration_formatted
+    shopping_duration_formatted
+    utilities_duration_formatted
+
+Example Query
+
+          
+
+Request a list of Daily Summaries for a user:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/anapi/daily_summary_feed
+
+
+        
+Alerts Feed API Documentation
+
+The Alerts Feed API is a running log of recently triggered user defined alerts. This is a good event-based representation of data that the user cares about. Alerts are a premium feature and as such the API will always return zero results for users on the RescueTime Lite plan.
+Service Access
+
+The base URL to reach the Alerts Feed API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/alerts_feed
+    For OAuth2 connections: https://www.rescuetime.com/api/oauth/alerts_feed - Requires the alert_data access scope
+
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+    op - Operation type: status or list
+
+The op parameter determines what type of information about the alerts is returned. Passing op=list will return a definition list of all the alerts currently defined by the user. This is useful for presenting a list of the user's alerts to allow the user to select an alert_id value that will be used to filter subsequent queries.
+
+Passing op a value of status is the default, and will return a list of recently triggered alerts in reverse-chronological order.
+Optional Parameters
+
+    alert_id - Integer ID of an alert to filter on
+
+Output Format
+
+When passing op=list:
+
+The Alerts Feed API will return an array of JSON objects representing the currently active alerts that the user has defined:
+
+          
+
+{
+  "id": integer,           // Unique id of the user-defined alert
+  "description": string,   // String representation of the alert definition
+  "amount": float         // Number of hours defined for this alert's threshold
+}
+
+
+        
+
+When passing op=status:
+
+The feed returns an array of JSON objects representing the actual triggering of alerts in reverse chronological order:
+
+          
+
+{
+  "id": integer,           // Unique id for the occurrence of the alert triggering
+  "alert_id": integer,     // Unique id of the user-defined alert
+  "description": string,   // Message generated by the triggered alert
+  "created_at": datetime  // Time the alert was triggered (in user's time zone)
+}
+
+
+        
+Example Queries
+
+          
+
+Request a list of the user's active alerts:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/alerts_feed?op=list"
+
+
+        
+
+          
+
+Request a list of alert 12345 being triggered for the user:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/alerts_feed?op=status&alert_id=12345"
+
+
+        
+Daily Highlights Feed API Documentation
+
+The Highlights Feed API is a list of recently entered Daily Highlight events. These are user-entered strings that are meant to provide qualitative context for the automatically logged time about the user's activities. It is often used to keep a log of "what got done today". Highlights are a premium feature and as such the API will always return zero results for users on the RescueTime Lite plan.
+Service Access
+
+The base URL to reach the Highlights Feed API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/highlights_feed
+    For OAuth2 connections: https://www.rescuetime.com/api/oauth/highlights_feed - Requires the highlight_data access scope
+
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+
+Output Format
+
+The Highlights Feed API returns an array of JSON objects representing the highlights that have been entered by a user:
+
+          
+
+{
+  "id": integer,           // Unique id, useful for polling for new items
+  "description": string,   // Text of the highlight
+  "date": date,           // Date the highlight was entered for (may differ from created_at)
+  "created_at": datetime  // Timestamp when the highlight was entered
+}
+
+
+        
+Example Query
+
+          
+
+Request a list of the user's recently entered daily highlights:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/anapi/highlights_feed
+
+
+        
+Daily Highlights Post API Documentation
+
+The Highlights Post API makes it possible to post daily highlight events programmatically as an alternative to entering events manually on RescueTime.com. This is useful for capturing information from other systems and providing a view of the "output" that the user is creating (which is a counterpoint to the "input" attention data that RescueTime logs automatically). Examples include adding highlights whenever a code checkin is done, or marking an item in a to-do list application as complete.
+Service Access
+
+The base URL to reach Highlights POST API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/highlights_post
+    For OAuth2 connections: https://www.rescuetime.com/api/oauth/highlights_post - Requires the highlight_data access scope
+
+Note: A POST request must be used for this API.
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+    highlight_date - A string representing the date the highlight will be posted for. Format: 'YYYY-MM-DD' (unix timestamp also acceptable)
+    description - A 255 character or shorter string containing the text that will be entered for the highlight. Should be representative of an action taken by the user
+
+Optional Parameters
+
+    source - A short string describing the 'source' of the action, or the label that should be applied to it. Think of this as a category that can group multiple highlights together in the UI. In the reporting UI, they will be collapsed under the expandable source label
+
+Output Format
+
+A successful post will return a status code of 200. If there is an error, a status code of 400 will be returned.
+Example Request
+
+          
+
+Post a highlight about a code checkin:
+
+          
+
+curl -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/highlights_post?highlight_date=2020-01-01&description=CODE_CHECKIN_MESSAGE_HERE&source=check-in"
+
+
+        
+Focus Session Trigger API Documentation
+
+The Focus Session Trigger API makes it possible to start/end Focus Session on active devices as an alternative to starting/ending it manually from the desktop app. This is useful for automating Focus Session from 3rd party applications. An example would be starting/ending Focus Session at a certain time of day.
+
+Note: The RescueTime desktop app syncs with our servers on a 1 minute interval. Focus Session via the API is not a real-time transaction.
+Service Access
+
+The base URL to reach Focus Session Trigger API is:
+
+For connections with an API key:
+
+    https://www.rescuetime.com/anapi/start_focustime
+    https://www.rescuetime.com/anapi/end_focustime
+
+For OAuth2 connections:
+
+    https://www.rescuetime.com/api/oauth/start_focustime
+    https://www.rescuetime.com/api/oauth/end_focustime
+
+Requires the focustime_data access scope to be granted by the user when the OAuth2 connection is initially set up.
+
+Note: A POST request must be used for this API.
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+    duration - An integer representing the length of the Focus Session in minutes, and must be a multiple of 5 (5, 10, 15, 20...). A value of -1 can be passed to start Focus Session until the end of the day.
+
+    Note: This parameter is not required for the end_focustime endpoint.
+
+Output Format
+
+A successful post will return a status code of 200. If there is an error, a status code of 400 will be returned.
+Example Requests
+
+          
+
+Start Focus Session for 30 minutes on the next desktop app sync:
+
+          
+
+curl -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://www.rescuetime.com/anapi/start_focustime?duration=30"
+
+
+        
+
+          
+
+End an active Focus Session:
+
+          
+
+curl -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/anapi/end_focustime
+
+
+        
+Focus Session Feed API Documentation
+
+The Focus Session Feed API is a running log of recently triggered started/ended Focus Session sessions. This is useful for performing 3rd party app interactions whenever a new Focus Session has started/ended. Focus Session is a premium feature and as such the API will always return zero results for users on the RescueTime Lite plan.
+Service Access
+
+The base URL to reach the Focus Session Feed API is:
+
+For connections with an API key:
+
+    https://www.rescuetime.com/anapi/focustime_started_feed
+    https://www.rescuetime.com/anapi/focustime_ended_feed
+
+For OAuth2 connections:
+
+    https://www.rescuetime.com/api/oauth/focustime_started_feed
+    https://www.rescuetime.com/api/oauth/focustime_ended_feed
+
+Requires the focustime_data access scope to be granted by the user when the OAuth2 connection is initially set up.
+Required Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+
+Output Format
+
+The Focus Session Feed API returns an array of JSON objects representing the Focus Session started/ended events in reverse chronological order:
+
+          
+
+{
+  "id": float,             // UNIX timestamp that represents a unique id for the event
+  "duration": integer,     // Initial length of time in minutes for the session (focustime_started_feed only)
+  "created_at": datetime  // Time the session was started (in user's time zone)
+}
+
+
+        
+Example Query
+
+          
+
+Request a list of recent Focus Session started Events:
+
+          
+
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://www.rescuetime.com/anapi/focustime_started_feed
+
+
+        
+Offline Time POST API Documentation
+
+The Offline Time Post API makes it possible to post offline time programmatically as an alternative to entering it manually on RescueTime.com. This is useful for capturing information from other systems. Examples include adding offline time after a meeting on a calendar app, or logging driving time based on location data.
+Service Access
+
+The base URL to reach Offline Time POST API is:
+
+    For connections with an API key: https://www.rescuetime.com/anapi/offline_time_post
+    For OAuth2 connections: https://www.rescuetime.com/api/oauth/offline_time_post - Requires the time_data access scope
+
+Note: A POST request must be used for this API. Also, offline time posts via the API are limited to a 4 hour maximum duration, and they cannot be created for future dates.
+Required Query Parameters
+
+    Authentication: An Authorization: Bearer YOUR_API_KEY header (recommended), or for OAuth2 connections an access_token query parameter. A key query parameter is accepted for backward compatibility but is not recommended.
+
+Required JSON Keys/Values
+
+    start_time - A string representing the date/time for the start of the offline time block. Format: 'YYYY-MM-DD HH:MM:SS' (unix timestamp also acceptable)
+    end_time/duration - Either a string representing the date/time for the end of the offline time block, OR an integer representing the duration of the offline time block in minutes
+    activity_name - A 255 character or shorter string containing the text that will be entered as the name of the activity (e.g. "Meeting", "Driving", "Sleeping", etc)
+
+Optional JSON Keys/Values
+
+    activity_details - A 255 character or shorter string containing the text that will be entered as the details of the named activity
+
+Output Format
+
+A successful post will return a status code of 200. If there is an error, a status code of 400 will be returned.
+Example Request
+
+          
+
+Post offline time about a meeting that just ended:
+
+          
+
+curl -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "start_time": "2020-01-01 09:00:00",
+    "duration": 60,
+    "activity_name": "Meeting",
+    "activity_details": "Daily Planning"
+  }' \
+  https://www.rescuetime.com/anapi/offline_time_post
+
+
+"""

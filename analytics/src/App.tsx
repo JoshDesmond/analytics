@@ -1,18 +1,7 @@
-import { GoogleSheetsToday } from './GoogleSheetsToday'
-import { HabiticaDailys } from './HabiticaDailys'
-import { LinearCycleScores } from './LinearCycleScores'
-import { RescueTimePulse } from './RescueTimePulse'
+import { HomePage } from '@/pages/HomePage'
 
 function App() {
-  return (
-    <>
-      <h1>Analytics</h1>
-      <GoogleSheetsToday />
-      <RescueTimePulse />
-      <HabiticaDailys />
-      <LinearCycleScores />
-    </>
-  )
+  return <HomePage />
 }
 
 export default App

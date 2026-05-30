@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchJson } from '../lib/api'
+import { fetchJson } from '@/lib/api'
 
 export type CycleProgress = {
   name: string | null

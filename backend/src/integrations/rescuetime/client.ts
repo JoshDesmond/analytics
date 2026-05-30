@@ -1,9 +1,10 @@
+import { fetchRescueTimeJson } from './fetch.js';
+import { getRescueTimeReportDate } from './date.js';
+
 /**
  * RescueTime productivity level on the analytic data API numeric scale.
  *
- * Labels in the RescueTime app were renamed (e.g. "Very Productive" → "Focus Work")
- * but API rows still use these integers. See
- * https://www.rescuetime.com/rtx/developers#work-productivity-equivalents
+ * @see https://www.rescuetime.com/rtx/developers#work-productivity-equivalents
  */
 export type RescueTimeProductivityScore = -2 | -1 | 0 | 1 | 2;
 
@@ -19,38 +20,36 @@ export const RESCUETIME_PRODUCTIVITY_LABELS: Record<
   2: 'Very productive',
 };
 
-/**
- * One row from an **interval + productivity** analytic query, e.g.
- * `by=interval&rk=productivity&interval=day`.
- *
- * Column order matches `row_headers` from the API:
- * `["Date", "Time Spent (seconds)", "Number of People", "Productivity"]`.
- *
- * @see https://www.rescuetime.com/rtx/developers — Analytic Data API (JSON `row_headers` + `rows`)
- */
-export type RescueTimeIntervalProductivityRow = [
-  /** Interval start, ISO 8601 local datetime (e.g. `"2026-05-29T00:00:00"`). */
-  date: string,
-  /** Seconds logged in this interval at this productivity level. */
+/** Shared prefix for `by=rank` analytic rows: rank, seconds, team size (always 1 for personal keys). */
+type RescueTimeRankRowHead = [
+  rank: number,
   timeSpentSeconds: number,
-  /** Usually `1` for a personal API key; higher for team/member perspectives. */
-  numberOfPeople: number,
-  /** Productivity bucket for this slice of time. */
+  _teamSize: number,
+];
+
+/** `by=rank&rk=activity` row. */
+export type RescueTimeRankActivityRow = [
+  ...RescueTimeRankRowHead,
+  activity: string,
+  category: string,
   productivity: RescueTimeProductivityScore,
 ];
 
-/**
- * JSON envelope returned by `GET https://www.rescuetime.com/anapi/data` when
- * `format=json`.
- *
- * `fetchDailyProductivityData` uses perspective **interval**, taxonomy
- * **productivity**, and resolution **day**, so each row is a
- * {@link RescueTimeIntervalProductivityRow}.
- */
+/** `by=rank&rk=overview` row. */
+export type RescueTimeRankOverviewRow = [
+  ...RescueTimeRankRowHead,
+  category: string,
+];
+
+export type RescueTimeIntervalProductivityRow = [
+  date: string,
+  timeSpentSeconds: number,
+  _teamSize: number,
+  productivity: RescueTimeProductivityScore,
+];
+
 export interface RescueTimeIntervalProductivityData {
-  /** Short description of the payload (from RescueTime). */
   notes: string;
-  /** Column labels; index *i* describes `rows[*][i]`. */
   row_headers: [
     'Date',
     'Time Spent (seconds)',
@@ -60,44 +59,108 @@ export interface RescueTimeIntervalProductivityData {
   rows: RescueTimeIntervalProductivityRow[];
 }
 
+interface RescueTimeAnalyticDataEnvelope {
+  notes: string;
+  row_headers: string[];
+  rows: unknown[][];
+}
+
+type SourceType = 'computers' | 'mobile';
+
 export class RescueTimeClient {
-  private lastFetchTime = 0;
-  private cachedData: RescueTimeIntervalProductivityData | undefined;
+  /**
+   * Interval productivity rows for one calendar day (`anapi/data`, productivity taxonomy).
+   */
+  async fetchDailyProductivityData(
+    date = getRescueTimeReportDate(),
+  ): Promise<RescueTimeIntervalProductivityData> {
+    const params = new URLSearchParams({
+      by: 'interval',
+      rk: 'productivity',
+      interval: 'day',
+      restrict_begin: date,
+      format: 'json',
+    });
+    return fetchRescueTimeJson<RescueTimeIntervalProductivityData>(
+      `https://www.rescuetime.com/anapi/data?${params}`,
+    );
+  }
 
   /**
-   * Queries the RescueTime API and returns interval-bucketed productivity data for the current day.
-   * Responses are cached for twenty minutes.
+   * Verbose daily rollup from the Resource API. Includes `software_development_hours`
+   * (programming) and per-productivity-level hour fields when `verbose=true`.
    */
-  async fetchDailyProductivityData(): Promise<RescueTimeIntervalProductivityData> {
-    const cacheTtlMs = 20 * 60 * 1000;
-    const now = Date.now();
-    if (this.cachedData && now - this.lastFetchTime < cacheTtlMs) {
-      console.log('Using cached RescueTime data');
-      return this.cachedData;
+  async fetchDailyUserSummaryRaw(date: string) {
+    const params = new URLSearchParams({
+      start_date: date,
+      end_date: date,
+      verbose: 'true',
+    });
+    const summaries = await fetchRescueTimeJson<
+      RescueTimeDailyUserSummaryVerbose[]
+    >(
+      `https://www.rescuetime.com/api/resource/daily_user_summaries?${params}`,
+    );
+    const summary = summaries[0];
+    if (!summary) {
+      throw new Error(`No daily summary for ${date}`);
     }
-
-    const key = process.env.RT_API_KEY;
-    if (!key) {
-      throw new Error('RT_API_KEY is not set');
-    }
-
-    const day = new Date();
-    day.setHours(day.getHours() - 4);
-    const dayString = day.toISOString().slice(0, 10);
-    const apiUrl =
-      `https://www.rescuetime.com/anapi/data?key=${key}` +
-      `&by=interval&rk=productivity&interval=day` +
-      `&restrict_begin=${dayString}&format=json`;
-
-    console.log(`Fetching RescueTime data for ${dayString}`);
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error(`RescueTime API fetch failed: ${response.status}`);
-    }
-
-    this.lastFetchTime = now;
-    this.cachedData =
-      (await response.json()) as RescueTimeIntervalProductivityData;
-    return this.cachedData;
+    return summary;
   }
+
+  /** Ranked activities for a day (`by=rank&rk=activity`). */
+  async fetchRankedActivities(date: string): Promise<RescueTimeRankActivityRow[]> {
+    const params = new URLSearchParams({
+      by: 'rank',
+      rk: 'activity',
+      restrict_begin: date,
+      restrict_end: date,
+      format: 'json',
+    });
+    const data = await fetchRescueTimeJson<RescueTimeAnalyticDataEnvelope>(
+      `https://www.rescuetime.com/anapi/data?${params}`,
+    );
+    return data.rows as RescueTimeRankActivityRow[];
+  }
+
+  /** Total tracked seconds for one device class (sum of `by=rank&rk=overview` rows). */
+  async fetchSourceTotalSeconds(
+    date: string,
+    sourceType: SourceType,
+  ): Promise<number> {
+    const params = new URLSearchParams({
+      by: 'rank',
+      rk: 'overview',
+      restrict_begin: date,
+      restrict_end: date,
+      restrict_source_type: sourceType,
+      format: 'json',
+    });
+    const data = await fetchRescueTimeJson<RescueTimeAnalyticDataEnvelope>(
+      `https://www.rescuetime.com/anapi/data?${params}`,
+    );
+    let total = 0;
+    for (const row of data.rows as RescueTimeRankOverviewRow[]) {
+      const seconds = row[1];
+      if (typeof seconds === 'number' && seconds > 0) {
+        total += seconds;
+      }
+    }
+    return total;
+  }
+}
+
+/** Verbose row from `GET /api/resource/daily_user_summaries?verbose=true`. */
+export interface RescueTimeDailyUserSummaryVerbose {
+  id: number;
+  date: string;
+  productivity_pulse: number;
+  total_hours: number;
+  very_productive_hours: number;
+  productive_hours: number;
+  neutral_hours: number;
+  distracting_hours: number;
+  very_distracting_hours: number;
+  uncategorized_hours: number;
+  software_development_hours: number;
 }
